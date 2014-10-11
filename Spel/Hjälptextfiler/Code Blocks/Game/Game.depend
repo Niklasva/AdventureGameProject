@@ -1,0 +1,41 @@
+# depslib dependency file v1.0
+1412627777 source:c:\users\hemdatorn\documents\github\tddi02\spel\main.cc
+	<Game.h>
+	<curses.h>
+
+1413053160 source:c:\users\hemdatorn\documents\github\tddi02\spel\hjälptextfiler\code blocks\game\main.cpp
+
+1412629227 source:c:\users\hemdatorn\documents\github\tddi02\spel\game.cc
+	"Game.h"
+
+1413059616 c:\users\hemdatorn\documents\github\tddi02\spel\game.h
+	<iostream>
+	<sstream>
+	<fstream>
+	"Player.h"
+	"Entity.h"
+
+1413059531 c:\users\hemdatorn\documents\github\tddi02\spel\player.h
+	"Entity.h"
+	"Item.h"
+	"Room.h"
+	"Person.h"
+	"Merchant.h"
+
+1413058587 c:\users\hemdatorn\documents\github\tddi02\spel\entity.h
+	<vector>
+
+1413058240 c:\users\hemdatorn\documents\github\tddi02\spel\item.h
+	"Object.h"
+
+1413058112 c:\users\hemdatorn\documents\github\tddi02\spel\object.h
+
+1413059316 c:\users\hemdatorn\documents\github\tddi02\spel\room.h
+	"Entity.h"
+
+1413059231 c:\users\hemdatorn\documents\github\tddi02\spel\person.h
+	"Object.h"
+
+1413059468 c:\users\hemdatorn\documents\github\tddi02\spel\merchant.h
+	"Entity.h"
+
