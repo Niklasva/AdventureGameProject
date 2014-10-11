@@ -1,5 +1,6 @@
 #ifndef OBJECT
 #define OBJECT
+#include "Entity.h"
 class Object : public Entity
 {
 public:

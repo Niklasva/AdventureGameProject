@@ -1,34 +1,42 @@
 # depslib dependency file v1.0
-1412627777 source:c:\users\hemdatorn\documents\github\tddi02\spel\main.cc
-	<Game.h>
-	<curses.h>
+1413067392 source:c:\users\hemdatorn\documents\github\tddi02\spel\main.cc
+	"Game.h"
 
 1413053160 source:c:\users\hemdatorn\documents\github\tddi02\spel\hjälptextfiler\code blocks\game\main.cpp
 
-1412629227 source:c:\users\hemdatorn\documents\github\tddi02\spel\game.cc
+1413065526 source:c:\users\hemdatorn\documents\github\tddi02\spel\game.cc
 	"Game.h"
 
-1413059616 c:\users\hemdatorn\documents\github\tddi02\spel\game.h
+1413068826 c:\users\hemdatorn\documents\github\tddi02\spel\game.h
 	<iostream>
 	<sstream>
 	<fstream>
+	<cmath>
+	<cctype>
+	<algorithm>
+	<iterator>
+	<functional>
+	<exception>
 	"Player.h"
 	"Entity.h"
 
-1413059531 c:\users\hemdatorn\documents\github\tddi02\spel\player.h
+1413069319 c:\users\hemdatorn\documents\github\tddi02\spel\player.h
 	"Entity.h"
 	"Item.h"
 	"Room.h"
 	"Person.h"
 	"Merchant.h"
+	"Game.h"
 
-1413058587 c:\users\hemdatorn\documents\github\tddi02\spel\entity.h
+1413067212 c:\users\hemdatorn\documents\github\tddi02\spel\entity.h
 	<vector>
+	<string>
 
 1413058240 c:\users\hemdatorn\documents\github\tddi02\spel\item.h
 	"Object.h"
 
-1413058112 c:\users\hemdatorn\documents\github\tddi02\spel\object.h
+1413067115 c:\users\hemdatorn\documents\github\tddi02\spel\object.h
+	"Entity.h"
 
 1413059316 c:\users\hemdatorn\documents\github\tddi02\spel\room.h
 	"Entity.h"
@@ -38,4 +46,7 @@
 
 1413059468 c:\users\hemdatorn\documents\github\tddi02\spel\merchant.h
 	"Entity.h"
+
+1413069212 source:c:\users\hemdatorn\documents\github\tddi02\spel\player.cc
+	"Player.h"
 

@@ -1,19 +1,25 @@
-#ifndef ENITY
-#define ENITY
+#ifndef GAME
+#define GAME
 #include <iostream>
 #include <sstream>
 #include <fstream>
+#include <cmath>
+#include <cctype>
+#include <algorithm>
+#include <iterator>
+#include <functional>
+#include <exception>
 #include "Player.h"
 #include "Entity.h"
 
 class Game
 {
-public:
+ public:
   Game() = default;
   ~Game() = default;
   //Koperingskonstruktor generas av kompilatorn.
   // Likaså de övriga konstruktorerna låter vi kompilatorn genera.
-private:
+ private:
   void create_rooms();
   //För att skapa rummen
   void create_object();
@@ -26,7 +32,11 @@ private:
   // för att läsa in de olika entiteterna som finns i textfilen.
   // Intern logik i create_room och create_object kommer sedan användas
   // för att skapa objekten i fråga emedan programmet läser textfilen.
+  void get_help();
+  //Funktion jag skapade 2014-10-11 //John
+
   std::vector<Room> rooms_;
 };
+
 
 #endif;

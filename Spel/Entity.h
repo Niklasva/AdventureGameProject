@@ -1,6 +1,7 @@
 #ifndef ENTITY
 #define ENTITY
 #include <vector>
+#include <string>
 class Entity
 {
 public:
