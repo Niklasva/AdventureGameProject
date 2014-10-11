@@ -1,0 +1,37 @@
+HJÄLPINSTRUKTIONER:
+
+Hej nedan följer en komplett beskrivining av alla hjälpkommandon som spelaren kan använda för att kolla 
+
+
+HJÄLP:
+
+Skall helt sonika skriva ut hela detta dokument, detta dokument skall följa med spelet och skrivas ut ut ifall spelaren begär det.
+
+ÄVENTYRSKORG ELLER  TITTA PÅ ÄVENTYRSKORG ELLER  INVENTORY, 
+
+Skall skriva ut hela spelarens äventyrskorg, rätt och slätt.
+
+TITTA:
+
+Titta funktionen, använd denna funktion för att skriva ut all info om precis allt i rummet.
+
+
+TITTA PÅ (OBJEKT) :
+
+
+GÅ (RIKTNING):
+
+
+GE (OBJEKT)  TILL (PERSON):
+
+
+PRATA  MED  (PERSON):
+
+
+HANDLA MED (HANDELSMAN)
+
+
+
+PLOCKA UPP (FÖREMÅL)
+
+
