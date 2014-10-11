@@ -18,7 +18,7 @@ class Player
   void  put_inventory(const Item& item);
   void remove_from_inventory(const int& index);
   void print_inventory();
-  void read_input(const std::string& input);
+  void read_input(std::string& input);
   void print_specific_item(const int& index);
   void print_money();
   Item get_item_from_inventory(const int& index);
@@ -28,7 +28,6 @@ class Player
  private:
   int money_{0};  //Spelaren valutareserv.
   std::vector <Item> inventory_; //För äventyrskorgen
-
 };
 
 #endif

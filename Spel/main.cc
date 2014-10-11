@@ -15,7 +15,7 @@ int main(int argc,char* argv[])
     string str{};
     while(getline(cin,str))
     {
-       // P.read_input(str); //commandos are now always lowercase.
+       P.read_input(str); //commandos are now always lowercase.
 
     }
 }

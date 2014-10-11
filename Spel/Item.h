@@ -8,10 +8,10 @@ public:
     Item(const std::string& name,const std::string& description,
          const int& weight,const int& length,const bool& pickup,
          const bool& possible_to_sell,
-        const bool& throwable,const int& value
+	 const bool& throwable,const int& value
 	)
 	: Object{name,description,weight,length}, pickup_{pickup},possible_to_sell_{possible_to_sell},
-	throwable_{throwable}, value_{value}
+	  throwable_{throwable}, value_{value}
 	{}
 
     ~Item() = default;

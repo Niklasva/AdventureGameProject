@@ -4,19 +4,19 @@ void decide_direction(const string& input);
 void decide_what_to_give(const string& input);
 void decide_what_to_pick(const string& input);
 void decide_what_to_talk(const string& input);
+void decide_what_to_look(const string& input);
 
 void Player::read_input(string& input) //Str
 {
-
-
-    transform(input.begin(), input.end(), input.begin(), std::ptr_fun <int, int> ( std::tolower ) );//Oj vad det blev fulhack
+    transform(input.begin(), input.end(), input.begin(), std::ptr_fun <int, int> ( std::toupper ) );//Oj vad det blev fulhack
 
     if(input.find("HELP") || input.find("HJÄLP"))
     {
         ;
     }
-	else if((input.find("ÄVENTYRSKORG") ||  input.find("TITTA PÅ  ÄVENTYRSKORG")) || input.find("INVENTORY"))
+    else if((input.find("ÄVENTYRSKORG") ||  input.find("TITTA PÅ  ÄVENTYRSKORG")) || input.find("INVENTORY"))
     {
+	copy(inventory_.begin(), inventory_.end(),ostream_iterator<int>(cout));
 
     }
     else if(input.find("GÅ")) //fulhackadet har inga gränser...
@@ -39,36 +39,57 @@ void Player::read_input(string& input) //Str
     {
 	decide_what_to_pick(input);
 
-	    }
+    }
+    else if(input.find("TITTA"))
+    {
+	decide_what_to_look(input);
+
+    }
     else
     {
 	cerr << "Nu blev jag förvirrad\n";
 	cerr << "Det blev bara fel känner\n";
 
     }
-
 }
 
+    void decide_direction(const string& input)
+    {
+	//Här skall vi kolla så att vi får rimliga riktningar.
+	return;
+    }
 
-void decide_direction(const string& input)
-{
-    return;
-}
-
-void decide_what_to_give(const string& input)
-{
-
-    return;
-}
-
-void decide_what_to_talk(const string& input)
-{
+    void decide_what_to_give(const string& input)
+    {
 
 
-}
+	return;
+    }
 
-void decide_what_to_pick(const string& input)
-{
+    void decide_what_to_talk(const string& input)
+    {
+	//Beroende på om personen finns eller ej och massa andra paramtetrar..
+
+	return;
+    }
+
+    void decide_what_to_pick(const string& input)
+    {
+	//Det här är följer samma mönster
+
+	return;
+    }
+
+    void decide_what_to_look(const string& input)
+    {
+
+	if(input == "TITTA")
+	{
+	    //Då skall vi skriva ut beskrivningar på precist allt.
+
+	}
 
 
-}
+	//Oj vad tokigt det kan bli // john.
+	return;
+    }

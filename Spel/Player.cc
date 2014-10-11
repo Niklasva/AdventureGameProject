@@ -16,8 +16,11 @@ void Player::read_input(string& input) //Str
     }
     else if((input.find("ÄVENTYRSKORG") ||  input.find("TITTA PÅ  ÄVENTYRSKORG")) || input.find("INVENTORY"))
     {
-	copy(inventory_.begin(), inventory_.end(),ostream_iterator<int>(cout));
-	
+        for(auto i: inventory_)
+	{
+	    cout << i.get_name() << i.get_description() << endl; //Arv och get funktioner. mysigt
+	}
+
     }
     else if(input.find("GÅ")) //fulhackadet har inga gränser...
     {
@@ -51,7 +54,8 @@ void Player::read_input(string& input) //Str
 	cerr << "Det blev bara fel känner\n";
 
     }
-	  
+}
+
     void decide_direction(const string& input)
     {
 	//Här skall vi kolla så att vi får rimliga riktningar.
@@ -61,7 +65,7 @@ void Player::read_input(string& input) //Str
     void decide_what_to_give(const string& input)
     {
 
-	
+
 	return;
     }
 
@@ -82,10 +86,13 @@ void Player::read_input(string& input) //Str
     void decide_what_to_look(const string& input)
     {
 
-	
+	if(input == "TITTA")
+	{
+	    //Då skall vi skriva ut beskrivningar på precist allt.
+
+	}
 
 
-	
 	//Oj vad tokigt det kan bli // john.
 	return;
     }
