@@ -32,7 +32,17 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="main.cpp" />
+		<Unit filename="../../../Entity.h" />
+		<Unit filename="../../../Game.cc" />
+		<Unit filename="../../../Game.h" />
+		<Unit filename="../../../Item.h" />
+		<Unit filename="../../../Merchant.h" />
+		<Unit filename="../../../Object.h" />
+		<Unit filename="../../../Person.h" />
+		<Unit filename="../../../Player.cc" />
+		<Unit filename="../../../Player.h" />
+		<Unit filename="../../../Room.h" />
+		<Unit filename="../../../main.cc" />
 		<Extensions>
 			<code_completion />
 			<envvars />
