@@ -9,13 +9,13 @@ int main(int argc,char* argv[])
     Player P;
     cerr << "PLAYER CREATED" << endl;
     cout << endl;
-    cout << "Välkommen till spelet!" << endl;
+    cout << "VÃ¤lkommen till spelet!" << endl;
     for(int i{0}; i < 10;++i)
 	cout << '\n';
     string str{};
     while(getline(cin,str))
     {
-       P.read_input(str); //commandos are now always lowercase.
+       P.read_input(str); //commandos are now always UPPERCASE.
 
     }
 }
