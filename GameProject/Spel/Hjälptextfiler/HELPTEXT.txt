@@ -1,0 +1,45 @@
+HJÄLPINSTRUKTIONER:
+
+Hej nedan följer en komplett beskrivining av alla hjälpkommandon som spelaren kan använda för att kolla 
+
+
+HJÄLP:
+
+Skall helt sonika skriva ut hela detta dokument, detta dokument skall följa med spelet och skrivas ut ut ifall spelaren begär det.
+
+ÄVENTYRSKORG ELLER  TITTA PÅ ÄVENTYRSKORG ELLER  INVENTORY, 
+
+Skall skriva ut hela spelarens äventyrskorg, rätt och slätt.
+
+TITTA:
+
+Titta funktionen, använd denna funktion för att skriva ut all info om precis allt i rummet.
+
+
+TITTA PÅ (OBJEKT) :
+
+Skriver ut deskriptionen för objektet.
+
+GÅ (RIKTNING):
+
+Flyttar din karaktär till rummet vars riktning du går mot.
+
+
+GE (OBJEKT)  TILL (PERSON):
+
+Ger ett objekt som du har i din äventyrskorg till personen som finns i rummet.
+
+
+PRATA  MED  (PERSON):
+
+Starta dialog med personen du pratar med.
+
+
+HANDLA MED (HANDELSMAN)
+
+Startar en byteshandel med handelsman.
+
+
+PLOCKA UPP (OBJEKT)
+
+Flyttar upptagbart objekt från rummet till din äventyrskorg.
