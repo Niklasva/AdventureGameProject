@@ -27,7 +27,7 @@ GÅ (RIKTNING):
 Flyttar din karaktär till rummet vars riktning du går mot.
 
 
-GE (OBJEKT NUMMER)  TILL (PERSON):
+GE (OBJEKT)  TILL (PERSON):
 
 Ger ett objekt som du har i din äventyrskorg till personen som finns i rummet.
 
