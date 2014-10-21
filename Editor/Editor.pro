@@ -13,8 +13,12 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        editor.cpp
+        editor.cpp \
+    person_editor.cpp
 
-HEADERS  += editor.h
+HEADERS  += editor.h \
+    person_editor.h
 
 FORMS    += editor.ui
+
+CONFIG += c++11
