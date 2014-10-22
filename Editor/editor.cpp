@@ -1,5 +1,6 @@
 #include "editor.h"
 #include "ui_editor.h"
+#include <QDebug>
 
 Editor::Editor(QWidget *parent) :
     QMainWindow(parent), ui(new Ui::Editor)
@@ -40,8 +41,19 @@ void Editor::load_NPC(const Person_Editor p)
 
 void Editor::on_list_npcs_doubleClicked(const QModelIndex &index)
 {
+    // Byt till personfliken
+    if (ui->tabWidget->currentIndex() != 2)
+        ui->tabWidget->setCurrentIndex(2);
+
     current_person_ = index.row();
     load_NPC(personer.at(index.row()));
+}
+
+void Editor::on_button_npc_clicked()
+{
+    Person_Editor temp{"Namnlös person", "","","","","", 0, 0, 0, false};
+    personer.push_back(temp);
+    ui->list_npcs->addItem(temp.name_);
 }
 
 
@@ -62,15 +74,42 @@ void Editor::on_edit_recieved_dialog_textChanged()
 {
     personer.at(current_person_).recieved_item_dialog_ = ui->edit_recieved_dialog->toPlainText();
 }
-// -- SLUT: Funktioner som sparar värdena som användaren skriver in --
-void Editor::on_button_npc_clicked()
+
+void Editor::on_edit_hair_textChanged(const QString &arg1)
 {
-    Person_Editor temp{"Namnlös person", "","","","","", 0, 0, 0, false};
-    personer.push_back(temp);
-    ui->list_npcs->addItem(temp.name_);
+    personer.at(current_person_).haircolour_ = arg1;
 }
 
 void Editor::on_edit_name_textChanged(const QString &arg1)
 {
-    ui->list_npcs->item(current_person_)->setText(ui->edit_name->text());
+    ui->list_npcs->item(current_person_)->setText(arg1);
 }
+
+
+void Editor::on_edit_width_valueChanged(int arg1)
+{
+    personer.at(current_person_).width_ = arg1;
+}
+
+void Editor::on_edit_wants_textChanged(const QString &arg1)
+{
+    personer.at(current_person_).wanted_item_name_ = arg1;
+}
+
+void Editor::on_edit_weight_valueChanged(int arg1)
+{
+    personer.at(current_person_).weight_ = arg1;
+}
+
+void Editor::on_edit_height_valueChanged(int arg1)
+{
+    personer.at(current_person_).length_ = arg1;
+}
+
+void Editor::on_checkbox_Merchant_clicked()
+{
+    personer.at(current_person_).merchant_ = ui->checkbox_Merchant->checkState();
+}
+
+// -- SLUT: Funktioner som sparar värdena som användaren skriver in --
+

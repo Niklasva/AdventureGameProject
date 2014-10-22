@@ -35,6 +35,20 @@ private slots:
 
     void on_edit_name_textChanged(const QString &arg1);
 
+    void on_edit_hair_textChanged(const QString &arg1);
+
+    void on_edit_width_valueChanged(int arg1);
+
+    void on_edit_wants_textChanged(const QString &arg1);
+
+    void on_edit_weight_valueChanged(int arg1);
+
+    void on_edit_height_valueChanged(int arg1);
+
+    void on_checkbox_Merchant_stateChanged(int arg1);
+
+    void on_checkbox_Merchant_clicked();
+
 private:
     Ui::Editor *ui;
     void load_NPC(const Person_Editor p);
