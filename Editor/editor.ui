@@ -471,16 +471,6 @@ p, li { white-space: pre-wrap; }
            <height>16777215</height>
           </size>
          </property>
-         <item>
-          <property name="text">
-           <string>Rum 1: Hus</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Rum 2: Fult hus</string>
-          </property>
-         </item>
         </widget>
        </item>
        <item>

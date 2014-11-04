@@ -14,10 +14,14 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         editor.cpp \
-    person_editor.cpp
+    person_editor.cpp \
+    room_editor.cpp \
+    item_editor.cpp
 
 HEADERS  += editor.h \
-    person_editor.h
+    person_editor.h \
+    room_editor.h \
+    item_editor.h
 
 FORMS    += editor.ui
 
