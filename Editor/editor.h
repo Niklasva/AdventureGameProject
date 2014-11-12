@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "person_editor.h"
 #include "room_editor.h"
+#include "item_editor.h"
 #include <vector>
 #include <QString>
 #include <QList>
@@ -46,16 +47,51 @@ private slots:
 
     void on_checkbox_Merchant_clicked();
 
-    void on_buttom_new_room_clicked();
+    void on_button_new_room_clicked();
 
     void on_combobox_rooms_currentIndexChanged(int index);
+
+    void on_edit_room_name_textChanged(const QString &arg1);
+
+    void on_edit_room_description_textChanged();
+
+    void on_combo_N_currentIndexChanged(int index);
+
+    void on_combo_S_currentIndexChanged(int index);
+
+    void on_combo_W_currentIndexChanged(int index);
+
+    void on_combo_E_currentIndexChanged(int index);
+
+    void on_button_item_clicked();
+
+    void on_list_items_doubleClicked(const QModelIndex &index);
+
+    void on_edit_item_name_textChanged(const QString &arg1);
+
+    void on_edit_item_description_textChanged();
+
+    void on_spinbox_item_value_valueChanged(int arg1);
+
+    void on_checkbox_item_sellable_clicked();
+
+    void on_checkbox_item_pickable_clicked();
+
+    void on_checkbox_item_throwable_clicked();
+
+    void on_button_remove_item_clicked();
+
+    void on_button_delete_room_clicked();
 
 private:
     Ui::Editor *ui;
     void load_NPC(const Person_Editor p);
     void load_Room(Room_Editor & room);
+    void load_exits();
+    void load_item(const Item_Editor& item);
     Person_Editor* current_person_;
     Room_Editor* current_room_;
+    int current_item_;
     int current_person_id_;
     std::vector<Person_Editor> personer;
     std::vector<Room_Editor> rooms;
