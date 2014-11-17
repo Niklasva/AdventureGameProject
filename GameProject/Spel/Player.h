@@ -21,13 +21,22 @@ class Player
   void read_input(std::string input,Game& G);
   void print_specific_item(const int& index);
   void print_money();
+  void set_location(const std::string&,Game& G,Room&);
   Item get_item_from_inventory(const int& index);
   int get_money();
 
-
+//Eventuellt en funktion för att uppdaterade lägesposistionen för spelaren.
  private:
   int money_{0};  //Spelaren valutareserv.
+  int location_{0};    // Håller spelarens aktuella rum ID.
   std::vector <Item> inventory_; //För äventyrskorgen
+
+  void decide_direction(const std::string& input,Game&);
+  void decide_what_to_give(const std::string&,const std::string&,Game&);
+  void decide_what_to_talk(const std::string& input,Game&);
+  void decide_what_to_pick(const std::string& input,Game&);
+  void decide_what_to_look(const std::string& input, Game &G);
+
 };
 
 #endif

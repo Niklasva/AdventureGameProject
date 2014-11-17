@@ -21,19 +21,20 @@ Person(const std::string& name,
     dialog_{dialog}, wanted_item_name_{wanted_item_name_},
     recieved_item_dialog_{recieved_item_dialog}
 {}
-    ~Person() = default;
 
-bool wanted_item(Item&) const;
+std:: string get_dialog(){return dialog_;}
+
+bool wanted_item(Item&);
 
 // Övriga konstruktorer är implicita. Unsure,,,,,,
 /* std::string get_description() const {return description_;} */
 /* std::string get_name() const {return name_;} */
 
 private:
-const bool can_carry_;
-const std::string haircolour_;
-const std::string dialog_;
-const std::string wanted_item_name_;
-const std::string recieved_item_dialog_;
+     bool can_carry_;
+     std::string haircolour_;
+     std::string dialog_;
+     std::string wanted_item_name_;
+     std::string recieved_item_dialog_;
 };
 #endif

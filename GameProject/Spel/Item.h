@@ -14,15 +14,14 @@ public:
 	  throwable_{throwable}, value_{value}
 	{}
 
-
-    ~Item() = default;
-
     // Övriga konstruktorer är implicita
 
+    bool is_throwable(){return throwable_;}
+
 private:
-    const bool pickup_;
-    const bool possible_to_sell_;
-    const bool throwable_;
-    const int value_;
+    bool pickup_;
+    bool possible_to_sell_;
+    bool throwable_;
+    int value_;
 };
 #endif

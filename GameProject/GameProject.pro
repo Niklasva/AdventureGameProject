@@ -11,7 +11,7 @@ QT       -= gui
 TARGET = GameProject
 CONFIG   += console
 CONFIG   -= app_bundle
-CONFIG    += c++11
+CONFIG   += c++11
 
 TEMPLATE = app
 
@@ -19,7 +19,11 @@ TEMPLATE = app
 SOURCES += main.cpp \
     Spel/Game.cc \
     Spel/Merchant.cc \
-    Spel/Player.cc
+    Spel/Player.cc \
+    Spel/Person.cc \
+    Spel/Item.cc \
+    Spel/Object.cc \
+    Spel/Room.cc
 
 OTHER_FILES += \
     Spel/spelfil.txt

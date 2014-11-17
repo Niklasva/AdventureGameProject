@@ -57,7 +57,7 @@ Room:
 			Description: 30 år, kvinna , bening med en doft av ingefära
 			Dialog: Vem faun traur du att du aer?
 			Recieved_item_dialog: JAO
-if			Item:
+			Item:
 			{
 				Name: Ullig nyckel
 				Description: Usch vad ullig den är.
@@ -80,10 +80,10 @@ if			Item:
 			N 1
 			S 0
 			W 0
-			E 3
+			E 0
 		}
 	}
-//Rum 3
+//Rum 2
 Room:
 	{	
 		Name: Skäggetorp

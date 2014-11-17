@@ -7,33 +7,17 @@ using namespace std;
 int main(int argc, char* argv[])
 {
   QCoreApplication a(argc, argv);
-
+  string input{""};
 
   cerr << "GAME STARTED" << endl;
   Game G;
+  G.read_file("spelfil.txt");
   cerr << "GAME CREATED" << endl;
   Player P;
   cerr << "PLAYER CREATED" << endl;
   cout << endl;
   cout << "Välkommen till spelet!" << endl;
-  for(int i{0}; i < 10;++i)
-    cout << '\n';
-  string input{};
-
-  int number_of_items{0};
-
-  cout << "Mata in vad du vill ha i äventyrskorgen" << endl;
-  cin >> number_of_items;
-
-  vector<Item> tmp;
-  for(int j{0}; j < number_of_items;++j)
-  {
-    Item i{"txt","txt",4,4,true,true,true,4};
-    P.put_inventory(i);
-  }
-
-    cin.sync();
-
+  cout << endl;
 
   while(cin >> input)
   {
