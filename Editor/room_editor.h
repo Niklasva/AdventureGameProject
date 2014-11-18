@@ -9,7 +9,7 @@
 class Room_Editor
 {
 public:
-    Room_Editor(QString name, QString description, int n, int s, int w, int e)
+    Room_Editor(QString name = "", QString description= "", int n = 0, int s = 0, int w = 0, int e = 0)
         : name_{name}, description_{description}, north_{n}, south_{s}, west_{w}, east_{e} {}
 
     void add_person(const Person_Editor & person) {persons_.push_back(person);}
@@ -17,6 +17,7 @@ public:
 
     void add_item(Item_Editor item) {items_.push_back(item);}
     void delete_item(size_t index) {items_.erase(items_.begin() + index);}
+    void delete_person(size_t index) {persons_.erase(persons_.begin() + index);}
     Item_Editor& get_item(size_t index) {return items_.at(index);}
     Item_Editor& get_back_item() {return items_.back();}
 

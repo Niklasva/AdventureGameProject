@@ -4,7 +4,7 @@
 class Item_Editor
 {
 public:
-    Item_Editor(QString name, QString description, int weight, int length, int width, int value, bool sellable, bool pickable, bool throwable)
+    Item_Editor(QString name = "", QString description = "", int weight = 0, int length = 0, int width = 0, int value = 0, bool sellable = false, bool pickable = false, bool throwable = false)
         : name_{name}, description_{description},
           weight_{weight}, length_{length}, width_{width},
           value_{value}, sellable_{sellable}, throwable_{throwable}, pickable_{pickable}
@@ -26,21 +26,25 @@ public:
     bool get_throwable() const {return throwable_;}
     bool get_pickable() const {return pickable_;}
 
+
     void set_name(QString name) {name_ = name;}
     void set_description(QString description) {description_ = description;}
     void set_weight(int weight) {weight_ = weight;}
     void set_length(int length) {length_ = length;}
     void set_width(int width) {width_ = width;}
     void set_value(int value) {value_ = value;}
-    bool set_sellable(bool sellable) {sellable_ = sellable;}
-    bool set_pickable(bool pickable) {pickable_ = pickable;}
-    bool set_throwable(bool throwable) {throwable_ = throwable;}
+    void set_sellable(bool sellable) {sellable_ = sellable;}
+    void set_pickable(bool pickable) {pickable_ = pickable;}
+    void set_throwable(bool throwable) {throwable_ = throwable;}
 
+
+    QString print_item();
 
 private:
     QString name_, description_;
     int weight_, length_, width_, value_;
     bool sellable_, throwable_, pickable_;
+
 };
 
 

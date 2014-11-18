@@ -1,25 +1,30 @@
 #ifndef PERSON_EDITOR_H
 #define PERSON_EDITOR_H
 #include <QString>
+#include <vector>
+#include "item_editor.h"
 
 class Person_Editor
 {
 public:
-    Person_Editor(QString name, QString description,QString dialog,
-                  QString recieved_item_dialog,QString haircolour,
-                  QString wanted_item_name,int weight, int length,
-                  int width, bool merchant)
+    Person_Editor(QString name = "", QString description = "", QString dialog ="",
+                  QString recieved_item_dialog ="",QString haircolour ="",
+                  QString wanted_item_name ="",int weight = 0, int length = 0,
+                  int width = 0, bool merchant = 0)
         : name_{name}, description_{description},dialog_{dialog},
           recieved_item_dialog_{recieved_item_dialog},
           haircolour_{haircolour},wanted_item_name_{wanted_item_name},
           weight_{weight},
           length_{length},
-          merchant_{merchant},
-          width_{width}
+          width_{width},
+          merchant_{merchant}
     {}
     Person_Editor(const Person_Editor&) = default;
     Person_Editor(Person_Editor&&) = default;
-    Person_Editor& operator=(Person_Editor&) = default;
+    Person_Editor& operator=(const Person_Editor&) = default;
+    Person_Editor& operator=(Person_Editor&&) = default;
+
+
     ~Person_Editor() = default;
 
     QString get_name() const {return name_;}
@@ -44,11 +49,18 @@ public:
     void set_length(int length) {length_ = length;}
     void set_width(int width) {width_ = width;}
 
+    void add_item(Item_Editor item) {items_.push_back(item);}
+    Item_Editor& get_item(size_t index) {return items_.at(index);}
+    Item_Editor& get_back_item() {return items_.back();}
+    void delete_item(size_t index) {items_.erase(items_.begin() + index);}
+
+    QString print_person();
+
 private:
-    QString name_, description_;
-    bool merchant_;
-    QString haircolour_, dialog_, wanted_item_name_, recieved_item_dialog_;
+    QString name_, description_, dialog_, recieved_item_dialog_, haircolour_, wanted_item_name_;
     int weight_, length_, width_;
+    bool merchant_;
+    std::vector<Item_Editor> items_;
 };
 
 #endif // PERSON_EDITOR_H
