@@ -20,6 +20,8 @@ public:
     void delete_person(size_t index) {persons_.erase(persons_.begin() + index);}
     Item_Editor& get_item(size_t index) {return items_.at(index);}
     Item_Editor& get_back_item() {return items_.back();}
+    void pop_back_item() {items_.pop_back();}
+    void pop_back_person() {persons_.pop_back();}
 
     std::vector<Person_Editor> get_persons() {return persons_;}
     std::vector<Item_Editor> get_items() {return items_;}

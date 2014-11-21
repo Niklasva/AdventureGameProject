@@ -26,6 +26,9 @@
    <layout class="QHBoxLayout" name="horizontalLayout_2">
     <item>
      <widget class="QTabWidget" name="tabWidget">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="sizePolicy">
        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
         <horstretch>0</horstretch>
@@ -39,9 +42,12 @@
        <bool>false</bool>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
-      <widget class="QWidget" name="tab_description">
+      <widget class="QWidget" name="tab_room">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="toolTip">
         <string notr="true"/>
        </property>
@@ -100,7 +106,13 @@
          </widget>
         </item>
         <item row="6" column="1">
-         <widget class="QComboBox" name="combo_N"/>
+         <widget class="QComboBox" name="combo_N">
+          <item>
+           <property name="text">
+            <string>Ingen utgång</string>
+           </property>
+          </item>
+         </widget>
         </item>
         <item row="7" column="0">
          <widget class="QLabel" name="label_S_2">
@@ -110,7 +122,13 @@
          </widget>
         </item>
         <item row="7" column="1">
-         <widget class="QComboBox" name="combo_S"/>
+         <widget class="QComboBox" name="combo_S">
+          <item>
+           <property name="text">
+            <string>Ingen utgång</string>
+           </property>
+          </item>
+         </widget>
         </item>
         <item row="8" column="0">
          <widget class="QLabel" name="label_W_2">
@@ -120,7 +138,13 @@
          </widget>
         </item>
         <item row="8" column="1">
-         <widget class="QComboBox" name="combo_W"/>
+         <widget class="QComboBox" name="combo_W">
+          <item>
+           <property name="text">
+            <string>Ingen utgång</string>
+           </property>
+          </item>
+         </widget>
         </item>
         <item row="9" column="0">
          <widget class="QLabel" name="label_E_2">
@@ -130,7 +154,13 @@
          </widget>
         </item>
         <item row="9" column="1">
-         <widget class="QComboBox" name="combo_E"/>
+         <widget class="QComboBox" name="combo_E">
+          <item>
+           <property name="text">
+            <string>Ingen utgång</string>
+           </property>
+          </item>
+         </widget>
         </item>
         <item row="4" column="0">
          <widget class="QLabel" name="label_6">
@@ -142,6 +172,9 @@
        </layout>
       </widget>
       <widget class="QWidget" name="tab_item">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="toolTip">
         <string/>
        </property>
@@ -165,7 +198,7 @@
            <item>
             <widget class="QSpinBox" name="spinbox_item_value">
              <property name="readOnly">
-              <bool>true</bool>
+              <bool>false</bool>
              </property>
             </widget>
            </item>
@@ -175,7 +208,7 @@
         <item row="3" column="0">
          <widget class="QTextEdit" name="edit_item_description">
           <property name="readOnly">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
           <property name="html">
            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -202,7 +235,7 @@ p, li { white-space: pre-wrap; }
            <string/>
           </property>
           <property name="readOnly">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
           <property name="placeholderText">
            <string>Föremålets namn</string>
@@ -227,13 +260,25 @@ p, li { white-space: pre-wrap; }
             </widget>
            </item>
            <item row="1" column="5">
-            <widget class="QSpinBox" name="spinBox_item_weight"/>
+            <widget class="QSpinBox" name="spinBox_item_weight">
+             <property name="readOnly">
+              <bool>false</bool>
+             </property>
+            </widget>
            </item>
            <item row="5" column="5">
-            <widget class="QSpinBox" name="spinBox_item_length"/>
+            <widget class="QSpinBox" name="spinBox_item_length">
+             <property name="readOnly">
+              <bool>false</bool>
+             </property>
+            </widget>
            </item>
            <item row="6" column="5">
-            <widget class="QSpinBox" name="spinBox_item_width"/>
+            <widget class="QSpinBox" name="spinBox_item_width">
+             <property name="readOnly">
+              <bool>false</bool>
+             </property>
+            </widget>
            </item>
            <item row="6" column="3">
             <widget class="QLabel" name="label_item_width">
@@ -261,7 +306,7 @@ p, li { white-space: pre-wrap; }
               <string>Går att sälja</string>
              </property>
              <property name="checkable">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
             </widget>
            </item>
@@ -271,7 +316,7 @@ p, li { white-space: pre-wrap; }
               <string>Går att kasta</string>
              </property>
              <property name="checkable">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
             </widget>
            </item>
@@ -287,7 +332,7 @@ p, li { white-space: pre-wrap; }
               <string>Går att plocka upp</string>
              </property>
              <property name="checkable">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
             </widget>
            </item>
@@ -297,6 +342,9 @@ p, li { white-space: pre-wrap; }
        </layout>
       </widget>
       <widget class="QWidget" name="tab_npcs">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <attribute name="title">
         <string>Personer</string>
        </attribute>
@@ -530,7 +578,6 @@ p, li { white-space: pre-wrap; }
              </widget>
             </item>
            </layout>
-           <zorder>widget_namn</zorder>
            <zorder>widget_modifier</zorder>
            <zorder>widget_dialogs</zorder>
           </widget>
@@ -617,13 +664,25 @@ p, li { white-space: pre-wrap; }
                    </widget>
                   </item>
                   <item row="1" column="5">
-                   <widget class="QSpinBox" name="spinBox_item_weight_2"/>
+                   <widget class="QSpinBox" name="spinBox_item_weight_2">
+                    <property name="readOnly">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
                   </item>
                   <item row="5" column="5">
-                   <widget class="QSpinBox" name="spinBox_item_length_2"/>
+                   <widget class="QSpinBox" name="spinBox_item_length_2">
+                    <property name="readOnly">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
                   </item>
                   <item row="6" column="5">
-                   <widget class="QSpinBox" name="spinBox_item_width_2"/>
+                   <widget class="QSpinBox" name="spinBox_item_width_2">
+                    <property name="readOnly">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
                   </item>
                   <item row="6" column="3">
                    <widget class="QLabel" name="label_item_width_2">
@@ -687,7 +746,6 @@ p, li { white-space: pre-wrap; }
               </layout>
               <zorder>edit_item_name_2</zorder>
               <zorder>label_7</zorder>
-              <zorder>list_npcs</zorder>
               <zorder>widget_6</zorder>
               <zorder>edit_item_description_2</zorder>
               <zorder>label_8</zorder>
@@ -769,26 +827,41 @@ p, li { white-space: pre-wrap; }
            <height>16777215</height>
           </size>
          </property>
+         <property name="maxCount">
+          <number>2147483647</number>
+         </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="button_new_room">
+         <property name="toolTip">
+          <string>Ctrl+R</string>
+         </property>
          <property name="text">
           <string>Lägg till nytt rum</string>
+         </property>
+         <property name="shortcut">
+          <string>Ctrl+R</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="button_delete_room">
+         <property name="toolTip">
+          <string>Ctrl+Shift+R</string>
+         </property>
          <property name="text">
           <string>Ta bort rum</string>
+         </property>
+         <property name="shortcut">
+          <string>Ctrl+Shift+R</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QLabel" name="label_items">
          <property name="text">
-          <string>Objekt i rummet</string>
+          <string>Föremål i rummet</string>
          </property>
         </widget>
        </item>
@@ -804,18 +877,27 @@ p, li { white-space: pre-wrap; }
        </item>
        <item>
         <widget class="QPushButton" name="button_item">
+         <property name="toolTip">
+          <string>Ctrl+F</string>
+         </property>
          <property name="text">
           <string>Lägg till nytt föremål</string>
          </property>
          <property name="shortcut">
-          <string>Ctrl+L</string>
+          <string>Ctrl+F</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="button_remove_item">
+         <property name="toolTip">
+          <string>Ctrl+Shift+F</string>
+         </property>
          <property name="text">
           <string>Ta bort föremål</string>
+         </property>
+         <property name="shortcut">
+          <string>Ctrl+Shift+F</string>
          </property>
         </widget>
        </item>
@@ -835,15 +917,27 @@ p, li { white-space: pre-wrap; }
        </item>
        <item>
         <widget class="QPushButton" name="button_npc">
+         <property name="toolTip">
+          <string>Ctrl+P</string>
+         </property>
          <property name="text">
           <string>Lägg till ny person</string>
+         </property>
+         <property name="shortcut">
+          <string>Ctrl+P</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="button_remove_npc">
+         <property name="toolTip">
+          <string>Ctrl+Shift+P</string>
+         </property>
          <property name="text">
           <string>Ta bort person</string>
+         </property>
+         <property name="shortcut">
+          <string>Ctrl+Shift+P</string>
          </property>
         </widget>
        </item>
@@ -877,6 +971,7 @@ p, li { white-space: pre-wrap; }
     <property name="title">
      <string>Arkiv</string>
     </property>
+    <addaction name="menu_new"/>
     <addaction name="menu_save"/>
     <addaction name="menu_load"/>
    </widget>
@@ -919,10 +1014,24 @@ p, li { white-space: pre-wrap; }
    <property name="text">
     <string>Spara</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
   </action>
   <action name="menu_load">
    <property name="text">
     <string>Öppna</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="menu_new">
+   <property name="text">
+    <string>Nytt projekt</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
    </property>
   </action>
  </widget>

@@ -11,9 +11,9 @@ public:
                   QString recieved_item_dialog ="",QString haircolour ="",
                   QString wanted_item_name ="",int weight = 0, int length = 0,
                   int width = 0, bool merchant = 0)
-        : name_{name}, description_{description},dialog_{dialog},
+        : name_{name}, description_{description}, dialog_{dialog},
           recieved_item_dialog_{recieved_item_dialog},
-          haircolour_{haircolour},wanted_item_name_{wanted_item_name},
+          haircolour_{haircolour}, wanted_item_name_{wanted_item_name},
           weight_{weight},
           length_{length},
           width_{width},

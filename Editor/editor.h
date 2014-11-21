@@ -87,6 +87,8 @@ private slots:
 
     void on_menu_save_triggered();
 
+    void on_menu_new_triggered();
+
     void on_menu_load_triggered();
 
     void on_spinBox_item_weight_valueChanged(int arg1);
@@ -120,6 +122,8 @@ private slots:
 
     void on_spinBox_item_width_2_valueChanged(int arg1);
 
+    void on_combobox_rooms_highlighted(int index);
+
 private:
     Ui::Editor *ui;
     void load_NPC(const Person_Editor p);
@@ -128,6 +132,7 @@ private:
     void load_item(const Item_Editor& item);
     void load_person_item(const Item_Editor& item);
     void add_room(Room_Editor room);
+    void new_game();
     int save(QString filename);
     int load(QString filename);
     Person_Editor* current_person_;
