@@ -1,5 +1,6 @@
 #include "Object.h"
 #include "Item.h"
+#include <QString>
 
 #ifndef PERSON
 #define PERSON
@@ -7,34 +8,46 @@
 class Person : public Object
 {
 public:
-Person(const std::string& name,
-	   const std::string& description,
+Person(const QString& name,
+       const QString& description,
 	   const int& weight,
 	   const int& length, //Kommer ovan.
 	   const bool& can_carry,
-	   const std::string& haircolour,
-	   const std::string& dialog,
-	   const std::string& wanted_item_name_,
-	   const std::string& recieved_item_dialog)
+       const QString& haircolour,
+       const QString& dialog,
+       const QString& wanted_item_name_,
+       const QString& recieved_item_dialog)
     : Object{name,description,weight,length},//Skickar upp i hierarkin
     can_carry_{can_carry}, haircolour_{haircolour},
     dialog_{dialog}, wanted_item_name_{wanted_item_name_},
     recieved_item_dialog_{recieved_item_dialog}
 {}
 
-std:: string get_dialog(){return dialog_;}
+ Person() = default;
+
+QString get_dialog(){return dialog_;}
+QString get_recieved_item_dialog(){return recieved_item_dialog_;}
+
+void set_dialog(const QString& dialog){dialog_ = dialog;}
+void set_received_item_dialog(const QString& item_dialog){recieved_item_dialog_ = item_dialog;}
+void set_haircolour(const QString& haircolour){haircolour_ = haircolour;}
+void set_wanted_item_name(const QString& item_name){wanted_item_name_ = item_name;}
+
+
 
 bool wanted_item(Item&);
 
 // Övriga konstruktorer är implicita. Unsure,,,,,,
-/* std::string get_description() const {return description_;} */
-/* std::string get_name() const {return name_;} */
+
+
+
+
 
 private:
      bool can_carry_;
-     std::string haircolour_;
-     std::string dialog_;
-     std::string wanted_item_name_;
-     std::string recieved_item_dialog_;
+     QString haircolour_;
+     QString dialog_;
+     QString wanted_item_name_;
+     QString recieved_item_dialog_;
 };
 #endif

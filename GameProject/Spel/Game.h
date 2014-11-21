@@ -9,38 +9,34 @@
 #include <iterator>
 #include <functional>
 #include <exception>
+#include <QString>
+#include <QFile>
+#include <QDebug>
 #include "Player.h"
 #include "Entity.h"
+
 
 class Game
 {
  public:
   Game() = default;
-  ~Game() = default;
   void get_help();
-  Room& get_room(const int& index){ return rooms_.at(index);} //Returnerar rum id?e
+  Room& get_room(const int& index){return rooms_.at(index);} //Returnerar rum id
+  void add_room(const Room& R)
+  {
+    if(size_t(number_of_rooms) == rooms_.size())
+    {
+        rooms_.resize(number_of_rooms*2);
 
-  void read_file(const std::string& file_to_read);
-  //För att läsa filen
+    }
+        rooms_.at(number_of_rooms+1) = R;
+        ++number_of_rooms;
+  }
 
+  int number_of_rooms{0};
+  void read_file(const QString& filename);
+  std::vector<Room> rooms_{100};
 
-  //Koperingskonstruktor generas av kompilatorn.
-  // Likaså de övriga konstruktorerna låter vi kompilatorn genera.
- private:
-  void create_rooms(const std::string& input,std::ifstream& input_from_file);
-  //För att skapa rummen
-  void create_object(const std::string& input,std::ifstream& input_from_file);
-  //För att skapa objekten
-
-
-  //Då kommer vi få saker i rumvektorn.
-  void read_entity(std::ifstream& ss);
-  // Kommer att ta emot en filströmreferens
-  // för att läsa in de olika entiteterna som finns i textfilen.
-  // Intern logik i create_room och create_object kommer sedan användas
-  // för att skapa objekten i fråga emedan programmet läser textfilen.
-
-  std::vector<Room> rooms_;
 };
 
 

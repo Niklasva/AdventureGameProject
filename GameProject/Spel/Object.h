@@ -5,19 +5,28 @@
 class Object : public Entity
 {
 public:
-    Object(const std::string& name, const std::string& description,
+    Object(const QString& name, const QString& description,
            const int& weight,const int& length)
 	: Entity{name,description}, weight_{weight},length_{length}
 	{}
 
-     int get_weight();
-     int get_length();
+    Object() = default;
+
+     int get_weight(){return weight_;}
+     int get_length(){return length_;}
+     int get_width(){return width_;}
+
+
+     void set_weight(const int& weight){weight_ = weight;}
+     void set_length(const int& length){length_ = length;}
+     void set_width(const int& width){width_ = width;}
+
 
 
     // Övriga konstruktorer är implicita.
 
 private:
-     int weight_,length_;
+     int weight_,length_,width_;
 };
 #endif
 //Den spanska räven rev en annan räv.

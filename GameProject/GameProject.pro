@@ -19,11 +19,10 @@ TEMPLATE = app
 SOURCES += main.cpp \
     Spel/Game.cc \
     Spel/Merchant.cc \
-    Spel/Player.cc \
     Spel/Person.cc \
     Spel/Item.cc \
-    Spel/Object.cc \
-    Spel/Room.cc
+    Spel/Room.cc \
+    Spel/Player.cpp
 
 OTHER_FILES += \
     Spel/spelfil.txt

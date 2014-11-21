@@ -5,7 +5,7 @@ class Item : public Object
 {
 
 public:
-    Item(const std::string& name,const std::string& description,
+    Item(const QString& name,const QString& description,
          const int& weight,const int& length,const bool& pickup,
          const bool& possible_to_sell,
 	 const bool& throwable,const int& value
@@ -14,9 +14,16 @@ public:
 	  throwable_{throwable}, value_{value}
 	{}
 
+    Item() = default;
+
     // Övriga konstruktorer är implicita
 
     bool is_throwable(){return throwable_;}
+
+    void set_value(const int& value){value_ = value;}
+    void set_pickable(const bool& pickup){pickup_ = pickup;}
+    void set_possible_to_sell(const bool& sellable){possible_to_sell_ = sellable;}
+    void set_throwable(const bool& throwable){throwable_ = throwable;}
 
 private:
     bool pickup_;

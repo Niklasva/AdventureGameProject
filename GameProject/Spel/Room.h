@@ -13,34 +13,40 @@ class Object;
 class Room : public  Entity
 {
  public:
- Room(const std::string& name, const std::string& description)
- : Entity {name, description}{} // att se över.
+ Room(const QString& name, const QString& description)
+ : Entity {name, description}{}
 
-  //void set_persons(const Person& p) { persons_.push_back(p); }
+  Room() = default;
+
   void set_item(const Item& o) { items_.push_back(o); }
   void set_person(const Person& p){ persons_.push_back(p);}
   void remove_item(const int& index){items_.erase(items_.begin()+index);}
   void remove_person(const int& index){persons_.erase(persons_.begin() + index);}
   void get_directions();
 
-  const std::vector<int> get_room_ids() {return exits;} //returnerar arrayen med utg?ngar.
-  std::vector<Person>& get_persons() {return persons_;} //Returnerar en referens till personvektorn.
+  const std::vector<int>& get_room_ids() {return exits_;}
+  std::vector<Person>& get_persons() {return persons_;}
   std::vector<Item>& get_items(){return items_;}
 
-  Person& get_person(const int& index){ return persons_.at(index); } //Returnerar en person.
+  Person& get_person(const int& index){ return persons_.at(index); }
   Item& get_item(const int& index){return items_.at(index); }
 
-//  Room operator=(const Room&) = default;
-//  Room(const Room&) = default;
-//  Room& operator=(Room&&) = default;
+
+
+
+  void set_north(const int& N = 0){n_ = N;}
+  void set_west(const int& W = 0){w_ = W;}
+  void set_south(const int& S = 0){s_ = S;}
+  void set_east(const int& E = 0){e_ = E;}
+  void init_directions(){exits_.at(0) = n_; exits_.at(1) = s_; exits_.at(2) = w_; exits_.at(3) = e_;}
 
 
 
 
+int  n_,w_,s_,e_;
  private:
   std::vector<Item> items_;
   std::vector<Person> persons_;
-  int  n{0},w{0},s{0},e{0};
-  std::vector<int> exits = {n,s,w,e};
+  std::vector<int> exits_ = {n_,s_,w_,e_};
 };
 #endif
