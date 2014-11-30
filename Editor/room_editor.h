@@ -31,7 +31,7 @@ public:
     void set_description(QString description) {description_ = description;}
     void set_directions(int n, int s, int w, int e) {north_ = n; south_ = s; west_ = w; east_ = e;}
     QString get_name() const {return name_;}
-
+    void clear();
     void set_north(int n) {north_ = n;}
     void set_south(int s) {south_ = s;}
     void set_east(int e) {east_ = e;}

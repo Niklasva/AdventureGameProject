@@ -1,0 +1,277 @@
+// Room 1
+Room:
+{
+	Name: Välkommen. Professorns föreläsningssal
+	Description: Hej och välkommen till professorn utan bisysslor! I denna makalösa historia spelar du rollen som en professor som lever för sitt jobb. Jobbet är det enda han tänker på när han borstar tänderna, går och lägger sig och äter middag.
+
+	Person:
+	{
+		Name: Rektor Stig
+		Description: Lång och smal
+		Dialog: Rektor Stig: Tjenare professorn!\nVi inom universitet kan tvyärr inte ha dig här 24/7 på grund av policyskäl. Då allt fler studenter kuggar på diskrettentan så börjar vi undra om det verkligen beror på dem. Jag skulle vilja att du tar semester ett tag för att vila upp dig lite och kanske då bli lite snällare mot eleverna.\n\nProfessorn tänker för sig själv att nu har de förbannade odugliga eleverna satt honom i ännu en knipa. Men då han är som förälskad i sitt jobb och vill vara på rektorns goda sida känner han at han borde gå med på rektorns villkor.
+		Recieved item dialog: 
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: 
+	}
+
+	Exits:
+	{
+		N: 2
+		S: 0
+		W: 0
+		E: 0
+	}
+
+}
+
+// Room 2
+Room:
+{
+	Name: G-huset
+	Description: 
+
+	Exits:
+	{
+		N: 4
+		S: 3
+		W: 5
+		E: 6
+	}
+
+}
+
+// Room 3
+Room:
+{
+	Name: Föreläsningssalen
+	Description: Salen som professorn hade sin senaste föreläsning i. Ingen är här.
+
+	Exits:
+	{
+		N: 2
+		S: 0
+		W: 0
+		E: 0
+	}
+
+}
+
+// Room 4
+Room:
+{
+	Name: Professorns kontor
+	Description: 
+
+	Exits:
+	{
+		N: 0
+		S: 0
+		W: 0
+		E: 0
+	}
+
+}
+
+// Room 5
+Room:
+{
+	Name: Rektor Stigs kontor
+	Description: 
+
+	Exits:
+	{
+		N: 0
+		S: 0
+		W: 0
+		E: 0
+	}
+
+}
+
+// Room 6
+Room:
+{
+	Name: Professorns hus
+	Description: Efter att ha fått order om att ta semester så bestämde sig professorn för att dra sig hemåt.\nProfessorn har inte varit i sitt hus sedan sent 80-tal. Men nu är han här igen.\n\nRektor Stigs ord om att ta semester ekar i professorns huvud. Han förstår att det inte är något positivt, men han är osäker på vad order "semester" egentligen betyder. Är det en form av bakelse?
+
+	Exits:
+	{
+		N: 7
+		S: 0
+		W: 2
+		E: 8
+	}
+
+}
+
+// Room 7
+Room:
+{
+	Name: Professorns hus, datorrummet
+	Description: För att ta reda på vad ordet semester betyder, tänkte professorn ta hjälp av sin dator. Datorn är en ZX-80-klon från sovietunionen som är uppkopplad både till usenet och internet. Tack vare soviets stora java-fas, är Ask-toolbar installerad på datorn och professorn använder det för att söka efter meningen med ordet "semester".\n\nResultatet professorn får upp är dels undersökningar är att 99 % av arbetande befolkningen tycker att det är det bästa som finns. Professorn tänker till och inser nu att detta kanske inte är så hemskt som han trodde, men sen såg han innebörden: "avtalad ledighet under ett visst antal av årets dagar."\n\nProfessorn blir nu helt gråtfärdig men samtidigt helt skogstokig och även rädd. Han tar sin datori ren frustation slänger den upp i taket och skriker "Varför gör ni så här mot mig? Jag har ju inga bisysslor! "
+
+	Exits:
+	{
+		N: 0
+		S: 9
+		W: 0
+		E: 0
+	}
+
+}
+
+// Room 8
+Room:
+{
+	Name: Professorns hus, biblioteket
+	Description: Tio tusen böcker om diskret matematik, men inte en enda som berättar vad ordet semester betyder.
+
+	Item:
+	{
+		Name: Diskret Matematik grundkurs
+		Description: Denna läste professorn när han var 4 år gammal.
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Item:
+	{
+		Name: Diskret matematik för odugliga
+		Description: Den här boken brukar professorn rekommendera för sina studenter.
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Item:
+	{
+		Name: Diskret matematik bibel
+		Description: En diskret matematik på 10 000 sidor, där allt beskrivs in i minsta detalj. Denna bok har professorn läst mer än vad han har borstat tänderna i sitt liv. 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Item:
+	{
+		Name: Henning Mankells mordet i diskmatten
+		Description: Kurt Wallander löser mordet på de värdelösa studeterna som aldrig har ett rätt på tentan. 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 1
+	}
+
+	Item:
+	{
+		Name: Dagens ungdom - En mattesaga
+		Description: Där beskriver författaren att dagens ungdomar är helt odugliga och skulle aldrig klara av att förstå diskret matematiks biblen. 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Item:
+	{
+		Name: Plötsligt händer det
+		Description: Det var ännu en mörk novemberdag den 27:e, då diskret matematik tentan gavs. Många studenter har hålt på med denna kursen i snart 15 årstid men aldrig klarat den. Men kille vid namn Jon Tenerholm lyckas få precis en 3:a på denna tentan. Professorn blir helt lyrisk när han väl träffar denna grabben då han är den första genomtiderna som har klarat tentan. Jon Tenerholm har tidigare vunnit nobelpriset och blev professor vid 19 års ålder. 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Item:
+	{
+		Name: Diskret matematik, allt du behöver veta för att klara tentan!
+		Description: En bok på 5000 sidor där du skall kunna allting för att klara tentan.
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Exits:
+	{
+		N: 0
+		S: 0
+		W: 9
+		E: 0
+	}
+
+}
+
+// Room 9
+Room:
+{
+	Name: Professorns hus, hallen
+	Description: 
+
+	Exits:
+	{
+		N: 7
+		S: 10
+		W: 0
+		E: 8
+	}
+
+}
+
+// Room 10
+Room:
+{
+	Name: Lambohov, Professorns trädgård
+	Description: Nu när professorn vet innebörden av ordet semester, är han förskräckt. Han vet ingenting annat än sitt jobb och han har absolut inga bisysslor. Det enda han tycker är roligt utanför universitetsvärlden är att borsta tänderna, men han kan ju knappast göra det dagarna i ända,\nVad ska han sa sig till?\n\nNär han går ut ur sitt hus möts han av en skinande sol, kvittrande fåglar och Granntant Åsas skrålande.
+
+	Person:
+	{
+		Name: Granntant Åsa
+		Description: 
+		Dialog: Granntant Åsa: Åh vad jobbigt det är! Jag har sökt runt hela svea rike för att hitta Henning Mankells mordet i diskmatten, men den har inte varit tillgänglig sedan 70-talet. Hur ska jag nu kunna ta vara på min semester?
+		Recieved item dialog: 
+		Hair: Grå
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: Henning Mankells mordet i diskmatten
+	}
+
+	Exits:
+	{
+		N: 9
+		S: 0
+		W: 0
+		E: 0
+	}
+
+}
+

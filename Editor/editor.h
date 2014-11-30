@@ -55,13 +55,6 @@ private slots:
 
     void on_edit_room_description_textChanged();
 
-    void on_combo_N_currentIndexChanged(int index);
-
-    void on_combo_S_currentIndexChanged(int index);
-
-    void on_combo_W_currentIndexChanged(int index);
-
-    void on_combo_E_currentIndexChanged(int index);
 
     void on_button_item_clicked();
 
@@ -87,6 +80,8 @@ private slots:
 
     void on_menu_save_triggered();
 
+    void on_menu_save_as_triggered();
+
     void on_menu_new_triggered();
 
     void on_menu_load_triggered();
@@ -109,7 +104,6 @@ private slots:
 
     void on_list_merchant_items_doubleClicked(const QModelIndex &index);
 
-
     void on_checkbox_item_pickable_2_clicked(bool checked);
 
     void on_checkbox_item_throwable_2_clicked(bool checked);
@@ -122,7 +116,10 @@ private slots:
 
     void on_spinBox_item_width_2_valueChanged(int arg1);
 
-    void on_combobox_rooms_highlighted(int index);
+    void on_combo_N_highlighted(int index);
+    void on_combo_S_highlighted(int index);
+    void on_combo_W_highlighted(int index);
+    void on_combo_E_highlighted(int index);
 
 private:
     Ui::Editor *ui;
@@ -139,6 +136,7 @@ private:
     Room_Editor* current_room_;
     int current_item_;
     int current_person_id_;
+    QString filename_ {""};
 
     std::vector<Person_Editor> personer;
     std::vector<Room_Editor> rooms;

@@ -55,7 +55,14 @@ void Editor::load_NPC(const Person_Editor p)
     ui->edit_height->setValue(p.get_length());
     ui->edit_width->setValue(p.get_width());
     ui->checkbox_Merchant->setChecked(p.get_merchant());
+    ui->list_merchant_items->clear();
+    for (Item_Editor s : current_person_->get_items())
+    {
+        ui->list_merchant_items->addItem(s.get_name());
+    }
+
     ui->items_for_sale_tab->setEnabled(p.get_merchant());
+    ui->tab_npcs->setEnabled(true);
 }
 void Editor::load_Room(Room_Editor & room)
 {
@@ -139,6 +146,7 @@ void Editor::on_button_new_room_clicked()
 
 void Editor::add_room(Room_Editor room)
 {
+    qDebug() << "add_room N:" << room.get_north();
     rooms.push_back(room);
     QString room_name {"Rum "};
     room_name.append(QString::number(rooms.size()));
@@ -217,7 +225,6 @@ void Editor::on_checkbox_Merchant_clicked()
 void Editor::on_edit_room_name_textChanged(const QString &arg1)
 {
     current_room_->set_name(arg1);
-    current_person_->set_description(ui->edit_description->toPlainText());
     QString room_name {"Rum "};
     room_name.append(QString::number(ui->combobox_rooms->currentIndex() + 1));
     room_name.append(": ");
@@ -229,22 +236,22 @@ void Editor::on_edit_room_name_textChanged(const QString &arg1)
     ui->combo_E->setItemText(ui->combobox_rooms->currentIndex() + 1, room_name);
 }
 
-void Editor::on_combo_N_currentIndexChanged(int index)
+void Editor::on_combo_N_highlighted(int index)
 {
     current_room_->set_north(index);
 }
 
-void Editor::on_combo_S_currentIndexChanged(int index)
+void Editor::on_combo_S_highlighted(int index)
 {
     current_room_->set_south(index);
 }
 
-void Editor::on_combo_W_currentIndexChanged(int index)
+void Editor::on_combo_W_highlighted(int index)
 {
     current_room_->set_west(index);
 }
 
-void Editor::on_combo_E_currentIndexChanged(int index)
+void Editor::on_combo_E_highlighted(int index)
 {
     current_room_->set_east(index);
 }
@@ -285,10 +292,15 @@ void Editor::on_edit_room_description_textChanged()
 
 void Editor::load_exits()
 {
+    qDebug() << "\nLOAD EXITS:";
     ui->combo_N->setCurrentIndex(current_room_->get_north());
+    qDebug() << ui->combo_N->currentIndex() << "\t" << current_room_->get_north();
     ui->combo_S->setCurrentIndex(current_room_->get_south());
+    qDebug() << ui->combo_S->currentIndex() << "\t" << current_room_->get_south();
     ui->combo_W->setCurrentIndex(current_room_->get_west());
+    qDebug() << ui->combo_W->currentIndex() << "\t" << current_room_->get_west();
     ui->combo_E->setCurrentIndex(current_room_->get_east());
+    qDebug() << ui->combo_E->currentIndex() << "\t" << current_room_->get_east();
 }
 
 void Editor::on_button_item_clicked()
@@ -457,14 +469,18 @@ void Editor::on_spinBox_item_width_valueChanged(int arg1)
 
 void Editor::on_button_merchant_add_item_clicked()
 {
-    Item_Editor item{"", "", 0, 0, 0, 0, false, false, false};
-    current_person_->add_item(item);
-    current_merchant_item_ = ui->list_merchant_items->count();
-    ui->list_merchant_items->addItem(current_person_->get_back_item().get_name());
-    load_person_item(current_person_->get_item(current_merchant_item_));
-    ui->list_merchant_items->setCurrentRow(current_merchant_item_);
+    if (current_person_->get_merchant() || ui->list_merchant_items->count() < 1)
+    {
+        Item_Editor item{"", "", 0, 0, 0, 0, false, false, false};
+        current_person_->add_item(item);
+        current_merchant_item_ = ui->list_merchant_items->count();
+        ui->list_merchant_items->addItem(current_person_->get_back_item().get_name());
+        load_person_item(current_person_->get_item(current_merchant_item_));
+        ui->list_merchant_items->setCurrentRow(current_merchant_item_);
+    }
 
     // Gör så att det går att skriva om användaren har lagt till ett föremål
+    ui->merchant_item_prefs->setEnabled(true);
     ui->edit_item_description_2->setReadOnly(false);
     ui->edit_item_name_2->setReadOnly(false);
     ui->checkbox_item_pickable_2->setCheckable(true);
@@ -474,13 +490,52 @@ void Editor::on_button_merchant_add_item_clicked()
     ui->edit_item_name_2->setFocus();
 }
 
+void Editor::on_button_merchant_remove_item_clicked()
+{
+    if (ui->list_merchant_items->count() > 0)
+    {
+        if (current_merchant_item_ == ui->list_merchant_items->count() - 1)
+        {
+            current_merchant_item_--;
+            current_person_->pop_back_item();
+        }
+        else
+        {
+            current_person_->delete_item(current_merchant_item_);
+        }
+
+        delete ui->list_merchant_items->currentItem();
+        if (ui->list_merchant_items->count() >= 1)
+            load_person_item(current_person_->get_item(current_merchant_item_));
+
+    }
+    if (ui->list_merchant_items->count() == 0)
+    {
+        ui->merchant_item_prefs->setEnabled(false);
+    }
+}
+
 void Editor::on_menu_save_triggered()
+{
+    QFileDialog dialog;
+    dialog.setDefaultSuffix(".bisys");
+    if (filename_ == "")
+    {
+        QString filename = dialog.getSaveFileName(this, tr("Spara fil"), "~/", tr("Textäventyrsredigerarfiler (*.bisys *.bisysslor)"));
+        save(filename);
+    }
+    else save(filename_);
+
+}
+
+void Editor::on_menu_save_as_triggered()
 {
     QFileDialog dialog;
     dialog.setDefaultSuffix(".bisys");
     QString filename = dialog.getSaveFileName(this, tr("Spara fil"), "~/", tr("Textäventyrsredigerarfiler (*.bisys *.bisysslor)"));
     save(filename);
 }
+
 
 void Editor::on_menu_load_triggered()
 {
@@ -526,14 +581,15 @@ int Editor::save(QString filename)
     }
 
     file.close();
+    filename_ = filename;
     return 0;
 }
 
 int Editor::load(QString filename)
 {
     Room_Editor temp_room;          // Rummet som läsas in
-    Person_Editor temp_person;      // Person som skall läsas in
     Item_Editor temp_item;          // Föremålet som skall läsas in
+    Person_Editor temp_person;      // Person som skall läsas in
     QFile file(filename);           // Filen som skall läsas in (bestäms av användaren)
     QString is_reading {"Nothing"}; // is_reading förklarar för programmet vad som skall laddas. T.ex. om en person eller ett rum skall laddas in
     new_game();
@@ -549,15 +605,6 @@ int Editor::load(QString filename)
            else if (line == "Room:")
                is_reading = "Room";
 
-           else if (line == "Item:")
-               is_reading = "Item";
-           else if (line == "Person:")
-               is_reading = "Person";
-           else if (line == "Merchant:")
-               is_reading = "Merchant";
-           else if (line == "Exits:")
-               is_reading = "Exits";
-
            if (is_reading == "Room")
            {
                if (line.startsWith("Name"))
@@ -565,23 +612,35 @@ int Editor::load(QString filename)
                    temp_room.set_name(line.split(": ").last());
                }
                else if (line.startsWith("Description"))
-                   temp_room.set_description(line.split(": ").last());
+                   temp_room.set_description(line.split(": ").last().replace("\\n", "\n"));
                else if (line == "}")
                {
+                   qDebug() << "temp_room N: "<< temp_room.get_north();
                    add_room(temp_room);
+                   temp_room.clear();
+                   qDebug() << "room N: "<< rooms.at(rooms.size() - 1).get_north();
                    is_reading = "Nothing";
                }
+               else if (line == "Item:")
+                   is_reading = "Item";
+               else if (line == "Person:")
+                   is_reading = "Person";
+               else if (line == "Merchant:")
+                   is_reading = "Merchant";
+               else if (line == "Exits:")
+                   is_reading = "Exits";
+
            }
            else if (is_reading == "Person")
            {
                if (line.startsWith("Name"))
                    temp_person.set_name(line.split(": ").last());
                else if (line.startsWith("Description"))
-                   temp_person.set_description(line.split(": ").last());
+                   temp_person.set_description(line.split(": ").last().replace("\\n", "\n"));
                else if (line.startsWith("Dialog"))
-                   temp_person.set_dialog(line.split(": ").last());
+                   temp_person.set_dialog(line.split(": ").last().replace("\\n", "\n"));
                else if (line.startsWith("Recieved item dialog"))
-                   temp_person.set_recieved_item_dialog(line.split(": ").last());
+                   temp_person.set_recieved_item_dialog(line.split(": ").last().replace("\\n", "\n"));
                else if (line.startsWith("Hair"))
                    temp_person.set_haircolour(line.split(": ").last());
                else if (line.startsWith("Height"))
@@ -604,11 +663,11 @@ int Editor::load(QString filename)
                if (line.startsWith("Name"))
                    temp_person.set_name(line.split(": ").last());
                else if (line.startsWith("Description"))
-                   temp_person.set_description(line.split(": ").last());
+                   temp_person.set_description(line.split(": ").last().replace("\\n", "\n"));
                else if (line.startsWith("Dialog"))
-                   temp_person.set_dialog(line.split(": ").last());
+                   temp_person.set_dialog(line.split(": ").last().replace("\\n", "\n"));
                else if (line.startsWith("Recieved item dialog"))
-                   temp_person.set_recieved_item_dialog(line.split(": ").last());
+                   temp_person.set_recieved_item_dialog(line.split(": ").last().replace("\\n", "\n"));
                else if (line.startsWith("Hair"))
                    temp_person.set_haircolour(line.split(": ").last());
                else if (line.startsWith("Height"))
@@ -619,6 +678,10 @@ int Editor::load(QString filename)
                    temp_person.set_weight(line.split(": ").last().toInt());
                else if (line.startsWith("Wants"))
                    temp_person.set_wanted_item_name(line.split(": ").last());
+               else if (line == "Item:")
+               {
+                   is_reading = "Merchant item";
+               }
                else if (line == "}")
                {
                    temp_room.add_person(temp_person);
@@ -630,7 +693,7 @@ int Editor::load(QString filename)
                if (line.startsWith("Name"))
                    temp_item.set_name(line.split(": ").last());
                else if (line.startsWith("Description"))
-                   temp_item.set_description(line.split(": ").last());
+                   temp_item.set_description(line.split(": ").last().replace("\\n", "\n"));
                else if (line.startsWith("Height"))
                    temp_item.set_length(line.split(": ").last().toInt());
                else if (line.startsWith("Width"))
@@ -649,23 +712,56 @@ int Editor::load(QString filename)
                    is_reading = "Room";
                }
            }
+           else if (is_reading == "Merchant item")
+           {
+               if (line.startsWith("Name"))
+                   temp_item.set_name(line.split(": ").last());
+               else if (line.startsWith("Description"))
+                   temp_item.set_description(line.split(": ").last().replace("\\n", "\n"));
+               else if (line.startsWith("Height"))
+                   temp_item.set_length(line.split(": ").last().toInt());
+               else if (line.startsWith("Width"))
+                   temp_item.set_width(line.split(": ").last().toInt());
+               else if (line.startsWith("Value"))
+                  temp_item.set_value(line.split(": ").last().toInt());
+               else if (line.startsWith("Throwable"))
+                   temp_item.set_throwable(line.split(": ").last().toInt());
+               else if (line.startsWith("Sellable"))
+                   temp_item.set_sellable(line.split(": ").last().toInt());
+               else if (line.startsWith("Pickable"))
+                   temp_item.set_pickable(line.split(": ").last().toInt());
+               else if (line == "}")
+               {
+                   temp_person.add_item(temp_item);
+                   is_reading = "Merchant";
+               }
+           }
            else if (is_reading == "Exits")
            {
                if (line.startsWith("N"))
                {
+                   qDebug() << "\nLadda exits från fil:";
+                   qDebug() << "N: " <<line.split(": ").last() << "\t" << line.split(": ").last().toInt();
                    temp_room.set_north(line.split(": ").last().toInt());
+                   qDebug() << "N:\t" << temp_room.get_north();
                }
                else if (line.startsWith("S"))
                {
+                   qDebug() << "S: " <<line.split(": ").last() << "\t" << line.split(": ").last().toInt();
                    temp_room.set_south(line.split(": ").last().toInt());
+                   qDebug() << "S:\t" << temp_room.get_south();
                }
                else if (line.startsWith("W"))
                {
+                   qDebug() << "W: " <<line.split(": ").last() << "\t" << line.split(": ").last().toInt();
                    temp_room.set_west(line.split(": ").last().toInt());
+                   qDebug() << "W:\t" << temp_room.get_west();
                }
                else if (line.startsWith("E"))
                {
+                   qDebug() << "E: " <<line.split(": ").last() << "\t" << line.split(": ").last().toInt();
                    temp_room.set_east(line.split(": ").last().toInt());
+                   qDebug() << "E:\t" << temp_room.get_east();
                }
                else if (line.endsWith("}"))
                {
@@ -675,27 +771,15 @@ int Editor::load(QString filename)
            }
         }
         file.close();
+        filename_ = filename;
      }
     return 0;
 }
-
-
 
 void Editor::on_edit_item_name_2_textChanged(const QString &arg1)
 {
     current_person_->get_item(current_merchant_item_).set_name(arg1);
     ui->list_merchant_items->item(current_merchant_item_)->setText(arg1);
-}
-
-void Editor::on_button_merchant_remove_item_clicked()
-{
-    if (ui->list_merchant_items->count() > 0)
-    {
-        current_person_->delete_item(current_merchant_item_);
-        delete ui->list_merchant_items->currentItem();
-        if (current_merchant_item_ == ui->list_merchant_items->count() && ui->list_merchant_items->count() > 1)
-            load_item(current_person_->get_item(current_merchant_item_ - 1));
-    }
 }
 
 void Editor::on_edit_item_description_2_textChanged()
@@ -713,6 +797,16 @@ void Editor::on_list_merchant_items_doubleClicked(const QModelIndex &index)
     current_merchant_item_ = index.row();
     load_person_item(current_person_->get_item(current_merchant_item_));
     ui->list_merchant_items->setCurrentRow(current_merchant_item_);
+
+    // Gör så att det går att skriva om användaren har klickat på ett föremål
+    ui->merchant_item_prefs->setEnabled(true);
+    ui->edit_item_description_2->setReadOnly(false);
+    ui->edit_item_name_2->setReadOnly(false);
+    ui->checkbox_item_pickable_2->setCheckable(true);
+    ui->checkbox_item_sellable_2->setCheckable(true);
+    ui->checkbox_item_throwable_2->setCheckable(true);
+    ui->spinbox_item_value_2->setReadOnly(false);
+    ui->edit_item_name_2->setFocus();
 }
 
 
@@ -744,9 +838,4 @@ void Editor::on_spinBox_item_length_2_valueChanged(int arg1)
 void Editor::on_spinBox_item_width_2_valueChanged(int arg1)
 {
     current_person_->get_item(current_merchant_item_).set_width(arg1);
-}
-
-void Editor::on_combobox_rooms_highlighted(int index)
-{
-
 }

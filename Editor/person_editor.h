@@ -34,6 +34,7 @@ public:
     QString get_dialog() const {return dialog_;}
     QString get_wanted_item_name() const {return wanted_item_name_;}
     QString get_recieved_item_dialog() const {return recieved_item_dialog_;}
+    void pop_back_item() {items_.pop_back();}
     int get_weight() const {return weight_;}
     int get_length() const {return length_;}
     int get_width() const {return width_;}
@@ -51,6 +52,7 @@ public:
 
     void add_item(Item_Editor item) {items_.push_back(item);}
     Item_Editor& get_item(size_t index) {return items_.at(index);}
+    std::vector<Item_Editor> get_items() {return items_;}
     Item_Editor& get_back_item() {return items_.back();}
     void delete_item(size_t index) {items_.erase(items_.begin() + index);}
 
