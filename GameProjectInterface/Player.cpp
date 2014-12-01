@@ -331,6 +331,7 @@ QString Player:: set_location(const QString& new_location, Game& G, Room& R)
 {
     int new_room_id{0};
     QString output;
+    QString nothing {""};
 
     vector<int> exits{R.get_room_ids()};
 
@@ -342,7 +343,6 @@ QString Player:: set_location(const QString& new_location, Game& G, Room& R)
     {
         if(exits.at(0) != 0)
         {
-            QString nothing {""};
             location_  = exits.at(0);
             output.append(look(nothing, G));
             return output;
@@ -358,9 +358,7 @@ QString Player:: set_location(const QString& new_location, Game& G, Room& R)
         if(exits.at(1) != 0)
         {
             location_ = exits.at(1);
-            output = G.get_room(location_).get_name() + "<br>";
-            output.append(G.get_room(location_).get_description() + "<br>");
-            output.append(G.get_room(location_).get_directions());
+            output.append(look(nothing, G));
             return output;
         }
         else
@@ -373,9 +371,7 @@ QString Player:: set_location(const QString& new_location, Game& G, Room& R)
         if(exits.at(2) != 0)
         {
             location_ = exits.at(2);
-            output = G.get_room(location_).get_name() + "<br>";
-            output.append(G.get_room(location_).get_description() + "<br>");
-            output.append(G.get_room(location_).get_directions());
+            output.append(look(nothing, G));
             return output;
         }
         else
@@ -388,9 +384,7 @@ QString Player:: set_location(const QString& new_location, Game& G, Room& R)
         if(exits.at(3) != 0)
         {
             location_ = exits.at(3);
-            output = G.get_room(location_).get_name() + "<br>";
-            output.append(G.get_room(location_).get_description() + "<br>");
-            output.append(G.get_room(location_).get_directions());
+            output.append(look(nothing, G));
             return output;
         }
 
