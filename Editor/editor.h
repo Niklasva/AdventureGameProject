@@ -120,7 +120,17 @@ private slots:
     void on_combo_S_highlighted(int index);
     void on_combo_W_highlighted(int index);
     void on_combo_E_highlighted(int index);
+    void on_key_N_textChanged(const QString &arg1);
+    void on_key_S_textChanged(const QString &arg1);
+    void on_key_W_textChanged(const QString &arg1);
+    void on_key_E_textChanged(const QString &arg1);
 
+
+    void select_tab_1();
+    void select_tab_2();
+    void select_tab_3();
+
+    void on_menu_documentation_triggered();
 private:
     Ui::Editor *ui;
     void load_NPC(const Person_Editor p);

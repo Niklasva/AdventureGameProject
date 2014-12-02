@@ -8,19 +8,19 @@ Room:
 	{
 		Name: Rektor Stig
 		Description: Lång och smal
-		Dialog: "Tjenare professorn!\nVi inom universitet kan tvyärr inte ha dig här 24/7 på grund av policyskäl. Då alla studenter kuggar på diskrettentan sedan tjugo år tillbaks så börjar vi undra om det verkligen beror på dem."\n\nRektor Stig räcker ett semesterbevis till professorn. \n\n"Jag skulle vilja att du tar semester ett tag för att vila upp dig lite och kanske då bli lite snällare mot eleverna."\n\nProfessorn tänker för sig själv att nu har de förbannade odugliga eleverna satt honom i ännu en knipa. Men då han är  förälskad i sitt jobb och vill vara på rektorns goda sida känner han att han borde gå med på rektorns villkor.
+		Dialog: Tjenare professorn!\nVi inom universitet kan tvyärr inte ha dig här 24/7 på grund av policyskäl. Då allt fler studenter kuggar på diskrettentan så börjar vi undra om det verkligen beror på dem. Jag skulle vilja att du tar semester ett tag för att vila upp dig lite och kanske då bli lite snällare mot eleverna.\n\nProfessorn tänker för sig själv att nu har de förbannade odugliga eleverna satt honom i ännu en knipa. Men då han är som förälskad i sitt jobb och vill vara på rektorns goda sida känner han at han borde gå med på rektorns villkor.
 		Recieved item dialog: 
 		Hair: 
-		Height: 70
-		Width: 2
-		Weight: 5
+		Height: 0
+		Width: 0
+		Weight: 0
 		Wants: 
 	}
 
 	Exits:
 	{
 		N: 2
-		N key: 
+		N key: dörr
 		S: 0
 		S key: 
 		W: 0
@@ -135,7 +135,7 @@ Room:
 Room:
 {
 	Name: Professorns hus, datorrummet
-	Description: För att ta reda på vad ordet semester betyder, tänkte professorn ta hjälp av sin dator. Datorn är en ZX-80-klon från sovietunionen som är uppkopplad både till usenet och internet. Tack vare soviets stora java-fas, är Ask-toolbar installerad på datorn och professorn använder det för att söka efter meningen med ordet "semester".
+	Description: "avtalad ledighet under ett visst antal av årets dagar."
 
 	Exits:
 	{
@@ -225,7 +225,7 @@ Room:
 	Item:
 	{
 		Name: Plötsligt händer det
-		Description: Det var ännu en mörk novemberdag den 27:e, då diskret matematik tentan gavs. Många studenter har hållt på med denna kursen i snart 15 års tid men aldrig klarat den. Men en kille vid namn Jon Tenerholm lyckas få precis en 3:a på denna tentan. Professorn blir helt lyrisk när han väl träffar denna grabben då han är den första genomtiderna som har klarat tentan. Jon Tenerholm har tidigare vunnit nobelpriset och blev professor vid 19 års ålder. 
+		Description: Det var ännu en mörk novemberdag den 27:e, då diskret matematik tentan gavs. Många studenter har hålt på med denna kursen i snart 15 årstid men aldrig klarat den. Men kille vid namn Jon Tenerholm lyckas få precis en 3:a på denna tentan. Professorn blir helt lyrisk när han väl träffar denna grabben då han är den första genomtiderna som har klarat tentan. Jon Tenerholm har tidigare vunnit nobelpriset och blev professor vid 19 års ålder. 
 		Height: 0
 		Width: 0
 		Weight: 0
@@ -293,11 +293,11 @@ Room:
 		Name: Granntant Åsa
 		Description: 
 		Dialog: Åh vad jobbigt det är! Jag har sökt runt hela svea rike för att hitta Henning Mankells mordet i diskmatten, men den har inte varit tillgänglig sedan 70-talet. Hur ska jag nu kunna ta vara på min semester?
-		Recieved item dialog: Tack så hemskt mycket för den fina boken din jävel.\nBTW.. Erik suger!!!
+		Recieved item dialog: 
 		Hair: Grå
-		Height: 9
-		Width: 99
-		Weight: 99
+		Height: 0
+		Width: 0
+		Weight: 0
 		Wants: Henning Mankells mordet i diskmatten
 	}
 

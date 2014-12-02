@@ -37,6 +37,16 @@ public:
     void set_east(int e) {east_ = e;}
     void set_west(int w) {west_ = w;}
 
+    void set_north_key(QString key) {north_key_ = key;}
+    void set_south_key(QString key) {south_key_ = key;}
+    void set_east_key(QString key) {east_key_ = key;}
+    void set_west_key(QString key) {west_key_ = key;}
+
+    QString get_north_key() {return north_key_;}
+    QString get_south_key() {return south_key_;}
+    QString get_east_key() {return east_key_;}
+    QString get_west_key() {return west_key_;}
+
     int get_north() const {return north_;}
     int get_south() const {return south_;}
     int get_east() const {return east_;}
@@ -47,6 +57,7 @@ private:
     std::vector<Item_Editor> items_;
     QString name_, description_;
     int north_, south_, west_, east_;
+    QString north_key_, south_key_, west_key_, east_key_ {""};
 
 };
 

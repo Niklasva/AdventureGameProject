@@ -343,9 +343,25 @@ QString Player:: set_location(const QString& new_location, Game& G, Room& R)
     {
         if(exits.at(0) != 0)
         {
-            location_  = exits.at(0);
-            output.append(look(nothing, G));
-            return output;
+            if (R.get_north_key() == "")
+            {
+                location_  = exits.at(0);
+                output.append(look(nothing, G));
+                return output;
+            }
+            else
+            {
+                for (Item i : inventory_)
+                {
+                    if (i.get_name() == R.get_north_key())
+                    {
+                        location_  = exits.at(0);
+                        output.append(look(nothing, G));
+                        return output;
+                    }
+                }
+                return ("Du behöver en " + R.get_north_key() + " för att passera.");
+            }
         }
         else
         {

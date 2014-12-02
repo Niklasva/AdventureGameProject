@@ -17,6 +17,7 @@ void Game::read_file(const QString& filename)
     if (file.open(QIODevice::ReadOnly))
     {
         QTextStream in(&file);
+        in.setCodec("UTF-8");
         while ( !in.atEnd() )
         {
 
@@ -53,7 +54,7 @@ void Game::read_file(const QString& filename)
                     add_room(temp_room);
                     is_reading = "Nothing";
 
-                    Room          temp_room2;          // Rummet som läsas in
+                    Room          temp_room2;        // Rummet som läsas in
                     Person        temp_person2;      // Person som skall läsas in
                     Merchant      temp_merchant2;
                     Item          temp_item2;
@@ -146,23 +147,26 @@ void Game::read_file(const QString& filename)
             }
             else if (is_reading == "Exits")
             {
-                if (line.startsWith("N"))
-                {
+                if (line.startsWith("N:"))
                     temp_room.set_north(line.split(": ").last().toInt());
-                }
-                else if (line.startsWith("S"))
-                {
-                    temp_room.set_south(line.split(": ").last().toInt());
+                else if (line.startsWith("N key:"))
+                    temp_room.set_north_key(line.split(": ").last());
 
-                }
-                else if (line.startsWith("W"))
-                {
+                else if (line.startsWith("S:"))
+                    temp_room.set_south(line.split(": ").last().toInt());
+                else if (line.startsWith("S key:"))
+                    temp_room.set_south_key(line.split(": ").last());
+
+                else if (line.startsWith("W:"))
                     temp_room.set_west(line.split(": ").last().toInt());
-                }
-                else if (line.startsWith("E"))
-                {
+                else if (line.startsWith("W key:"))
+                    temp_room.set_west_key(line.split(": ").last());
+
+                else if (line.startsWith("E:"))
                     temp_room.set_east(line.split(": ").last().toInt());
-                }
+                else if (line.startsWith("E key:"))
+                    temp_room.set_east_key(line.split(": ").last());
+
                 else if (line.endsWith("}"))
                 {
                     is_reading = "Room";

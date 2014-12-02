@@ -32,7 +32,6 @@ AdventureWindow::~AdventureWindow()
     delete ui;
 }
 
-
 void AdventureWindow::help()
 {
     ui->text_box->setText(G_.get_help());

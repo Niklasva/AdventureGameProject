@@ -3,12 +3,20 @@
 #include <QDebug>
 #include <QFile>
 #include <QFileDialog>
+#include <QShortcut>
+#include <QDesktopServices>
 
 int current_merchant_item_ = 0;
 Editor::Editor(QWidget *parent) :
     QMainWindow(parent), ui(new Ui::Editor)
 {
     ui->setupUi(this);
+    QShortcut *tab1 = new QShortcut(QKeySequence("Ctrl+1"), this);
+    QShortcut *tab2 = new QShortcut(QKeySequence("Ctrl+2"), this);
+    QShortcut *tab3 = new QShortcut(QKeySequence("Ctrl+3"), this);
+    QObject::connect(tab1, SIGNAL(activated()), this, SLOT(select_tab_1()));
+    QObject::connect(tab2, SIGNAL(activated()), this, SLOT(select_tab_2()));
+    QObject::connect(tab3, SIGNAL(activated()), this, SLOT(select_tab_3()));
     new_game();
 }
 
@@ -21,6 +29,19 @@ Editor::~Editor()
 void Editor::on_menu_new_triggered()
 {
     new_game();
+}
+
+void Editor::select_tab_1()
+{
+    ui->tabWidget->setCurrentIndex(0);
+}
+void Editor::select_tab_2()
+{
+    ui->tabWidget->setCurrentIndex(1);
+}
+void Editor::select_tab_3()
+{
+    ui->tabWidget->setCurrentIndex(2);
 }
 
 void Editor::new_game()
@@ -105,6 +126,8 @@ void Editor::on_list_npcs_doubleClicked(const QModelIndex &index)
     ui->edit_height->setReadOnly(false);
     ui->checkbox_Merchant->setCheckable(true);
     ui->edit_name->setFocus();
+    ui->person_tabs->setEnabled(true);
+    ui->items_for_sale_tab->setEnabled(true);
 }
 
 void Editor::on_button_npc_clicked()
@@ -146,7 +169,6 @@ void Editor::on_button_new_room_clicked()
 
 void Editor::add_room(Room_Editor room)
 {
-    qDebug() << "add_room N:" << room.get_north();
     rooms.push_back(room);
     QString room_name {"Rum "};
     room_name.append(QString::number(rooms.size()));
@@ -287,20 +309,17 @@ void Editor::on_edit_room_description_textChanged()
 
 // -- SLUT: Funktioner som sparar värdena som användaren skriver in --
 
-
-
-
 void Editor::load_exits()
 {
-    qDebug() << "\nLOAD EXITS:";
     ui->combo_N->setCurrentIndex(current_room_->get_north());
-    qDebug() << ui->combo_N->currentIndex() << "\t" << current_room_->get_north();
     ui->combo_S->setCurrentIndex(current_room_->get_south());
-    qDebug() << ui->combo_S->currentIndex() << "\t" << current_room_->get_south();
     ui->combo_W->setCurrentIndex(current_room_->get_west());
-    qDebug() << ui->combo_W->currentIndex() << "\t" << current_room_->get_west();
     ui->combo_E->setCurrentIndex(current_room_->get_east());
-    qDebug() << ui->combo_E->currentIndex() << "\t" << current_room_->get_east();
+
+    ui->key_E->setText(current_room_->get_east_key());
+    ui->key_S->setText(current_room_->get_south_key());
+    ui->key_W->setText(current_room_->get_west_key());
+    ui->key_N->setText(current_room_->get_north_key());
 }
 
 void Editor::on_button_item_clicked()
@@ -331,6 +350,7 @@ void Editor::on_list_items_doubleClicked(const QModelIndex &index)
     current_item_= index.row();
     load_item(current_room_->get_item(current_item_));
     ui->edit_item_name->setFocus();
+    ui->tab_item->setEnabled(true);
 }
 
 void Editor::load_item(const Item_Editor& item)
@@ -556,6 +576,7 @@ int Editor::save(QString filename)
     }
     file.resize(0);
     QTextStream out(&file);
+    out.setCodec("UTF-8");
     for (size_t i {0}; i < rooms.size(); ++i)
     {
         out << "// Room " << i+1 << "\nRoom:\n{\n";                        // Inledning
@@ -574,9 +595,16 @@ int Editor::save(QString filename)
 
         out << "\n\tExits:\n\t{\n";                                         // -- Riktingar --
         out << "\t\tN: " << rooms.at(i).get_north() << "\n";                // Utskrift av north
+        out << "\t\tN key: " << rooms.at(i).get_north_key() << "\n";
+
         out << "\t\tS: " << rooms.at(i).get_south() << "\n";                // Utskrift av south
+        out << "\t\tS key: " << rooms.at(i).get_south_key() << "\n";
+
         out << "\t\tW: " << rooms.at(i).get_west() << "\n";                 // Utskrift av west
-        out << "\t\tE: " << rooms.at(i).get_east() << "\n\t}\n";            // Utskrift av east och avslut av riktningar
+        out << "\t\tW key: " << rooms.at(i).get_west_key() << "\n";
+
+        out << "\t\tE: " << rooms.at(i).get_east() << "\n";
+        out << "\t\tE key: " << rooms.at(i).get_east_key() << "\n\t}\n";   // Utskrift av east och avslut av riktningar
         out << "\n}\n\n";                                                   // Avslut
     }
 
@@ -596,6 +624,7 @@ int Editor::load(QString filename)
     if (file.open(QIODevice::ReadOnly))
     {
         QTextStream in(&file);
+        in.setCodec("UTF-8");
         while ( !in.atEnd() )
         {
            QString line = in.readLine();
@@ -615,10 +644,8 @@ int Editor::load(QString filename)
                    temp_room.set_description(line.split(": ").last().replace("\\n", "\n"));
                else if (line == "}")
                {
-                   qDebug() << "temp_room N: "<< temp_room.get_north();
                    add_room(temp_room);
                    temp_room.clear();
-                   qDebug() << "room N: "<< rooms.at(rooms.size() - 1).get_north();
                    is_reading = "Nothing";
                }
                else if (line == "Item:")
@@ -738,31 +765,26 @@ int Editor::load(QString filename)
            }
            else if (is_reading == "Exits")
            {
-               if (line.startsWith("N"))
-               {
-                   qDebug() << "\nLadda exits från fil:";
-                   qDebug() << "N: " <<line.split(": ").last() << "\t" << line.split(": ").last().toInt();
+               if (line.startsWith("N:"))
                    temp_room.set_north(line.split(": ").last().toInt());
-                   qDebug() << "N:\t" << temp_room.get_north();
-               }
-               else if (line.startsWith("S"))
-               {
-                   qDebug() << "S: " <<line.split(": ").last() << "\t" << line.split(": ").last().toInt();
+               else if (line.startsWith("N key:"))
+                   temp_room.set_north_key(line.split(": ").last());
+
+               else if (line.startsWith("S:"))
                    temp_room.set_south(line.split(": ").last().toInt());
-                   qDebug() << "S:\t" << temp_room.get_south();
-               }
-               else if (line.startsWith("W"))
-               {
-                   qDebug() << "W: " <<line.split(": ").last() << "\t" << line.split(": ").last().toInt();
+               else if (line.startsWith("S key:"))
+                   temp_room.set_south_key(line.split(": ").last());
+
+               else if (line.startsWith("W:"))
                    temp_room.set_west(line.split(": ").last().toInt());
-                   qDebug() << "W:\t" << temp_room.get_west();
-               }
-               else if (line.startsWith("E"))
-               {
-                   qDebug() << "E: " <<line.split(": ").last() << "\t" << line.split(": ").last().toInt();
+               else if (line.startsWith("W key:"))
+                   temp_room.set_west_key(line.split(": ").last());
+
+               else if (line.startsWith("E:"))
                    temp_room.set_east(line.split(": ").last().toInt());
-                   qDebug() << "E:\t" << temp_room.get_east();
-               }
+               else if (line.startsWith("E key:"))
+                   temp_room.set_east_key(line.split(": ").last());
+
                else if (line.endsWith("}"))
                {
                    is_reading = "Room";
@@ -838,4 +860,29 @@ void Editor::on_spinBox_item_length_2_valueChanged(int arg1)
 void Editor::on_spinBox_item_width_2_valueChanged(int arg1)
 {
     current_person_->get_item(current_merchant_item_).set_width(arg1);
+}
+
+void Editor::on_key_N_textChanged(const QString &arg1)
+{
+    current_room_->set_north_key(arg1);
+}
+
+void Editor::on_key_S_textChanged(const QString &arg1)
+{
+    current_room_->set_south_key(arg1);
+}
+
+void Editor::on_key_W_textChanged(const QString &arg1)
+{
+    current_room_->set_west_key(arg1);
+}
+
+void Editor::on_key_E_textChanged(const QString &arg1)
+{
+    current_room_->set_east_key(arg1);
+}
+
+void Editor::on_menu_documentation_triggered()
+{
+    QDesktopServices::openUrl(QUrl("Dokumentation.html"));
 }
