@@ -61,7 +61,7 @@ QString Player::read_input(QString& input, Game& G)
     }
     else if(command == "GÅ" || command == "GO") //fulhackadet har inga gränser... Det här är väl inte fulhack?
     {
-        output_.append(decide_direction(arg, G));
+        output_.append(set_location(arg, G, G.get_room(location_)));
     }
 
     else if(command == "GE")
@@ -101,22 +101,6 @@ QString Player::read_input(QString& input, Game& G)
     }
 
     return output_;
-}
-
-QString Player::decide_direction(QString& arg, Game& G)
-{
-    auto room  = G.get_room(location_); // Vi hamnar i rätt rum.
-    room.get_directions();
-
-    if(arg == "NORTH" || arg == "SOUTH"
-            || arg == "WEST" || arg == "EAST"
-            || arg == "ÖST" || arg == "VÄST"
-            || arg == "SYD" || arg == "NORR")
-    {
-        return set_location(arg,G,room);
-    }
-    else
-        return "null";
 }
 
 QString Player::give(QString& item_to_give,const QString& person_to_give_to,Game& G)
@@ -371,7 +355,7 @@ QString Player:: set_location(const QString& new_location, Game& G, Room& R)
     {
         if(exits.at(0) != 0)
         {
-            if (R.get_north_key() == "")
+            if (R.get_key(0) == "")
             {
                 location_  = exits.at(0);
                 output.append(look(nothing, G));
@@ -381,14 +365,14 @@ QString Player:: set_location(const QString& new_location, Game& G, Room& R)
             {
                 for (Item i : inventory_)
                 {
-                    if (i.get_name() == R.get_north_key())
+                    if (i.get_name() == R.get_key(0))
                     {
                         location_  = exits.at(0);
                         output.append(look(nothing, G));
                         return output;
                     }
                 }
-                return ("Du behöver en " + R.get_north_key() + " för att passera.");
+                return ("Du behöver en " + R.get_key(0) + " för att passera.");
             }
         }
         else
@@ -401,45 +385,116 @@ QString Player:: set_location(const QString& new_location, Game& G, Room& R)
     {
         if(exits.at(1) != 0)
         {
-            location_ = exits.at(1);
-            output.append(look(nothing, G));
-            return output;
+            if (R.get_key(1) == "")
+            {
+                location_  = exits.at(1);
+                output.append(look(nothing, G));
+                return output;
+            }
+            else
+            {
+                for (Item i : inventory_)
+                {
+                    if (i.get_name() == R.get_key(1))
+                    {
+                        location_  = exits.at(1);
+                        output.append(look(nothing, G));
+                        return output;
+                    }
+                }
+                return ("Du behöver en " + R.get_key(1) + " för att passera.");
+            }
         }
         else
         {
-            return "Du kan inte gå söderut din dummjöns <br>";
+            return "Du kan inte gå söderut dummerjöns<br>";
         }
     }
     else if(new_location == "VÄSTERUT" || new_location == "VÄST")
     {
         if(exits.at(2) != 0)
         {
-            location_ = exits.at(2);
-            output.append(look(nothing, G));
-            return output;
+            if (R.get_key(2) == "")
+            {
+                location_  = exits.at(2);
+                output.append(look(nothing, G));
+                return output;
+            }
+            else
+            {
+                for (Item i : inventory_)
+                {
+                    if (i.get_name() == R.get_key(2))
+                    {
+                        location_  = exits.at(2);
+                        output.append(look(nothing, G));
+                        return output;
+                    }
+                }
+                return ("Du behöver en " + R.get_key(2) + " för att passera.");
+            }
         }
         else
         {
-            return "Du kan inte gå väst in dummerjöns <br>";
+            return "Du kan inte gå väst dummerjöns<br>";
         }
     }
     else if(new_location == "ÖSTERUT" || new_location == "ÖST")
     {
         if(exits.at(3) != 0)
         {
-            location_ = exits.at(3);
-            output.append(look(nothing, G));
-            return output;
+            if (R.get_key(3) == "")
+            {
+                location_  = exits.at(3);
+                output.append(look(nothing, G));
+                return output;
+            }
+            else
+            {
+                for (Item i : inventory_)
+                {
+                    if (i.get_name() == R.get_key(3))
+                    {
+                        location_  = exits.at(3);
+                        output.append(look(nothing, G));
+                        return output;
+                    }
+                }
+                return ("Du behöver en " + R.get_key(3) + " för att passera.");
+            }
         }
-
         else
         {
-            return "Du kan inte gå öst din dummerjöns<br>";
+            return "Du kan inte gå österut dummerjöns<br>";
         }
     }
     else
     {
-        return "Sorry kompis";
-    }
+        for (size_t i {0}; i < exits.size(); ++i)
+        {
+            if (new_location == G.rooms_.at(exits.at(i)).get_name().toUpper())
+            {
+                if (R.get_key(i) == "")
+                {
+                    location_  = exits.at(i);
+                    output.append(look(nothing, G));
+                    return output;
+                }
+                else
+                {
+                    for (Item p : inventory_)
+                    {
+                        if (p.get_name() == R.get_key(i))
+                        {
+                            location_  = exits.at(i);
+                            output.append(look(nothing, G));
+                            return output;
+                        }
+                    }
+                    return ("Du behöver en " + R.get_key(i) + " för att passera.");
+                }
+            }
+        }
 
+    }
 }
