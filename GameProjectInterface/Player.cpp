@@ -16,7 +16,7 @@ QString Player::read_input(QString& input, Game& G)
     input = input.toUpper();
     QStringList input_list = input.split(QRegExp("\\s"));
     qDebug() <<  input_list;
-
+    QString output_;
     QString command, arg;
 
     command = input_list[0];
@@ -34,9 +34,9 @@ QString Player::read_input(QString& input, Game& G)
     qDebug() << command << "\t" << arg;
 
     if (output_ != "")
-        output_.append("<br>");
+        output_.append("<br><br>");
 
-    output_.append(">" + input +"<br>");
+    output_.append("<br><b>>" + input +"</b><br>");
 
 
     if((command == "ÄVENTYRSKORG") ||  (command == "TITTA På  äVENTYRSKORG") || (command == "INVENTORY"))
@@ -87,6 +87,10 @@ QString Player::read_input(QString& input, Game& G)
     {
         output_.append(look(arg,G));
     }
+    else if(command == "KASTA" || command == "SLÄNG")
+    {
+        output_.append(toss(arg,G));
+    }
     else if(command == "HJÄLP")
     {
         output_ = G.get_help();
@@ -125,44 +129,38 @@ QString Player::give(QString& item_to_give,const QString& person_to_give_to,Game
     Item tmp_item;
     QString output;
     auto room  = G.get_room(location_);
-    auto person_vector = room.get_persons(); //Person vector kommer nu vara vektorn med de personer som finns i rummet vi �r i.
+    std::vector<Person> person_vector = room.get_persons(); //Person vector kommer nu vara vektorn med de personer som finns i rummet vi är i.
 
     for(unsigned int i{0}; i < inventory_.size(); ++i)
     {
         if(inventory_.at(i).get_name().toUpper() == item_to_give)
         {
-            if(inventory_.at(i).is_throwable())
-            {
-                tmp_item = inventory_.at(i); //Provar med defaultkonstruktorn.
-                inventory_.erase(inventory_.begin()+i);
-                //cout << "Du ger " << item_to_give << " till " << person_to_give_to << endl;
-                output.append("Du ger" + item_to_give + " till " + person_to_give_to);
+            tmp_item = inventory_.at(i);
+            inventory_.erase(inventory_.begin()+i);
+            output.append("Du ger " + item_to_give + " till " + person_to_give_to + "<br>");
+        }
+    }
 
+    for(size_t p{0}; p < person_vector.size(); ++p)
+    {
+        if(person_vector.at(p).get_name().toUpper() == person_to_give_to) //om input är ett namn på en person i rummet
+        {
+            qDebug() << person_vector.at(p).get_item_event();
+            if(person_vector.at(p).wanted_item(tmp_item)) // Kolla om personen vill ha föremålet
+            {
+                G.get_room(location_).get_persons().at(p).set_item_event(true); // Flippa bool fan
+                output.append(person_vector.at(p).get_name() + " säger: " + person_vector.at(p).get_recieved_item_dialog() + "<br>");
+                if (person_vector.at(p).get_item().get_name() != "")
+                {
+                    inventory_.push_back(person_vector.at(p).get_item());
+                    output.append("och ger dig sin " + person_vector.at(p).get_item().get_name().toLower() + ".");
+                }
             }
             else
             {
-                output.append(item_to_give + " går inte att bara kasta bort eller ge bort.<br>");
-                break;
+                output.append("Men " + person_vector.at(p).get_name() + " vill inte ha din " + tmp_item.get_name().toLower());
             }
-        }
-    }
-    bool  can_give_away {tmp_item.is_throwable()};
-
-    if(can_give_away)
-    {
-        for(Person p : person_vector) //search for persons in room
-        {
-            if(p.get_name() == person_to_give_to) //om input �r namn
-            {
-                if(p.wanted_item(tmp_item)) //If the persons wants the item.
-                {
-                    output.append(p.get_name() + " säger: " + p.get_recieved_item_dialog());
-                }
-                else
-                {
-                    output.append("Så knasigt det kan bli");
-                }
-            }
+            qDebug() << person_vector.at(p).get_item_event();
         }
     }
     return output;
@@ -170,17 +168,30 @@ QString Player::give(QString& item_to_give,const QString& person_to_give_to,Game
 
 QString Player::talk(QString& person_to_talk_with, Game& G)
 {
-    //Beroende p� om personen finns eller ej och massa andra paramtetrar..
-
-    auto room  = G.get_room(location_);
-    auto person_vector = room.get_persons(); //Person vector kommer nu vara vektorn med de personer som finns i rummet vi �r i.
+    vector<Person> person_vector = G.get_room(location_).get_persons();
     bool found = false;
-
-    for(auto i: person_vector)
+    for(size_t p{0}; p < person_vector.size();++p)
     {
-        if(i.get_name().toUpper() == person_to_talk_with)
+        Person* i = &person_vector.at(p);
+        if(i->get_name().toUpper() == person_to_talk_with)
         {
-            return (person_to_talk_with + " säger:<br>" + i.get_dialog());
+            qDebug() << i->get_item_event();
+            if (!i->get_item_event() && i->get_wanted_item_name() == "" && i->has_item())
+            {
+                G.get_room(location_).get_persons().at(p).set_item_event(true);
+                qDebug() << i->get_item_event();
+                inventory_.push_back(i->get_item());
+                return (person_to_talk_with + " säger:<br>" + i->get_dialog());
+            }
+            else if(i->get_item_event() == true)
+            {
+                return (person_to_talk_with + " säger:<br>" + i->get_recieved_item_dialog());
+            }
+            else if (i->get_item_event() == false)
+            {
+                return (person_to_talk_with + " säger:<br>" + i->get_dialog());
+            }
+
             found = true;
             break;
         }
@@ -198,11 +209,7 @@ QString Player::take(QString& thing_to_pick_up,Game& G)
 {
 
     auto item_vector = G.get_room(location_).get_items();
-    bool sucess{false};
-
-    //ui-> textBrowser->setText("Vad vill du plocka upp<br>");
-
-    //ui->lineEdit->clear();
+    bool success{false};
 
     std::cerr << thing_to_pick_up.toStdString() << endl;
 
@@ -212,16 +219,14 @@ QString Player::take(QString& thing_to_pick_up,Game& G)
         {
             inventory_.push_back(item_vector.at(i));
             G.get_room(location_).remove_item(i);
-            sucess = true;
+            success = true;
         }
     }
 
-
-    if(sucess)
+    if(success)
     {
         return ("Du plockade upp " + thing_to_pick_up);
     }
-
 
     return "Detta gick inte bra alls.";
 }
@@ -252,11 +257,9 @@ QString Player::look(QString& thing_to_look_at, Game& G)
             {
                 output =  output + i.get_name() + "<br>";
             }
-        bool items_exist{false};
 
         if(!item_vector.empty())
         {
-            items_exist = true;
             output = output + "<br>Följande föremål:<br>";
         }
 
@@ -327,6 +330,31 @@ QString Player::look(QString& thing_to_look_at, Game& G)
     return output;
 }
 
+QString Player::toss(QString& item_name, Game& G)
+{
+    QString output;
+    for (size_t i {0}; i < inventory_.size(); ++i)
+    {
+        if(inventory_.at(i).get_name().toUpper() == item_name)
+        {
+            if (inventory_.at(i).is_throwable())
+            {
+                output.append("Du slänger iväg " + inventory_.at(i).get_name() + "<br>");
+                G.get_room(location_).set_item(inventory_.at(i));
+                inventory_.erase(inventory_.begin() + i);
+            }
+            else
+            {
+                output.append(inventory_.at(i).get_name() + " går inte att kasta.");
+            }
+        }
+        else
+        {
+            output.append("Du har inte " + item_name.toLower());
+        }
+    }
+    return output;
+}
 QString Player:: set_location(const QString& new_location, Game& G, Room& R)
 {
     int new_room_id{0};

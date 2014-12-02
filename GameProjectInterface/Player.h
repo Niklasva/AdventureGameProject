@@ -31,16 +31,18 @@ public:
     Item get_item_from_inventory(const int& index);
     int get_money();
     QString look(QString &thing_to_look_at, Game &G);
+    std::vector<Item> get_inventory() {return inventory_;}
+
 private:
     int money_{0};
     int location_{1};
     std::vector <Item> inventory_;
-    QString output_;
 
     QString decide_direction(QString&, Game& G);
     QString give(QString &, const QString&, Game &);
     QString talk(QString &person_to_talk_with,Game&);
     QString take(QString &thing_to_pick_up, Game&);
+    QString toss(QString &item, Game&);
 
 
 };

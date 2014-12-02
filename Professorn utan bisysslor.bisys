@@ -9,18 +9,31 @@ Room:
 		Name: Rektor Stig
 		Description: Lång och smal
 		Dialog: "Tjenare professorn!\nVi inom universitet kan tvyärr inte ha dig här 24/7 på grund av policyskäl. Då alla studenter kuggar på diskrettentan sedan tjugo år tillbaks så börjar vi undra om det verkligen beror på dem."\n\nRektor Stig räcker ett semesterbevis till professorn. \n\n"Jag skulle vilja att du tar semester ett tag för att vila upp dig lite och kanske då bli lite snällare mot eleverna."\n\nProfessorn tänker för sig själv att nu har de förbannade odugliga eleverna satt honom i ännu en knipa. Men då han är  förälskad i sitt jobb och vill vara på rektorns goda sida känner han att han borde gå med på rektorns villkor.
-		Recieved item dialog: 
+		Recieved item dialog: Seså! Spring och lek! Ha semester!
 		Hair: 
 		Height: 70
 		Width: 2
 		Weight: 5
 		Wants: 
+
+	Item:
+	{
+		Name: Semesterbevis
+		Description: Ett bevis på professorns ledighet. Signerat av Rektor Stig.
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
 	}
 
 	Exits:
 	{
 		N: 2
-		N key: 
+		N key: Semesterbevis
 		S: 0
 		S key: 
 		W: 0
@@ -288,7 +301,7 @@ Room:
 	Name: Lambohov, Professorns trädgård
 	Description: Nu när professorn vet innebörden av ordet semester, är han förskräckt. Han vet ingenting annat än sitt jobb och han har absolut inga bisysslor. Det enda han tycker är roligt utanför universitetsvärlden är att borsta tänderna, men han kan ju knappast göra det dagarna i ända,
 
-	Person:
+	Merchant:
 	{
 		Name: Granntant Åsa
 		Description: 
@@ -299,6 +312,45 @@ Room:
 		Width: 99
 		Weight: 99
 		Wants: Henning Mankells mordet i diskmatten
+
+	Item:
+	{
+		Name: Semesterbevis
+		Description: Ett bevis på professorns ledighet. Signerat av Rektor Stig.
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Item:
+	{
+		Name: Semesterbevis
+		Description: Ett bevis på professorns ledighet. Signerat av Rektor Stig.
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Item:
+	{
+		Name: Semesterbevis
+		Description: Ett bevis på professorns ledighet. Signerat av Rektor Stig.
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
 	}
 
 	Exits:

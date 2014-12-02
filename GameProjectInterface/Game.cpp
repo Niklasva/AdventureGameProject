@@ -20,7 +20,6 @@ void Game::read_file(const QString& filename)
         in.setCodec("UTF-8");
         while ( !in.atEnd() )
         {
-
             QString line = in.readLine();
             line.replace("\t", ""); // Plocka bort inledande tab
 
@@ -30,14 +29,6 @@ void Game::read_file(const QString& filename)
             else if (line == "Room:")
                 is_reading = "Room";
 
-            else if (line == "Item:")
-                is_reading = "Item";
-            else if (line == "Person:")
-                is_reading = "Person";
-            else if (line == "Merchant:")
-                is_reading = "Merchant";
-            else if (line == "Exits:")
-                is_reading = "Exits";
 
             if (is_reading == "Room")
             {
@@ -67,6 +58,14 @@ void Game::read_file(const QString& filename)
 
 
                 }
+                else if (line == "Item:")
+                    is_reading = "Item";
+                else if (line == "Person:")
+                    is_reading = "Person";
+                else if (line == "Merchant:")
+                    is_reading = "Merchant";
+                else if (line == "Exits:")
+                    is_reading = "Exits";
             }
             else if (is_reading == "Person")
             {
@@ -88,11 +87,39 @@ void Game::read_file(const QString& filename)
                     temp_person.set_weight(line.split(": ").last().toInt());
                 else if (line.startsWith("Wants"))
                     temp_person.set_wanted_item_name(line.split(": ").last());
+                else if (line == "Item:")
+                {
+                    is_reading = "Person item";
+                }
                 else if (line == "}")
                 {
                     //Skapa temp_person här.
                     temp_room.set_person(temp_person);
                     is_reading = "Room";
+                }
+            }
+            else if (is_reading == "Person item")
+            {
+                if (line.startsWith("Name"))
+                    temp_item.set_name(line.split(": ").last());
+                else if (line.startsWith("Description"))
+                    temp_item.set_description(line.split(": ").last().replace("\\n", "<br>"));
+                else if (line.startsWith("Height"))
+                    temp_item.set_length(line.split(": ").last().toInt());
+                else if (line.startsWith("Width"))
+                    temp_item.set_width(line.split(": ").last().toInt());
+                else if (line.startsWith("Value"))
+                    temp_item.set_value(line.split(": ").last().toInt());
+                else if (line.startsWith("Throwable"))
+                    temp_item.set_throwable(line.split(": ").last().toInt());
+                else if (line.startsWith("Sellable"))
+                    temp_item.set_possible_to_sell(line.split(": ").last().toInt());
+                else if (line.startsWith("Pickable"))
+                    temp_item.set_pickable(line.split(": ").last().toInt());
+                else if (line == "}")
+                {
+                    temp_person.set_item(temp_item);
+                    is_reading = "Person";
                 }
             }
             else if (is_reading == "Merchant")

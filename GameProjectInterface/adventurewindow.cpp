@@ -56,6 +56,11 @@ void AdventureWindow::on_menu_load_triggered()
 void AdventureWindow::on_lineEdit_returnPressed()
 {
     QString input {ui->lineEdit->text()};
-    ui->text_box->setText(P_.read_input(input,G_)); //Go down the path of the player.
+    ui->text_box->append(P_.read_input(input,G_)); //Go down the path of the player.
     ui->lineEdit->clear();
+    ui->inventory_list->clear();
+    for (Item i : P_.get_inventory())
+    {
+        ui->inventory_list->addItem(i.get_name());
+    }
 }

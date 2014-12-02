@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 3.0.1, 2014-11-26T09:34:54. -->
+<!-- Written by QtCreator 3.0.1, 2014-12-02T12:29:58. -->
 <qtcreator>
  <data>
   <variable>ProjectExplorer.Project.ActiveTarget</variable>
@@ -34,7 +34,7 @@
    <value type="bool" key="EditorConfiguration.ScrollWheelZooming">true</value>
    <value type="int" key="EditorConfiguration.SmartBackspaceBehavior">0</value>
    <value type="bool" key="EditorConfiguration.SpacesForTabs">true</value>
-   <value type="int" key="EditorConfiguration.TabKeyBehavior">0</value>
+   <value type="int" key="EditorConfiguration.TabKeyBehavior">2</value>
    <value type="int" key="EditorConfiguration.TabSize">8</value>
    <value type="bool" key="EditorConfiguration.UseGlobal">true</value>
    <value type="int" key="EditorConfiguration.Utf8BomBehavior">1</value>
@@ -117,7 +117,7 @@
     <value type="bool" key="Qt4ProjectManager.Qt4BuildConfiguration.UseShadowBuild">true</value>
    </valuemap>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.1">
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/nikva346/TDDI02-master/build-Editor-Desktop-Release</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/nikva346/Downloads/TDDI02-master/build-Editor-Desktop-Release</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>

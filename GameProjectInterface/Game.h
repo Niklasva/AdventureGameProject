@@ -26,6 +26,7 @@ class Game
 {
 public:
     Room& get_room(const int& index){return rooms_.at(index);} //Returnerar rum id
+    Room* get_room_ptr(const size_t& index) {return &rooms_.at(index);}
     void add_room(const Room& R){rooms_.push_back(R);}
     void read_file(const QString& filename);
 

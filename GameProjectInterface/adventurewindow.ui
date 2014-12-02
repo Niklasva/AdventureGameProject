@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>520</width>
-    <height>536</height>
+    <width>500</width>
+    <height>472</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -73,16 +73,7 @@ p, li { white-space: pre-wrap; }
         </widget>
        </item>
        <item>
-        <widget class="QTextBrowser" name="Inventory">
-         <property name="font">
-          <font>
-           <family>Utopia</family>
-           <weight>75</weight>
-           <italic>true</italic>
-           <bold>true</bold>
-          </font>
-         </property>
-        </widget>
+        <widget class="QListWidget" name="inventory_list"/>
        </item>
       </layout>
      </widget>
@@ -95,8 +86,8 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>520</width>
-     <height>20</height>
+     <width>500</width>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuArkiv">

@@ -10,13 +10,13 @@ public:
     Person(const QString& name,
            const QString& description,
            const int& weight,
-           const int& length, //Kommer ovan.
+           const int& length,
            const bool& can_carry,
            const QString& haircolour,
            const QString& dialog,
            const QString& wanted_item_name_,
            const QString& recieved_item_dialog)
-        : Object{name,description,weight,length},//Skickar upp i hierarkin
+        : Object{name,description,weight,length},
           can_carry_{can_carry}, haircolour_{haircolour},
           dialog_{dialog}, wanted_item_name_{wanted_item_name_},
           recieved_item_dialog_{recieved_item_dialog}
@@ -31,14 +31,17 @@ public:
     void set_received_item_dialog(const QString& item_dialog){recieved_item_dialog_ = item_dialog;}
     void set_haircolour(const QString& haircolour){haircolour_ = haircolour;}
     void set_wanted_item_name(const QString& item_name){wanted_item_name_ = item_name;}
-
-
+    void set_item(Item& item) {item_ = item;}
 
     bool wanted_item(Item&);
+    QString& get_wanted_item_name() {return wanted_item_name_;}
 
 
 
-
+    bool get_item_event() {return item_event_;}
+    Item& get_item() {return item_;}
+    void set_item_event(bool item_event) {item_event_ = item_event;}
+    bool has_item() {return (item_.get_name() != "");}
 
 
 
@@ -48,6 +51,8 @@ private:
     QString dialog_;
     QString wanted_item_name_;
     QString recieved_item_dialog_;
+    Item item_;
+    bool item_event_ {false};
 };
 
 

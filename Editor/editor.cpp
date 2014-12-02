@@ -588,7 +588,7 @@ int Editor::save(QString filename)
             out << s.print_person();
         }
 
-        for (Item_Editor s : rooms.at(i).get_items())                      // Utskrift av person
+        for (Item_Editor s : rooms.at(i).get_items())                      // Utskrift av föremål
         {
             out << s.print_item();
         }
@@ -678,6 +678,10 @@ int Editor::load(QString filename)
                    temp_person.set_weight(line.split(": ").last().toInt());
                else if (line.startsWith("Wants"))
                    temp_person.set_wanted_item_name(line.split(": ").last());
+               else if (line == "Item:")
+               {
+                   is_reading = "Person item";
+               }
                else if (line == "}")
                {
                    temp_room.add_person(temp_person);
@@ -761,6 +765,30 @@ int Editor::load(QString filename)
                {
                    temp_person.add_item(temp_item);
                    is_reading = "Merchant";
+               }
+           }
+           else if (is_reading == "Person item")
+           {
+               if (line.startsWith("Name"))
+                   temp_item.set_name(line.split(": ").last());
+               else if (line.startsWith("Description"))
+                   temp_item.set_description(line.split(": ").last().replace("\\n", "\n"));
+               else if (line.startsWith("Height"))
+                   temp_item.set_length(line.split(": ").last().toInt());
+               else if (line.startsWith("Width"))
+                   temp_item.set_width(line.split(": ").last().toInt());
+               else if (line.startsWith("Value"))
+                  temp_item.set_value(line.split(": ").last().toInt());
+               else if (line.startsWith("Throwable"))
+                   temp_item.set_throwable(line.split(": ").last().toInt());
+               else if (line.startsWith("Sellable"))
+                   temp_item.set_sellable(line.split(": ").last().toInt());
+               else if (line.startsWith("Pickable"))
+                   temp_item.set_pickable(line.split(": ").last().toInt());
+               else if (line == "}")
+               {
+                   temp_person.add_item(temp_item);
+                   is_reading = "Person";
                }
            }
            else if (is_reading == "Exits")
