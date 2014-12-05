@@ -142,10 +142,38 @@ void Game::read_file(const QString& filename)
                     temp_merchant.set_weight(line.split(": ").last().toInt());
                 else if (line.startsWith("Wants"))
                     temp_merchant.set_wanted_item_name(line.split(": ").last());
+                else if (line == "Item:")
+                {
+                    is_reading = "Merchant item";
+                }
                 else if (line == "}")
                 {
-                    temp_room.set_person(temp_person);
+                    temp_room.set_merchant(temp_merchant);
                     is_reading = "Room";
+                }
+            }
+            else if (is_reading == "Merchant item")
+            {
+                if (line.startsWith("Name"))
+                    temp_item.set_name(line.split(": ").last());
+                else if (line.startsWith("Description"))
+                    temp_item.set_description(line.split(": ").last().replace("\\n", "\n"));
+                else if (line.startsWith("Height"))
+                    temp_item.set_length(line.split(": ").last().toInt());
+                else if (line.startsWith("Width"))
+                    temp_item.set_width(line.split(": ").last().toInt());
+                else if (line.startsWith("Value"))
+                   temp_item.set_value(line.split(": ").last().toInt());
+                else if (line.startsWith("Throwable"))
+                    temp_item.set_throwable(line.split(": ").last().toInt());
+                else if (line.startsWith("Sellable"))
+                    temp_item.set_possible_to_sell(line.split(": ").last().toInt());
+                else if (line.startsWith("Pickable"))
+                    temp_item.set_pickable(line.split(": ").last().toInt());
+                else if (line == "}")
+                {
+                    temp_merchant.add_item(temp_item); //adds a item to the merchant.
+                    is_reading = "Merchant";
                 }
             }
             else if (is_reading == "Item")

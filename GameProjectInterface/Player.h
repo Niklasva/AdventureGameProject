@@ -43,6 +43,9 @@ private:
     QString talk(QString &person_to_talk_with,Game&);
     QString take(QString &thing_to_pick_up, Game&);
     QString toss(QString &item, Game&);
+    QString combine_items(QString& first_item, QString& second_item);
+    QString sale(QString& item_to_sell,QString& person_to_sell_to,Room& room);
+    QString trade(QString& item_to_buy, QString& person_to_buy_from, Room& room);
 
 
 };

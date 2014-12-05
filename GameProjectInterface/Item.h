@@ -24,6 +24,10 @@ public:
     void set_pickable(const bool& pickup){pickup_ = pickup;}
     void set_possible_to_sell(const bool& sellable){possible_to_sell_ = sellable;}
     void set_throwable(const bool& throwable){throwable_ = throwable;}
+    int get_value() {return value_;}
+
+
+    int get_price(){return value_;}
 
 private:
     bool pickup_;

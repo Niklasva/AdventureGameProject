@@ -73,6 +73,14 @@ QString Player::read_input(QString& input, Game& G)
         qDebug() << "Ge " << item_to_give << " till " << person_to_give_to;
         output_.append(give(item_to_give, person_to_give_to, G));
     }
+    else if(command == "KOMBINERA")
+    {
+        QStringList qsl {input.split(" MED ")};
+        QString first_item{qsl.first()};
+        QString second_item {qsl.last()};
+        first_item.replace(command + " ", "");
+        output_.append(combine_items(first_item, second_item));
+    }
 
     else if(command == "PRATA")
     {
@@ -95,6 +103,33 @@ QString Player::read_input(QString& input, Game& G)
     {
         output_ = G.get_help();
     }
+
+    else if((command == "HANDLA" || command == "KÖP") && arg != "")
+    {
+        QStringList qsl {input.split(" AV ")};
+        QString merchant {qsl.last()};
+        QString item_to_buy{qsl.first()};
+        item_to_buy.replace(command + " ", "");
+        output_.append(trade(item_to_buy, merchant, G.get_room(location_)));
+    }
+
+    else if((command == "SÄLJ" || command == "AVYTTRA" ) && arg != "")
+    {
+        QStringList qsl {input.split(" TILL ")}; //Lista med Qsträngar.
+        QString merchant {qsl.last()};
+        QString item_to_sell{qsl.first()};
+        item_to_sell.replace(command + " ", "");
+        output_.append(sale(item_to_sell, merchant, G.get_room(location_)));
+    }
+
+
+    else if(command == "PENNINGPUNG" || command == "PENGAR" || command == "CASHMONEY" || command == "MONEY")
+    {
+        QString money_as_a_string {QString::number(money_)};
+        output_.append("Du har " + money_as_a_string + " $ på fickan\n"); // se över
+    }
+
+
     else
     {
         output_.append( "Nu blev jag förvirrad<br> Felaktigt kommando<br>");
@@ -114,14 +149,12 @@ QString Player::give(QString& item_to_give,const QString& person_to_give_to,Game
     QString output;
     auto room  = G.get_room(location_);
     std::vector<Person> person_vector = room.get_persons(); //Person vector kommer nu vara vektorn med de personer som finns i rummet vi är i.
-
-    for(unsigned int i{0}; i < inventory_.size(); ++i)
+    int i {0};
+    for(;i < inventory_.size(); ++i)
     {
         if(inventory_.at(i).get_name().toUpper() == item_to_give)
         {
             tmp_item = inventory_.at(i);
-            inventory_.erase(inventory_.begin()+i);
-            output.append("Du ger " + item_to_give + " till " + person_to_give_to + "<br>");
         }
     }
 
@@ -132,6 +165,7 @@ QString Player::give(QString& item_to_give,const QString& person_to_give_to,Game
             qDebug() << person_vector.at(p).get_item_event();
             if(person_vector.at(p).wanted_item(tmp_item)) // Kolla om personen vill ha föremålet
             {
+                inventory_.erase(inventory_.begin()+i);
                 G.get_room(location_).get_persons().at(p).set_item_event(true); // Flippa bool fan
                 output.append(person_vector.at(p).get_name() + " säger: " + person_vector.at(p).get_recieved_item_dialog() + "<br>");
                 if (person_vector.at(p).get_item().get_name() != "")
@@ -154,6 +188,10 @@ QString Player::talk(QString& person_to_talk_with, Game& G)
 {
     vector<Person> person_vector = G.get_room(location_).get_persons();
     bool found = false;
+    vector<Merchant> merchant_vector = G.get_room(location_).get_merchants();
+
+
+
     for(size_t p{0}; p < person_vector.size();++p)
     {
         Person* i = &person_vector.at(p);
@@ -180,6 +218,27 @@ QString Player::talk(QString& person_to_talk_with, Game& G)
             break;
         }
     }
+
+    //En egen uppsättning.
+        for(auto i: merchant_vector)
+        {
+            if(i.get_name().toUpper() == person_to_talk_with)
+            {
+
+                QString sales_items {""};
+                for(auto j: i.get_items_for_sale())
+                {
+            sales_items = j.get_name() + "," + sales_items;
+                }
+
+                sales_items = person_to_talk_with + " säger: Hej. Jag säljer följande föremål:" +  sales_items + "\n\n";
+
+                return (sales_items + person_to_talk_with + " säger:<br>" + i.get_dialog());
+                found = true;
+                break;
+            }
+        }
+
 
     if(!found)
     {
@@ -222,6 +281,7 @@ QString Player::look(QString& thing_to_look_at, Game& G)
     auto room  = G.get_room(location_);
     auto person_vector = room.get_persons(); //Person vector kommer nu vara vektorn med de personer som finns i rummet vi �r i.
     auto item_vector = room.get_items();      // Har rummets items.
+    std::vector<Merchant> merchant_vector = room.get_merchants();
 
 
     if(thing_to_look_at == "")   // När inget argument är inmatat, generellt titta
@@ -236,11 +296,27 @@ QString Player::look(QString& thing_to_look_at, Game& G)
             persons_exits = true;
         }
 
+        bool merchants_exists{false};
+        if(!merchant_vector.empty())
+        {
+            output = output + "<br>I rummet finns följande handelsmän:<br>";
+            merchants_exists = true;
+        }
+
         if(persons_exits)
             for(auto i: person_vector)
             {
                 output =  output + i.get_name() + "<br>";
             }
+
+        if(merchants_exists)
+        {
+            for(auto i: merchant_vector)
+            {
+                output = output + i.get_name() + "<br>";
+            }
+
+        }
 
         if(!item_vector.empty())
         {
@@ -498,3 +574,104 @@ QString Player:: set_location(const QString& new_location, Game& G, Room& R)
 
     }
 }
+
+QString Player::combine_items(QString& first_item, QString& second_item)
+{
+    if (inventory_.empty())
+        return "Du har inget i äventyrskorgen";
+    for (size_t i{0}; i < inventory_.size(); ++i)
+    {
+        if (inventory_.at(i).get_name().toUpper() == first_item && inventory_.at(i).is_throwable())
+        {
+            Item temp_item = inventory_.at(i);
+            for (size_t j {0}; j < inventory_.size(); ++j)
+            {
+                if (inventory_.at(j).get_name().toUpper() == second_item && inventory_.at(j).is_throwable())
+                {
+                    Item temp_item2 = inventory_.at(j);
+                    Item combined_item;
+                    combined_item.set_name(temp_item.get_name() + temp_item2.get_name().toLower());
+                    combined_item.set_description(temp_item.get_description() + "<br>" + temp_item2.get_description());
+                    combined_item.set_length(temp_item.get_length() + temp_item2.get_length());
+                    combined_item.set_value(temp_item.get_value() + temp_item2.get_value());
+                    combined_item.set_weight(temp_item.get_weight() + temp_item2.get_weight());
+                    combined_item.set_width(temp_item.get_width() + temp_item2.get_width());
+
+                    inventory_.erase(inventory_.begin() + i);
+                    inventory_.erase(inventory_.begin() + j);
+                    inventory_.push_back(combined_item);
+
+                    return "";
+
+
+                }
+            }
+        }
+
+    }
+    return "Det gick inte.";
+}
+
+
+
+QString Player::trade(QString& item_to_buy, QString& person_to_buy_from, Room& room)
+{
+    Merchant* m;
+    for(size_t i{0}; i < room.get_merchants().size();++i)
+    {
+        m = &room.get_merchants().at(i);
+
+        if(m->get_name().toUpper() == person_to_buy_from)
+        {
+            for(size_t j{0}; j < m->get_items_for_sale().size(); ++j)
+            {
+                if(m->get_items_for_sale().at(j).get_name().toUpper() == item_to_buy) //Om vi lyckats lokalisera föremålet som vi vill köpa.
+                {
+                    if(money_ >= m->get_items_for_sale().at(j).get_price()) // i detta läge går det att köpa.
+                    {
+                        money_ -= m->get_items_for_sale().at(j).get_price();
+                        inventory_.push_back(m->get_item(j));
+                        m->remove_item(j);
+                        for (Item i : m->get_items_for_sale())
+                        qDebug() << i.get_name();
+                        return ("Du handlade " + item_to_buy + "");
+                    }
+
+                }
+            }
+        }
+    }
+    return "Du lyckades inte köpa " + item_to_buy;
+}
+
+
+QString Player::sale(QString& item_to_sell,QString& person_to_sell_to,Room& room)
+{
+     Merchant* merchant_pointer;
+
+    for(size_t i{0}; i < room.get_merchants().size();++i)
+    {
+        merchant_pointer = &room.get_merchants().at(i); //m kommer att peka på den nuvarande handelsmannen.
+
+        if(merchant_pointer->get_name().toUpper() == person_to_sell_to)
+        {
+            for(size_t j{0}; j < inventory_.size(); ++j) //Loopa igenom spelarens inventory.
+            {
+                if(inventory_.at(j).get_name().toUpper() == item_to_sell) //Föremålet vi vill sälja
+                {
+
+                  money_ = inventory_.at(j).get_price(); // Spelaren säljer sitt föremål
+                  merchant_pointer->add_item(inventory_.at(j));
+                  inventory_.erase(inventory_.begin()+j);
+                  return ("Du sålde " + item_to_sell + "");
+                }
+            }
+        }
+    }
+
+    return "Du lyckades inte sälja " + item_to_sell;
+
+}
+
+
+

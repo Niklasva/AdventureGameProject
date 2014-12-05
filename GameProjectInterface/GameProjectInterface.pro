@@ -19,8 +19,7 @@ SOURCES += main.cpp\
     Player.cpp \
     Room.cpp \
     Item.cpp \
-    Person.cpp \
-    Merchant.cpp
+    Person.cpp
 
 HEADERS  += adventurewindow.h \
     Game.h \
