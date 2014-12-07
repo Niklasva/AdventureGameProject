@@ -238,7 +238,7 @@ Room:
 	Item:
 	{
 		Name: Plötsligt händer det
-		Description: Det var ännu en mörk novemberdag den 27:e, då diskret matematik tentan gavs. Många studenter har hållt på med denna kursen i snart 15 års tid men aldrig klarat den. Men en kille vid namn Jon Tenerholm lyckas få precis en 3:a på denna tentan. Professorn blir helt lyrisk när han väl träffar denna grabben då han är den första genomtiderna som har klarat tentan. Jon Tenerholm har tidigare vunnit nobelpriset och blev professor vid 19 års ålder. 
+		Description: Det var ännu en mörk novemberdag den 27:e, då diskret matematik tentan gavs. Många studenter har hållt på med denna kursen i snart 15 års tid men aldrig klarat den. Men en kille vid namn Åke Åkerman lyckas få precis en 3:a på denna tentan. Professorn blir helt lyrisk när han väl träffar denna grabben då han är den första genomtiderna som har klarat tentan. Åke Åkerman  har tidigare vunnit nobelpriset och blev professor vid 19 års ålder. 
 		Height: 0
 		Width: 0
 		Weight: 0
@@ -305,13 +305,13 @@ Room:
 	{
 		Name: Granntant Åsa
 		Description: 
-		Dialog: Åh vad jobbigt det är! Jag har sökt runt hela svea rike för att hitta Henning Mankells mordet i diskmatten, men den har inte varit tillgänglig sedan 70-talet. Hur ska jag nu kunna ta vara på min semester?
+		Dialog: Åh vad jobbigt det är! Jag har sökt runt hela svea rike för att hitta Henrik  Mankellos mordet i aritmiken, men den har inte varit tillgänglig sedan 70-talet. Hur ska jag nu kunna ta vara på min semester?
 		Recieved item dialog: Tack så hemskt mycket för den fina boken din jävel.\nBTW.. Erik suger!!!
 		Hair: Grå
 		Height: 9
 		Width: 99
 		Weight: 99
-		Wants: Henning Mankells mordet i diskmatten
+		Wants: Henrik Mankellos  mordet i aritmiken
 
 	Item:
 	{

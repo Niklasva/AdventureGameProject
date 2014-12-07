@@ -339,19 +339,19 @@ QString Player::look(QString& thing_to_look_at, Game& G)
             {
                 if(j == i && i != 0)
                 {
-                    if (index == room.n_ && index != 0)
+                    if (i == room.n_ && i != 0)
                     {
                         output = output + "Norr: ";
                     }
-                    else if (index == room.s_ && index != 0)
+                    else if (i == room.s_ && i != 0)
                     {
                         output = output + "Syd: ";
                     }
-                    else if (index == room.e_ && index != 0)
+                    else if (i == room.e_ && i != 0)
                     {
                         output = output + "Öst: ";
                     }
-                    else if (index == room.w_ && index != 0)
+                    else if (i == room.w_ && i != 0)
                     {
                         output = output + "Väst: ";
                     }
