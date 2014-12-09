@@ -27,7 +27,7 @@ public:
     void add_item(const Item& I){items_for_sale_.push_back(I);}
     void remove_item(const int& index){items_for_sale_.erase(items_for_sale_.begin()+index);}
     std::vector<Item> get_items_for_sale(){ return items_for_sale_;}
-    Item get_item(const int& index)& {return items_for_sale_.at(index);}
+    Item get_item(const int& index) {return items_for_sale_.at(index);}
 
 
 private:

@@ -35,7 +35,7 @@ public:
 
 private:
     int money_{0};
-    int location_{1};
+    int location_{11};
     std::vector <Item> inventory_;
 
     QString decide_direction(QString&, Game& G);
@@ -46,8 +46,6 @@ private:
     QString combine_items(QString& first_item, QString& second_item);
     QString sale(QString& item_to_sell,QString& person_to_sell_to,Room& room);
     QString trade(QString& item_to_buy, QString& person_to_buy_from, Room& room);
-
-
 };
 
 

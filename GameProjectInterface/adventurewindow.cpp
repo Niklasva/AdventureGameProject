@@ -64,3 +64,11 @@ void AdventureWindow::on_lineEdit_returnPressed()
         ui->inventory_list->addItem(i.get_name());
     }
 }
+
+
+
+void AdventureWindow::on_inventory_list_itemDoubleClicked(QListWidgetItem *item)
+{
+    QString oj {item->text().toUpper()};
+        ui->text_box->append(P_.look(oj, G_));
+}

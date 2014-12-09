@@ -646,6 +646,12 @@ int Editor::load(QString filename)
                {
                    add_room(temp_room);
                    temp_room.clear();
+                   Person_Editor clear_person;
+                   Item_Editor clear_item;
+
+                   temp_person = clear_person;
+                   temp_item = clear_item;
+
                    is_reading = "Nothing";
                }
                else if (line == "Item:")
@@ -684,7 +690,9 @@ int Editor::load(QString filename)
                }
                else if (line == "}")
                {
+                   Person_Editor clear_person;
                    temp_room.add_person(temp_person);
+                   temp_person = clear_person;
                    is_reading = "Room";
                }
            }
@@ -715,7 +723,9 @@ int Editor::load(QString filename)
                }
                else if (line == "}")
                {
+                   Person_Editor clear_person;
                    temp_room.add_person(temp_person);
+                   temp_person = clear_person;
                    is_reading = "Room";
                }
            }

@@ -29,13 +29,14 @@ public:
     Player P_;
     Game G_;
 
-
 private slots:
 
     void on_lineEdit_returnPressed();
     void help();
     void clear();
     void on_menu_load_triggered();
+    void on_inventory_list_itemDoubleClicked(QListWidgetItem *item);
 };
 
 #endif // ADVENTUREWINDOW_H
+

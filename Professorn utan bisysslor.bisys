@@ -48,7 +48,7 @@ Room:
 Room:
 {
 	Name: G-huset
-	Description: 
+	Description: Ett mörkt och dystert område där kriminaliteten och misären är som störst. Här är en så kallad No-go zone som inte ens polisen vågar besöka. På grund av professorns bakgrund inom KGB och hans kunskaper inom diskret matematik så är han inte rädd för någon och väljer att ha föreläsningarna här.
 
 	Exits:
 	{
@@ -59,7 +59,7 @@ Room:
 		W: 5
 		W key: 
 		E: 6
-		E key: 
+		E key: Husnyckel
 	}
 
 }
@@ -88,13 +88,39 @@ Room:
 Room:
 {
 	Name: Professorns kontor
-	Description: 
+	Description: Rektor Stigs ord om att ta semester ekar i professorns huvud. Han förstår att det inte är något positivt, men han är osäker på vad order "semester" egentligen betyder. Är det en form av bakelse?
+
+	Item:
+	{
+		Name: AK-47
+		Description: Detta har gjort att ingen student någonsin har vågat överklaga en tenta. Därav går detta föremål att inte plocka upp eller att kasta. Då det skulle krylla av studenter som bankar på dörren och vill överklaga deras misslyckanden. 
+		Height: 8
+		Width: 6
+		Weight: 0
+		Value: 1
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Item:
+	{
+		Name: Husnyckel
+		Description: En nyckel är ett redskap, vanligen av metall, som används för att öppna och stänga ett lås. Nyckeln som passar in i det avsedda låset med sina ax, gör det möjligt att vrida om och låsa upp, stänga och öppna. Flera nycklar kan med en nyckelring eller ett nyckelband sammanfogas till en nyckelknippa.
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 1
+	}
 
 	Exits:
 	{
 		N: 0
 		N key: 
-		S: 0
+		S: 2
 		S key: 
 		W: 0
 		W key: 
@@ -110,6 +136,32 @@ Room:
 	Name: Rektor Stigs kontor
 	Description: 
 
+	Person:
+	{
+		Name: Rektor Stig
+		Description: 
+		Dialog: Seså! Spring och lek!
+		Recieved item dialog: 
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: 
+
+	Item:
+	{
+		Name: Semesterbevis
+		Description: Ett bevis på professorns ledighet. Signerat av Rektor Stig.
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+	}
+
 	Exits:
 	{
 		N: 0
@@ -118,7 +170,7 @@ Room:
 		S key: 
 		W: 0
 		W key: 
-		E: 0
+		E: 2
 		E key: 
 	}
 
@@ -127,18 +179,18 @@ Room:
 // Room 6
 Room:
 {
-	Name: Professorns hus
-	Description: Efter att ha fått order om att ta semester så bestämde sig professorn för att dra sig hemåt.
+	Name: Hem
+	Description: Efter att ha fått beskedet att ta semester så bestämde sig professorn för att dra sig hemåt.
 
 	Exits:
 	{
 		N: 7
 		N key: 
-		S: 0
+		S: 8
 		S key: 
 		W: 2
 		W key: 
-		E: 8
+		E: 0
 		E key: 
 	}
 
@@ -147,8 +199,34 @@ Room:
 // Room 7
 Room:
 {
-	Name: Professorns hus, datorrummet
+	Name: Datorrummet
 	Description: För att ta reda på vad ordet semester betyder, tänkte professorn ta hjälp av sin dator. Datorn är en ZX-80-klon från sovietunionen som är uppkopplad både till usenet och internet. Tack vare soviets stora java-fas, är Ask-toolbar installerad på datorn och professorn använder det för att söka efter meningen med ordet "semester".
+
+	Item:
+	{
+		Name: Professorns dator
+		Description: Professorns dator är fin, men det är inte dags att använda den nu.
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Item:
+	{
+		Name: Säng
+		Description: Efter alla nätter spendarade på sitt jobb, hade professorn glömt bort att han hade en säng.
+		Height: 9
+		Width: 5
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
 
 	Exits:
 	{
@@ -167,7 +245,7 @@ Room:
 // Room 8
 Room:
 {
-	Name: Professorns hus, biblioteket
+	Name: Professorns bibliotek
 	Description: Tio tusen böcker om diskret matematik, men inte en enda som berättar vad ordet semester betyder.
 
 	Item:
@@ -211,7 +289,7 @@ Room:
 
 	Item:
 	{
-		Name: Henning Mankells mordet i diskmatten
+		Name: Mordet i diskmatten
 		Description: Kurt Wallander löser mordet på de värdelösa studeterna som aldrig har ett rätt på tentan. 
 		Height: 0
 		Width: 0
@@ -265,9 +343,9 @@ Room:
 	{
 		N: 0
 		N key: 
-		S: 0
+		S: 9
 		S key: 
-		W: 9
+		W: 0
 		W key: 
 		E: 0
 		E key: 
@@ -278,18 +356,18 @@ Room:
 // Room 9
 Room:
 {
-	Name: Professorns hus, hallen
+	Name: Hem
 	Description: 
 
 	Exits:
 	{
-		N: 7
+		N: 0
 		N key: 
-		S: 10
+		S: 8
 		S key: 
-		W: 0
+		W: 11
 		W key: 
-		E: 8
+		E: 0
 		E key: 
 	}
 
@@ -298,25 +376,353 @@ Room:
 // Room 10
 Room:
 {
-	Name: Lambohov, Professorns trädgård
-	Description: Nu när professorn vet innebörden av ordet semester, är han förskräckt. Han vet ingenting annat än sitt jobb och han har absolut inga bisysslor. Det enda han tycker är roligt utanför universitetsvärlden är att borsta tänderna, men han kan ju knappast göra det dagarna i ända,
+	Name: Biblioteket
+	Description: Tio tusen böcker om diskret matematik, men inte en enda som berättar vad ordet semester betyder.
 
-	Merchant:
+	Item:
+	{
+		Name: Diskret Matematik grundkurs
+		Description: Denna läste professorn när han var 4 år gammal.
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Item:
+	{
+		Name: Diskret matematik för odugliga
+		Description: Den här boken brukar professorn rekommendera för sina studenter.
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Item:
+	{
+		Name: Diskret matematik bibel
+		Description: En diskret matematik på 10 000 sidor, där allt beskrivs in i minsta detalj. Denna bok har professorn läst mer än vad han har borstat tänderna i sitt liv. 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Item:
+	{
+		Name: Mordet i diskmatten
+		Description: Kurt Wallander löser mordet på de värdelösa studeterna som aldrig har ett rätt på tentan. 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 1
+	}
+
+	Item:
+	{
+		Name: Dagens ungdom - En mattesaga
+		Description: Där beskriver författaren att dagens ungdomar är helt odugliga och skulle aldrig klara av att förstå diskret matematiks biblen. 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Item:
+	{
+		Name: Plötsligt händer det
+		Description: Det var ännu en mörk novemberdag den 27:e, då diskret matematik tentan gavs. Många studenter har hålt på med denna kursen i snart 15 årstid men aldrig klarat den. Men kille vid namn Jon Tenerholm lyckas få precis en 3:a på denna tentan. Professorn blir helt lyrisk när han väl träffar denna grabben då han är den första genomtiderna som har klarat tentan. Jon Tenerholm har tidigare vunnit nobelpriset och blev professor vid 19 års ålder. 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Item:
+	{
+		Name: Diskret matematik, allt du behöver veta för att klara tentan!
+		Description: En bok på 5000 sidor där du skall kunna allting för att klara tentan.
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Exits:
+	{
+		N: 9
+		N key: 
+		S: 0
+		S key: 
+		W: 0
+		W key: 
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 11
+Room:
+{
+	Name: Ut
+	Description: På gatan utanför professorns hus kvittrar fåglarna.
+
+	Person:
 	{
 		Name: Granntant Åsa
 		Description: 
-		Dialog: Åh vad jobbigt det är! Jag har sökt runt hela svea rike för att hitta Henrik  Mankellos mordet i aritmiken, men den har inte varit tillgänglig sedan 70-talet. Hur ska jag nu kunna ta vara på min semester?
-		Recieved item dialog: Tack så hemskt mycket för den fina boken din jävel.\nBTW.. Erik suger!!!
-		Hair: Grå
-		Height: 9
-		Width: 99
-		Weight: 99
-		Wants: Henrik Mankellos  mordet i aritmiken
+		Dialog: Åh vad jobbigt det är! Jag har sökt runt hela svea rike för att hitta Henning Mankells mordet i diskmatten, men den har inte varit tillgänglig sedan 70-talet. Hur ska jag nu kunna ta vara på min semester?
+		Recieved item dialog: Tack så hemskt mycket, nu kan jag äntligen ta vara på min semester.\n\nSå har du hört det senaste? Mor Perberg säger att han ska granska konditoriet, men jag vet att han bara är där för att han svag för tant Agdas prisbelönta prinsesstårta. Dessutom har jag hört att Rådan, uppe vid skogsområdet är helt tokig i att grilla korv.
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: Mordet i diskmatten
+	}
+
+	Person:
+	{
+		Name: Panka Pekka
+		Description: Klädd i en brun skinnrock med slitna kostymbyxor. Det ser ut som att han inte har så mycket kosing på sig.
+		Dialog: Vad vill du?
+		Recieved item dialog: Åh fan, tack så möe. *hick* Här får du lite snus.
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: Stänkare
 
 	Item:
 	{
-		Name: Semesterbevis
-		Description: Ett bevis på professorns ledighet. Signerat av Rektor Stig.
+		Name: Snus
+		Description: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 1
+		Sellable: 0
+		Pickable: 0
+	}
+	}
+
+	Exits:
+	{
+		N: 14
+		N key: 
+		S: 9
+		S key: 
+		W: 12
+		W key: Granntant Åsas nyckel
+		E: 13
+		E key: 
+	}
+
+}
+
+// Room 12
+Room:
+{
+	Name: Granntant Åsas hus
+	Description: Ingen är hemma. Det verkar som att Granntant Åsa inte märkte att du bröt dig in.
+
+	Item:
+	{
+		Name: Stugnyckel
+		Description: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 1
+	}
+
+	Exits:
+	{
+		N: 0
+		N key: 
+		S: 15
+		S key: 
+		W: 16
+		W key: 
+		E: 11
+		E key: 
+	}
+
+}
+
+// Room 13
+Room:
+{
+	Name: Tant Agdas konditori
+	Description: 
+
+	Merchant:
+	{
+		Name: Tant Agda
+		Description: 
+		Dialog: Hejsan hoppsan! Välkommen!\nJag säljer alla möjliga tårtor, fast bara prinsesstårtor idag. Vi har lite problem med att ingredienser försvinner från källaren, så vi har låst.\nJag köper även in diverse varor.
+		Recieved item dialog: 
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: 
+
+	Item:
+	{
+		Name: Prinsesstårta
+		Description: Tant Agdas prisbelönta prinsesstårta.
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 15
+		Throwable: 0
+		Sellable: 0
+		Pickable: 1
+	}
+	}
+
+	Person:
+	{
+		Name: Girige Göran
+		Description: 
+		Dialog: Hej! Får jag kolla på din plånbok?
+		Recieved item dialog: Hehe, tack så mycket! Här får du en tårtgaffel.
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: Plånbok
+
+	Item:
+	{
+		Name: Tårtgaffel
+		Description: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 5
+		Throwable: 0
+		Sellable: 1
+		Pickable: 0
+	}
+	}
+
+	Person:
+	{
+		Name: Tårtmakare Tomas
+		Description: 
+		Dialog: Stör mig inte, jag försöker uppfinna en helt ny tårta. Jag vill ha en kombination av smaker, hm... Jordgubbskaffe... Banankottar... Ostchoklad...
+		Recieved item dialog: Oj vad spännande!
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: Snuskotte
+
+	Item:
+	{
+		Name: Tårtspade
+		Description: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 5
+		Throwable: 0
+		Sellable: 1
+		Pickable: 0
+	}
+	}
+
+	Exits:
+	{
+		N: 15
+		N key: Källarnyckel
+		S: 0
+		S key: 
+		W: 11
+		W key: 
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 14
+Room:
+{
+	Name: Skogsområde
+	Description: En fin lövskog, en doft av korriander ligger tätt över tallarna. 
+
+	Person:
+	{
+		Name: Rådan
+		Description: En vindpinad man, fylld av erfarenhet. Han sitter och filosoferar vid ett järnvägsspår medans han håller en korv över en öppen eld.
+		Dialog: "Hej min vän slå dig ner i denna domedagsring och vänta på det tåg som aldrig kommer, kanske kommer vi färdas härifrån tillsammans i en dresin utav drömmar. \n\nDock är det en sak som saknas, jag skulle gärna vilja förbättra min korv."
+		Recieved item dialog: "Oj, detta var sannerligen underbart jag skall berätta en sak för dig. Du måste färdas till den heliga Axel genom att vandra drömmarnas stig endast genom ett möte med den heliga skall du få den välsignelse som kräves, gå min vän och må fridens lilljor kanta din väg."\n\nRådan räcker en vas till professorn.\n\n"Ta emot denna vas"
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: Ketchup
+
+	Item:
+	{
+		Name: Vas
+		Description: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 5
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+	}
+
+	Item:
+	{
+		Name: Kotte
+		Description: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 1
+		Sellable: 0
+		Pickable: 1
+	}
+
+	Item:
+	{
+		Name: Lilla stugan i skogen
+		Description: Inga ljus är tända i den lilla stugan, den verkar helt obebodd. Eller?
 		Height: 0
 		Width: 0
 		Weight: 0
@@ -326,10 +732,141 @@ Room:
 		Pickable: 0
 	}
 
+	Exits:
+	{
+		N: 18
+		N key: Stugnyckel
+		S: 11
+		S key: 
+		W: 16
+		W key: 
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 15
+Room:
+{
+	Name: Källare
+	Description: Tant Agdas källare
+
+	Person:
+	{
+		Name: Mor Perberg
+		Description: 
+		Dialog: Oj, hej jag förväntade mig inte att någon skulle komma in hit. Jag är Mor Perberg från Skatteverket och jag håller på att granska Tant Agdas konditori.
+		Recieved item dialog: Oj vilken överraskning! Hur visste du att jag är tokig i prinsesstårta? Är det så tydligt att det egentligen är därför jag är här?\nSnälla säg inget till Tant Agda om att jag är här för att äta upp hennes inventarier, hon skulle bli så arg.\n\nVi gör så här, jag har tillgång till nycklarna till alla hus i byn eftersom jag är från Skatteverket. Jag kan ge dig en reservnyckel till Granntant Åsas hus om du lovar att inte berätta för Tant Agda att jag äter upp hennes tårtor.
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: Prinsesstårta
+
 	Item:
 	{
-		Name: Semesterbevis
-		Description: Ett bevis på professorns ledighet. Signerat av Rektor Stig.
+		Name: Granntant Åsas nyckel
+		Description: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+	}
+
+	Item:
+	{
+		Name: Gamle trofast
+		Description: En röd termos med vissa defekter.
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 4
+		Throwable: 1
+		Sellable: 1
+		Pickable: 1
+	}
+
+	Item:
+	{
+		Name: Stänkare
+		Description: Ett härligt glas av den finaste ryska vodkan, gjort på säd från ukrainas vilda slätter.
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 1
+	}
+
+	Item:
+	{
+		Name: Ketchup
+		Description: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 1
+	}
+
+	Exits:
+	{
+		N: 0
+		N key: 
+		S: 13
+		S key: 
+		W: 0
+		W key: 
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 16
+Room:
+{
+	Name: Lille Fridolfs koja
+	Description: 
+
+	Person:
+	{
+		Name: Lille Fridolf
+		Description: 
+		Dialog: Hej vill du leka med mig? Jag skulle ha lekt med Tårtmakare Tomas men han verkar bara vara intresserad av tårtor och träd och snus.\n\nKan du inte gå och säga till honom? Han borde vara i Tant Agdas konditori, här får du nyckeln.
+		Recieved item dialog: 
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: 
+
+	Item:
+	{
+		Name: Källarnyckel
+		Description: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+	}
+
+	Item:
+	{
+		Name: Plånbok
+		Description: En tom plånbok.
 		Height: 0
 		Width: 0
 		Weight: 0
@@ -339,10 +876,115 @@ Room:
 		Pickable: 0
 	}
 
+	Exits:
+	{
+		N: 0
+		N key: 
+		S: 0
+		S key: 
+		W: 0
+		W key: 
+		E: 14
+		E key: 
+	}
+
+}
+
+// Room 17
+Room:
+{
+	Name: Källare
+	Description: 
+
 	Item:
 	{
-		Name: Semesterbevis
-		Description: Ett bevis på professorns ledighet. Signerat av Rektor Stig.
+		Name: Stugnyckel
+		Description: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 1
+	}
+
+	Exits:
+	{
+		N: 12
+		N key: 
+		S: 0
+		S key: 
+		W: 0
+		W key: 
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 18
+Room:
+{
+	Name: Lilla stugan i skogen
+	Description: Professorn kliver in i den lilla stugan och trycker på lampknappen. Det luktar fisk och get.
+
+	Exits:
+	{
+		N: 19
+		N key: 
+		S: 20
+		S key: 
+		W: 21
+		W key: Yxa
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 19
+Room:
+{
+	Name: Hall
+	Description: 
+
+	Exits:
+	{
+		N: 0
+		N key: 
+		S: 20
+		S key: 
+		W: 21
+		W key: Yxa
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 20
+Room:
+{
+	Name: Vapenrum
+	Description: 
+
+	Person:
+	{
+		Name: Geten Lucifer
+		Description: 
+		Dialog: 
+		Recieved item dialog: 
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: 
+
+	Item:
+	{
+		Name: Yxa
+		Description: Stor yxa. Tillräckligt stor för att kunna förstöra en hel mur.
 		Height: 0
 		Width: 0
 		Weight: 0
@@ -355,9 +997,293 @@ Room:
 
 	Exits:
 	{
-		N: 9
-		N key: dörr
+		N: 0
+		N key: 
 		S: 0
+		S key: 
+		W: 0
+		W key: 
+		E: 1
+		E key: 
+	}
+
+}
+
+// Room 21
+Room:
+{
+	Name: Offerrum
+	Description: Här bemöts professorn av något absurt. Alla bybor dansar runt en bur med kuslig rockmusik i bakgrunden. I buren ser professorn att Mor Perberg är fångad.
+
+Byborna fortsätter att dansa utan att lägga märke till professorn. Mor Perberg är gråtfärdig och ropar förtvivlat efter hjälp.
+
+	Person:
+	{
+		Name: Tant Agda
+		Description: 
+		Dialog: "Nu ska du få för att du stal min prinsesstårta! Låt satans onda andar äta på dig."
+		Recieved item dialog: 
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: 
+	}
+
+	Person:
+	{
+		Name: Granntant Åsa
+		Description: 
+		Dialog: Åhhh!! Ahhhh!
+		Recieved item dialog: 
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: 
+	}
+
+	Person:
+	{
+		Name: Tårtmakare Tomas
+		Description: 
+		Dialog: Tja
+		Recieved item dialog: 
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: 
+	}
+
+	Person:
+	{
+		Name: Panka Pekka
+		Description: 
+		Dialog: Åh satan *hick*
+		Recieved item dialog: 
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: 
+	}
+
+	Person:
+	{
+		Name: Girige Göran
+		Description: 
+		Dialog: 
+		Recieved item dialog: 
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: 
+	}
+
+	Person:
+	{
+		Name: Spinkiga Sture
+		Description: 
+		Dialog: 
+		Recieved item dialog: 
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: 
+	}
+
+	Person:
+	{
+		Name: Mor Perberg
+		Description: 
+		Dialog: Professorn! Hjälp mig! Ge mig något att försvara mig med!
+		Recieved item dialog: Tack för yxan, jag klarar mig nog själv nu. Ta bakdörren ut.
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: Yxa
+
+	Item:
+	{
+		Name: Bakdörrsnyckel
+		Description: Den leder bak
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 1
+	}
+	}
+
+	Item:
+	{
+		Name: Stearinljus
+		Description: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Item:
+	{
+		Name: Getblod
+		Description: Luktar lite som Skäggetorp.
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Item:
+	{
+		Name: Pentagram
+		Description: Ett pentagram målat i blod.
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Item:
+	{
+		Name: Bur
+		Description: En bur innehållandes Mor Perberg.
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Exits:
+	{
+		N: 22
+		N key: Bakdörrsnyckel
+		S: 0
+		S key: 
+		W: 0
+		W key: 
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 22
+Room:
+{
+	Name: Stugans baksida
+	Description: 
+
+	Exits:
+	{
+		N: 0
+		N key: 
+		S: 23
+		S key: 
+		W: 0
+		W key: 
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 23
+Room:
+{
+	Name: Hem
+	Description: 
+
+	Exits:
+	{
+		N: 24
+		N key: 
+		S: 25
+		S key: 
+		W: 0
+		W key: 
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 24
+Room:
+{
+	Name: Datorrum
+	Description: Här finns en säng och en dator
+
+	Item:
+	{
+		Name: Säng
+		Description: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Item:
+	{
+		Name: Dator
+		Description: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Exits:
+	{
+		N: 0
+		N key: 
+		S: 0
+		S key: 
+		W: 0
+		W key: 
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 25
+Room:
+{
+	Name: Bibliotek
+	Description: 
+
+	Exits:
+	{
+		N: 0
+		N key: 
+		S: 23
 		S key: 
 		W: 0
 		W key: 

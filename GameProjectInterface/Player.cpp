@@ -8,8 +8,6 @@
 
 
 using namespace std;
-void set_location(const QString& new_location, Game& G, Room& room);
-
 
 QString Player::read_input(QString& input, Game& G)
 {
@@ -150,12 +148,14 @@ QString Player::give(QString& item_to_give,const QString& person_to_give_to,Game
     auto room  = G.get_room(location_);
     std::vector<Person> person_vector = room.get_persons(); //Person vector kommer nu vara vektorn med de personer som finns i rummet vi är i.
     int i {0};
-    for(;i < inventory_.size(); ++i)
+    while (i < inventory_.size())
     {
         if(inventory_.at(i).get_name().toUpper() == item_to_give)
         {
             tmp_item = inventory_.at(i);
+            break;
         }
+        ++i;
     }
 
     for(size_t p{0}; p < person_vector.size(); ++p)
@@ -165,11 +165,11 @@ QString Player::give(QString& item_to_give,const QString& person_to_give_to,Game
             qDebug() << person_vector.at(p).get_item_event();
             if(person_vector.at(p).wanted_item(tmp_item)) // Kolla om personen vill ha föremålet
             {
-                inventory_.erase(inventory_.begin()+i);
                 G.get_room(location_).get_persons().at(p).set_item_event(true); // Flippa bool fan
                 output.append(person_vector.at(p).get_name() + " säger: " + person_vector.at(p).get_recieved_item_dialog() + "<br>");
                 if (person_vector.at(p).get_item().get_name() != "")
                 {
+                    inventory_.erase(inventory_.begin()+i);
                     inventory_.push_back(person_vector.at(p).get_item());
                     output.append("och ger dig sin " + person_vector.at(p).get_item().get_name().toLower() + ".");
                 }
@@ -220,24 +220,24 @@ QString Player::talk(QString& person_to_talk_with, Game& G)
     }
 
     //En egen uppsättning.
-        for(auto i: merchant_vector)
+    for(auto i: merchant_vector)
+    {
+        if(i.get_name().toUpper() == person_to_talk_with)
         {
-            if(i.get_name().toUpper() == person_to_talk_with)
+
+            QString sales_items {""};
+            for(auto j: i.get_items_for_sale())
             {
-
-                QString sales_items {""};
-                for(auto j: i.get_items_for_sale())
-                {
-            sales_items = j.get_name() + "," + sales_items;
-                }
-
-                sales_items = person_to_talk_with + " säger: Hej. Jag säljer följande föremål:" +  sales_items + "\n\n";
-
-                return (sales_items + person_to_talk_with + " säger:<br>" + i.get_dialog());
-                found = true;
-                break;
+                sales_items = j.get_name() + "," + sales_items;
             }
+
+            sales_items = person_to_talk_with + " säger: Hej. Jag säljer följande föremål:" +  sales_items + "\n\n";
+
+            return (sales_items + person_to_talk_with + " säger:<br>" + i.get_dialog());
+            found = true;
+            break;
         }
+    }
 
 
     if(!found)
@@ -339,19 +339,19 @@ QString Player::look(QString& thing_to_look_at, Game& G)
             {
                 if(j == i && i != 0)
                 {
-                    if (index == room.n_ && index != 0)
+                    if (i == room.n_ && i != 0)
                     {
                         output = output + "Norr: ";
                     }
-                    else if (index == room.s_ && index != 0)
+                    else if (i == room.s_ && i != 0)
                     {
                         output = output + "Syd: ";
                     }
-                    else if (index == room.e_ && index != 0)
+                    else if (i == room.e_ && i != 0)
                     {
                         output = output + "Öst: ";
                     }
-                    else if (index == room.w_ && index != 0)
+                    else if (i == room.w_ && i != 0)
                     {
                         output = output + "Väst: ";
                     }
@@ -360,6 +360,7 @@ QString Player::look(QString& thing_to_look_at, Game& G)
                 }
             }
         }
+
 
         return output;
         cerr << "Vi har tittat klart<br>";
@@ -389,6 +390,16 @@ QString Player::look(QString& thing_to_look_at, Game& G)
                 break;
             }
 
+        }
+
+        for (Item i : inventory_)
+        {
+            if (thing_to_look_at == i.get_name().toUpper())
+            {
+                output.append(i.get_description() + "<br>");
+                found = true;
+                break;
+            }
         }
 
         if(found == false)
@@ -582,6 +593,7 @@ QString Player:: set_location(const QString& new_location, Game& G, Room& R)
         }
 
     }
+    return "Ledsen kompis";
 }
 
 QString Player::combine_items(QString& first_item, QString& second_item)
@@ -642,7 +654,7 @@ QString Player::trade(QString& item_to_buy, QString& person_to_buy_from, Room& r
                         inventory_.push_back(m->get_item(j));
                         m->remove_item(j);
                         for (Item i : m->get_items_for_sale())
-			    qDebug() << i.get_name();
+                            qDebug() << i.get_name();
                         return ("Du handlade " + item_to_buy + "");
                     }
 
@@ -669,10 +681,10 @@ QString Player::sale(QString& item_to_sell,QString& person_to_sell_to,Room& room
                 if(inventory_.at(j).get_name().toUpper() == item_to_sell) //Föremålet vi vill sälja
                 {
 
-		    money_ = inventory_.at(j).get_price(); // Spelaren säljer sitt föremål
-		    merchant_pointer->add_item(inventory_.at(j));
-		    inventory_.erase(inventory_.begin()+j);
-		    return ("Du sålde " + item_to_sell + "");
+                    money_ += inventory_.at(j).get_price(); // Spelaren säljer sitt föremål
+                    merchant_pointer->add_item(inventory_.at(j));
+                    inventory_.erase(inventory_.begin()+j);
+                    return ("Du sålde " + item_to_sell + "");
                 }
             }
         }
