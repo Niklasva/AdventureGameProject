@@ -117,6 +117,7 @@ void Editor::on_list_npcs_doubleClicked(const QModelIndex &index)
     load_NPC(*current_person_);
     ui->edit_name->setReadOnly(false);
     ui->edit_description->setReadOnly(false);
+    ui->edit_description->setEnabled(true);
     ui->edit_recieved_dialog->setReadOnly(false);
     ui->edit_dialog->setReadOnly(false);
     ui->edit_hair->setReadOnly(false);
@@ -155,6 +156,7 @@ void Editor::on_button_npc_clicked()
         ui->edit_weight->setReadOnly(false);
         ui->edit_height->setReadOnly(false);
         ui->checkbox_Merchant->setCheckable(true);
+        ui->edit_description->setEnabled(true);
 
         ui->tab_npcs->setEnabled(true);
         ui->edit_name->setFocus();
@@ -581,7 +583,7 @@ int Editor::save(QString filename)
     {
         out << "// Room " << i+1 << "\nRoom:\n{\n";                        // Inledning
         out << "\tName: " << rooms.at(i).get_name() << "\n";               // Utskrift av namn
-        out << "\tDescription: " << rooms.at(i).get_description() << "\n"; // Utskrift av beskrivning
+        out << "\tDescription: " << rooms.at(i).get_description().replace("\n", "\\n")  << "\n"; // Utskrift av beskrivning
 
         for (Person_Editor s : rooms.at(i).get_persons())                  // Utskrift av person
         {

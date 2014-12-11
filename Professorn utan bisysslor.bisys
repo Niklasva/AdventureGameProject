@@ -549,24 +549,11 @@ Room:
 	Name: Granntant Åsas hus
 	Description: Ingen är hemma. Det verkar som att Granntant Åsa inte märkte att du bröt dig in.
 
-	Item:
-	{
-		Name: Stugnyckel
-		Description: 
-		Height: 0
-		Width: 0
-		Weight: 0
-		Value: 0
-		Throwable: 0
-		Sellable: 0
-		Pickable: 1
-	}
-
 	Exits:
 	{
 		N: 0
 		N key: 
-		S: 15
+		S: 17
 		S key: 
 		W: 16
 		W key: 
@@ -899,7 +886,7 @@ Room:
 	Item:
 	{
 		Name: Stugnyckel
-		Description: 
+		Description: Nyckeln till den lilla stugan i skogen
 		Height: 0
 		Width: 0
 		Weight: 0
@@ -973,8 +960,8 @@ Room:
 	{
 		Name: Geten Lucifer
 		Description: 
-		Dialog: 
-		Recieved item dialog: 
+		Dialog: Määääh!!! Här ta en yxa!
+		Recieved item dialog: Määhhh!!!
 		Hair: 
 		Height: 0
 		Width: 0
@@ -997,13 +984,13 @@ Room:
 
 	Exits:
 	{
-		N: 0
+		N: 19
 		N key: 
 		S: 0
 		S key: 
 		W: 0
 		W key: 
-		E: 1
+		E: 0
 		E key: 
 	}
 
@@ -1014,8 +1001,6 @@ Room:
 {
 	Name: Offerrum
 	Description: Här bemöts professorn av något absurt. Alla bybor dansar runt en bur med kuslig rockmusik i bakgrunden. I buren ser professorn att Mor Perberg är fångad.
-
-Byborna fortsätter att dansa utan att lägga märke till professorn. Mor Perberg är gråtfärdig och ropar förtvivlat efter hjälp.
 
 	Person:
 	{
@@ -1261,7 +1246,7 @@ Room:
 
 	Exits:
 	{
-		N: 0
+		N: 26
 		N key: 
 		S: 0
 		S key: 
@@ -1284,6 +1269,1498 @@ Room:
 		N: 0
 		N key: 
 		S: 23
+		S key: 
+		W: 0
+		W key: 
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 26
+Room:
+{
+	Name: Sängen
+	Description: Sängen är mjuk, varm och trygg. Det tar inte länge innan du somnar, du somnar in och allting känns helt okej.
+
+	Item:
+	{
+		Name: Kudde
+		Description: Fin kudde.
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 99
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Exits:
+	{
+		N: 27
+		N key: 
+		S: 0
+		S key: 
+		W: 0
+		W key: 
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 27
+Room:
+{
+	Name: Söderköping
+	Description: Du vaknar upp på torget i metropolen Söderköping. Solen skiner och det är mycket varmt, och sanden viner runt husknutarna. På torget står försäljare vid sina stånd och ropar ut sina varor till de många människor som finns här. Du ser ite afficher här och var där bilder på korvar med kors över syns, mycket lustigt. På andra sidan torget finns ett hus och du känner att du måste gå dit.
+
+	Merchant:
+	{
+		Name: Ambitiösa Ali
+		Description: En energisk försäljare klädd i en färgglad dress med en turban av finaste silke på huvudet. 
+		Dialog: Kom här, kom här! Här finns de finaste kryddorna och vackraste tygerna. Jag har vandrat genom öken och mången oas för att kunna ge er det jag erbjuder. Bra priser. Axel Axbar!
+		Recieved item dialog: 
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: 
+
+	Item:
+	{
+		Name: Krydda
+		Description: Det luktar konstigt men Ali påstår att det är gott i soppa.
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 5
+		Throwable: 0
+		Sellable: 1
+		Pickable: 1
+	}
+
+	Item:
+	{
+		Name: Silke
+		Description: Mycket fint. Mycket mjukt. 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 20
+		Throwable: 0
+		Sellable: 1
+		Pickable: 1
+	}
+
+	Item:
+	{
+		Name: Get
+		Description: Den luktar konstigt och ser inte glad ut. Ryter "Bräääääh" åt alla.
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 30
+		Throwable: 0
+		Sellable: 1
+		Pickable: 1
+	}
+	}
+
+	Exits:
+	{
+		N: 0
+		N key: 
+		S: 0
+		S key: 
+		W: 0
+		W key: 
+		E: 28
+		E key: 
+	}
+
+}
+
+// Room 28
+Room:
+{
+	Name: Heligt Hus
+	Description: Salen är större än vad man kunde se utifrån. Röster och ljud från tusentals människor hörs och sången är vacker. Lite absurt joddel hörs lite här och var.
+
+	Person:
+	{
+		Name: Starke Sven
+		Description: Sven är i sina bästa dar. Han sjunger psalmer i Axels ära.\n
+		Dialog: ♪♫ Axel ger mig styrka. ♪♫
+		Recieved item dialog: 
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: 
+	}
+
+	Person:
+	{
+		Name: Joddlande Jörgen
+		Description: Jörgen är i sina bästa dar. Han joddlar psalmer i Axels ära. \n
+		Dialog: Oh-di-lay-ee-ay, di-lay-dee-oh, de-lay-ee!\n
+		Recieved item dialog: 
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: 
+	}
+
+	Person:
+	{
+		Name: Ettriga Eva
+		Description: Eva är gammal, men hon sjunger vackert. \n
+		Dialog: ♪♫♪ Axel är helig och bäst.  ♪♫
+		Recieved item dialog: 
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: 
+	}
+
+	Item:
+	{
+		Name: Psalmbok
+		Description: ♪♫ Axel ger mig styrka. ♪♫
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Exits:
+	{
+		N: 0
+		N key: 
+		S: 0
+		S key: 
+		W: 0
+		W key: 
+		E: 29
+		E key: 
+	}
+
+}
+
+// Room 29
+Room:
+{
+	Name: Heligt Hus origo
+	Description: Du befinner dig i mitten av det Heliga Huset.
+
+	Person:
+	{
+		Name: Axel
+		Description: Han är upphängd på ett kors, död. En aura av ljus och kärlek infinner sig hos alla i salen tack vare hans närvaro.
+		Dialog: Vem är du om inte en av mina söner. Varför är du här om du inte är en av mina söner. Har någon av mina söner på den andra sidan kallat på dig? Ge mig kärlek och jag kommer välsigna dig.
+		Recieved item dialog: Du är min son. Lämna mig nu.
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: Kärlek
+
+	Item:
+	{
+		Name: Helig Välsignelse
+		Description: Du är en av Axels söner. Han vakar över dig.
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 1
+	}
+	}
+
+	Person:
+	{
+		Name: Prästen Pål
+		Description: Han står nedanför korset och ser allmänt prästig ut. En lång, vit och vacker prästkappa klär hans kropp. 
+		Dialog: Är du den nya killen? Åh va trevligt. Här får du.
+		Recieved item dialog: 
+		Hair: Grå
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: 
+
+	Item:
+	{
+		Name: Kärlek
+		Description: Axel är den enda.
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+	}
+
+	Item:
+	{
+		Name: Helig Axelbok
+		Description: Α - Ω  Α - Ω  Α - Ω  Α - Ω  Α - Ω  Α - Ω  Α - Ω  Α - Ω  Α - Ω  Α - Ω  Α - Ω  Α - Ω  Α - Ω  Α - Ω  Α - Ω  Α - Ω  Α - Ω  Α - Ω  Α - Ω  Α - Ω  Α - Ω  Α - Ω  Α - Ω  Α - Ω  Α - Ω  Α - Ω  Α - Ω  Α - Ω  Α - Ω
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 1
+	}
+
+	Exits:
+	{
+		N: 30
+		N key: Helig Välsignelse
+		S: 0
+		S key: 
+		W: 0
+		W key: 
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 30
+Room:
+{
+	Name: Heligt Hus baksida
+	Description: När dörren stängs bakom dig så försvinner all värme och all kärlek, men Axels talar med dig via dina tankar. \n\nUr skuggorna kommer plötsligt en man fram. Axel uppmanar dig att prata med honom.
+
+	Person:
+	{
+		Name: Rådan
+		Description: Den vindpinade mannen som är fylld av erfarenhet gömmer sig i skuggorna. Han har en liten ketchupflaska i fickan. 
+		Dialog: "Jag är Rådan\nJag har redan länge gått vid din sida\nJag har vakat över dig här i Söderköping, och jag är här för att hjälpa dig. Kom med här! Vi har ett slag att utkämpa.\nTa denna ketchupflaska."
+		Recieved item dialog: 
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: 
+
+	Item:
+	{
+		Name: Ketchupflaska
+		Description: Glasflaska med röd sås.
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 1
+	}
+	}
+
+	Exits:
+	{
+		N: 0
+		N key: 
+		S: 32
+		S key: 
+		W: 0
+		W key: 
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 31
+Room:
+{
+	Name: Slagfältet
+	Description: Skotten har tystat och den onda fientliga armén är här för att ta emot er kapitulation. Du bör prata med den korven med störst mössa.
+
+	Person:
+	{
+		Name: Officer Korvsoldat
+		Description: Det är en hotdog med ett hett temperament. Liten men stark. Han har en stor officer-mössa på toppen.
+		Dialog: Jag och mina mannar är här för att förstöra Söderköping!
+		Recieved item dialog: Åhh inte ketchup, jag gillar bara senap! Vi ger upp!
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: Ketchupflaska
+
+	Item:
+	{
+		Name: Korvkapitulation
+		Description: En bit papper där officern har signerat sin kapitulation. 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+	}
+
+	Person:
+	{
+		Name: Korvsoldat Pölse
+		Description: Lång korv som pratar obegripligt.
+		Dialog: 
+		Recieved item dialog: 
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: 
+	}
+
+	Person:
+	{
+		Name: Korvsoldat Wurst
+		Description: Liten korv med mustach.
+		Dialog: 
+		Recieved item dialog: 
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: 
+	}
+
+	Person:
+	{
+		Name: Korvsoldat Prins
+		Description: 
+		Dialog: 
+		Recieved item dialog: 
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: 
+	}
+
+	Person:
+	{
+		Name: Korvsoldat Tjockgrillad
+		Description: Fet och bränd.
+		Dialog: 
+		Recieved item dialog: 
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: 
+	}
+
+	Person:
+	{
+		Name: Rådan
+		Description: Han är utmattad efter striden.
+		Dialog: Jag vet inte om jag orkar mer, du måste fortsätta vidare!
+		Recieved item dialog: 
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: 
+	}
+
+	Item:
+	{
+		Name: Korv med bröd
+		Description: En helt vanlig korv med bröd. Den ser god ut.
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 1
+		Sellable: 1
+		Pickable: 1
+	}
+
+	Exits:
+	{
+		N: 0
+		N key: 
+		S: 0
+		S key: 
+		W: 0
+		W key: 
+		E: 32
+		E key: Korvkapitulation
+	}
+
+}
+
+// Room 32
+Room:
+{
+	Name: Ruinerna
+	Description: "Gå norrut. Där finns en fiskgubbe i ett hus!" hör du från Axels tankar. Rådan har försvunnit i sandstormen.
+
+	Item:
+	{
+		Name: Guld Ring
+		Description: En fin ring ornerad med ädelstenar, de mest ädla och långa dvärgarna var med och skapade denna ring.
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 10
+		Throwable: 1
+		Sellable: 1
+		Pickable: 1
+	}
+
+	Item:
+	{
+		Name: NULLPOINTER
+		Description: NULL* ingenting
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Item:
+	{
+		Name: Syntax error
+		Description:     (command "line" "2076,2000" "@0,7.5" "")      (command "_-attdef" "" (strcat (princ REV_NO) "_DESC") "Revision Description" "" "j" "tl" "2000.5,2007" "2.5" "0")      (command "_-attdef" "" (strcat (princ REV_NO) "_BY") "Revision By" "" "j" "tl" "2049.5,2007" "2.5" "0")      (command "_-attdef" "" (strcat (princ REV_NO) "_CHK") "Revision Checked By" "" "j" "br" "2062.5,2000.5" "2.5" "0")      (command "_-attdef" "" (strcat (princ REV_NO) "_DATE") "Revision Date" "" "j" "mc" "2069.5,2003.75" "2.5" "0")      (command "_-text" "j" "mc" "2080.5,2003.75" "5" "0" (princ REV_NO))      (command "_-block" (strcat "REV_" (princ REV_NO)) "2000,2000" "w" "1990,1990" "2090,2020" "")\00
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Item:
+	{
+		Name: Segmentationfault
+		Description: Proffessorn kollar på felet, och är förundrad över dess komplexitet.
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 1
+		Sellable: 1
+		Pickable: 1
+	}
+
+	Exits:
+	{
+		N: 34
+		N key: 
+		S: 0
+		S key: 
+		W: 0
+		W key: 
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 33
+Room:
+{
+	Name: Det lilla huset i öknen
+	Description: Sandstormen har försvunnit, du hade somnat men vaknar nu i ett rum där det sitter en gammal göteborgare som käkar sill och potatis.
+
+	Person:
+	{
+		Name: Glenn
+		Description: En gammal fiskargubbe, professorn erinerar sig att han sett honom förut på en tavla, som en bekant köpte på hötorget. \n 
+		Dialog: "Var hälsad jag är en av de vise, jag är äldre än axel, äldre än världen; äldre än allt."\n\nMannen tar ett nytt djupt andetag och tänder en cigarett av märket Glenn.\n\n"De är nästan slut. Jag måste ha mer!"
+		Recieved item dialog: Med hjälp utav detta kommer jag komma närmare Axel, jag skojade förresten den äldste är Axel.
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: Glenn Cigaretter
+
+	Item:
+	{
+		Name: Helig Nyckel
+		Description: En helig nyckel, smitt av axelsönerna för tusentals år sedan. Dess helighet överträffar allt du tidigare sett.
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+	}
+
+	Exits:
+	{
+		N: 0
+		N key: 
+		S: 0
+		S key: 
+		W: 35
+		W key: 
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 34
+Room:
+{
+	Name: Det lilla huset i öknens kök
+	Description: Det är ett kök. 
+
+	Item:
+	{
+		Name: Glenn Cigaretter
+		Description: Ett pack cigg.
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Exits:
+	{
+		N: 0
+		N key: 
+		S: 0
+		S key: 
+		W: 36
+		W key: Helig Nyckel
+		E: 34
+		E key: 
+	}
+
+}
+
+// Room 35
+Room:
+{
+	Name: Sandstormen
+	Description: Tydligen så behövdes det en Helig Nyckel för att ta sig ut. Göteborgare är skumma. Helt plötsligt får du sand i skorna, det avskyr du och svimmar.
+
+	Exits:
+	{
+		N: 0
+		N key: 
+		S: 0
+		S key: 
+		W: 36
+		W key: 
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 36
+Room:
+{
+	Name: Den trasiga sängen
+	Description: Du vaknar upp och märker att sängen är trasig, dock har du blivit en erfarenhet rikare. Axels välsignelse infinner sig än.\n\nProfessorns vaknar ur sin skönhetssömn av att datorn piper till. Ett nytt epost meddelande har inkommit. Professorn tittar väldigt nyfiken på vad detta kan vara, kanske vill de ha han tillbaks på universitet? 
+
+	Item:
+	{
+		Name: Trasig kudde
+		Description: Fin men trasig kudde.
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Exits:
+	{
+		N: 40
+		N key: 
+		S: 0
+		S key: 
+		W: 0
+		W key: 
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 37
+Room:
+{
+	Name: 
+	Description: 
+
+	Exits:
+	{
+		N: 0
+		N key: 
+		S: 0
+		S key: 
+		W: 0
+		W key: 
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 38
+Room:
+{
+	Name: 
+	Description: 
+
+	Exits:
+	{
+		N: 0
+		N key: 
+		S: 0
+		S key: 
+		W: 0
+		W key: 
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 39
+Room:
+{
+	Name: 
+	Description: 
+
+	Exits:
+	{
+		N: 0
+		N key: 
+		S: 0
+		S key: 
+		W: 0
+		W key: 
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 40
+Room:
+{
+	Name: Professorns datorrum
+	Description: Professorns vaknar ur sin skönhetssömn av att datorn piper till. Ett nytt epost meddelande har inkommit. Professorn tittar väldigt nyfiken på vad detta kan vara, kanske vill de ha han tillbaks på universitet? 
+
+	Item:
+	{
+		Name: Dator
+		Description: Ett meddelande från KGB.\n"Tjenare professorn! Det var inte igår. Jo hörru, du råkar inte ha kvar atombomberna som du hjälpte oss att stjäla från USA under kalla kriget? Det skulle vara jättebra om du kunde ge dem till oss. Vi har parkerat en ubåt i Kinda kanal. Gå dit och leverera bomberna till kaptenen. Glöm inte att ta med dig vapen, annars kommer du inte in.\n\nPuss o kram\nGorby"
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Item:
+	{
+		Name: Trasig säng
+		Description: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Exits:
+	{
+		N: 41
+		N key: 
+		S: 50
+		S key: 
+		W: 0
+		W key: 
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 41
+Room:
+{
+	Name: Ut
+	Description: Det har varit väldigt tyst utanför professorns hus sedan han räddade Mor Perberg. De andra verkar ha flytt byn.
+
+	Item:
+	{
+		Name: Snus
+		Description: Otroligt gott och godluktande snus. Det är med en tår i ögat som Professorn säljer detta vackra snus. 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 41
+		Throwable: 0
+		Sellable: 1
+		Pickable: 1
+	}
+
+	Exits:
+	{
+		N: 42
+		N key: 
+		S: 40
+		S key: 
+		W: 51
+		W key: Kernelkort
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 42
+Room:
+{
+	Name: Skäggetorp
+	Description: Kundvagnar överallt och en ständigt lukt av fot. 
+
+	Exits:
+	{
+		N: 43
+		N key: 
+		S: 41
+		S key: 
+		W: 44
+		W key: 
+		E: 45
+		E key: 
+	}
+
+}
+
+// Room 43
+Room:
+{
+	Name: Skäggetorp Centrum
+	Description: Kundvagnar överallt och en ständigt lukt av fot. 
+
+	Exits:
+	{
+		N: 0
+		N key: 
+		S: 42
+		S key: 
+		W: 0
+		W key: 
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 44
+Room:
+{
+	Name: Lennart:s Möbler AB 
+	Description: Tack vare Lennarts otroliga verksamhet så är både Maxi och Willys ett minneblott, han planerar även ett uppköp av Ikea. Hos Lennart:s Möbler AB finns allt mellan himmel och jord och han garanterar Linköpings bästa servicé. 
+
+	Merchant:
+	{
+		Name: Lennart
+		Description: En man i sina bästa år. 
+		Dialog: "Tjena mannen! Vad kan jag hjälpa dig med en vacker dag som denna? Vi har alltid låga priser oavsett om du är student eller inte!"
+		Recieved item dialog: "Thank you, come again!"
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: 
+
+	Item:
+	{
+		Name: Kundvagn
+		Description: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 1
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Item:
+	{
+		Name: Snus
+		Description: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 25
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Item:
+	{
+		Name: Mekaniskt tangentbord
+		Description: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 1
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Item:
+	{
+		Name: Skinnsoffa
+		Description: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 2
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Item:
+	{
+		Name: Ost
+		Description: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 1
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Item:
+	{
+		Name: Tandborste
+		Description: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 1
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Item:
+	{
+		Name: AK-47
+		Description: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 3
+		Throwable: 0
+		Sellable: 0
+		Pickable: 1
+	}
+
+	Item:
+	{
+		Name: Liu-kort
+		Description: 100 % Studentrabatt på allt!
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 99
+		Throwable: 1
+		Sellable: 1
+		Pickable: 1
+	}
+	}
+
+	Exits:
+	{
+		N: 42
+		N key: 
+		S: 0
+		S key: 
+		W: 0
+		W key: 
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 45
+Room:
+{
+	Name: Kinda kanal
+	Description: Mitt i kanalen kan du se en rysk ubåt. Som vanligt har det svenska försvaret inte upptäckt denna. Två vakter står runt ingången till ubåten och vinkar glatt.
+
+	Person:
+	{
+		Name: Vakt Misha
+		Description: 
+		Dialog: "Priviet kamrat Professor! Jag har hört mycket bra om dig från dina gamla arbetskamrater. Har du vapen med dig? I så fall är det bara att kliva på. Ta lite vodka!"
+		Recieved item dialog: 
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: 
+
+	Item:
+	{
+		Name: Vodka
+		Description: Inte vilken vodka som helst. Den är så stark att den används till bränsle för ubåten.
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 5
+		Throwable: 0
+		Sellable: 1
+		Pickable: 0
+	}
+	}
+
+	Person:
+	{
+		Name: Vakt Ivan
+		Description: 
+		Dialog: "Ahhhmen vem har vi här? Är det inte mattegeniet i egen hög person?"
+		Recieved item dialog: 
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: 
+	}
+
+	Item:
+	{
+		Name: En rysk ubåt
+		Description: En kärnvapen bestyckad ubåt och hur den kom hit vet ingen. Den skulle aldrig få plats i Kinda kanal (har den flugit dit?).
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Exits:
+	{
+		N: 46
+		N key: AK-47
+		S: 43
+		S key: Kernalkort
+		W: 0
+		W key: 
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 46
+Room:
+{
+	Name: Ubåtens kontrollrum
+	Description: Inuti ubåten möts professorn av fler vakter och en galen man, som säger att han vill ha snus. Men Professorn ignorerar denna lirare. 
+
+	Person:
+	{
+		Name: Vakt Petter
+		Description: 
+		Dialog: "Psst. Har du vodka?"
+		Recieved item dialog: "Tack tack, nu släcker du min törst."
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: Vodka
+	}
+
+	Exits:
+	{
+		N: 0
+		N key: 
+		S: 45
+		S key: 
+		W: 47
+		W key: 
+		E: 48
+		E key: 
+	}
+
+}
+
+// Room 47
+Room:
+{
+	Name: Torpedrum
+	Description: Här ser professorn en giljotin, i den hittar Professorn ännu mer vodka som han dock ignorerar. GIljotinen används vanligtvis för att öppna vodka flaskorna, då de har infört ett nytt avancerat lås för att förhindra alkoholism, men nu används den till att tvinga ut ett svar från Granntant Åsa.
+
+	Person:
+	{
+		Name: Farliga Frank
+		Description: 
+		Dialog: "Granntant Åsa, vi har hört att du inte har behandlat vår kamrat väl."\n\nProfessorn undrar lite vad Farliga Frank och Granntant Åsa bråkar om, men bestämmer sig för att 
+		Recieved item dialog: 
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: 
+	}
+
+	Person:
+	{
+		Name: Granntant Åsa
+		Description: 
+		Dialog: "Schas!"
+		Recieved item dialog: 
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: 
+	}
+
+	Exits:
+	{
+		N: 0
+		N key: 
+		S: 0
+		S key: 
+		W: 49
+		W key: Lösenord
+		E: 46
+		E key: 
+	}
+
+}
+
+// Room 48
+Room:
+{
+	Name: Maskinrum
+	Description: Här finns maskiner och Snickare Sture som fixar och trixar.
+
+	Person:
+	{
+		Name: Snickare Sture
+		Description: 
+		Dialog: Priviet kamrat! Jag är törstig.
+		Recieved item dialog: Detta lösenord används för att komma till kaptenen.
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: Vodka
+
+	Item:
+	{
+		Name: Lösenord
+		Description: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+	}
+
+	Exits:
+	{
+		N: 0
+		N key: 
+		S: 0
+		S key: 
+		W: 46
+		W key: 
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 49
+Room:
+{
+	Name: Chefrummet
+	Description: 
+
+	Person:
+	{
+		Name: Kapten Mor Perberg
+		Description: 
+		Dialog: "Hallå Professorn. Jag förstår att du är överraskad att se mig. Jag är egentligen inte en skattemas, utan egentligen en KGB-agent av högsta grad. Gorby har berättat mycket gott om dig.\n\nSå. Har du bomberna?"
+		Recieved item dialog: Tack för bomberna. Nu kan vi förgöra dessa så att de inte är någon risk för miljön. Du förtjänar den största gåvan genom tiderna - kernelkort.\n\nJag måste tyvärr gå nu, då jag har hittat en perfekt bisyssla. Det nya revolutionerade spelet "Professorn utan bisysslor." I Ryssland så ser man knappt en människa ute på stan längre då alla är hemma och spelar detta fantastiska spel, som de fantastiska studenterna i Team eNickmaz har gjort. Dessa studenter är så pass underbara så de kommer få nobels fredpris, då krigen har slutat i världen för alla är upptagna med att spela detta fantastiska spel. \n\nGod jul! Och kom ihåg! Glöm inte att återvinna!"
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: Atombomber
+
+	Item:
+	{
+		Name: Kernelkort
+		Description: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+	}
+
+	Exits:
+	{
+		N: 0
+		N key: 
+		S: 0
+		S key: 
+		W: 0
+		W key: 
+		E: 41
+		E key: 
+	}
+
+}
+
+// Room 50
+Room:
+{
+	Name: Biblioteket
+	Description: 
+
+	Item:
+	{
+		Name: Atombomber
+		Description: TIllräckligt kraftfulla för att förstöra regnskogen. 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 1
+	}
+
+	Exits:
+	{
+		N: 40
+		N key: 
+		S: 0
+		S key: 
+		W: 0
+		W key: 
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 51
+Room:
+{
+	Name: G-huset
+	Description: 
+
+	Person:
+	{
+		Name: Jacob Ivarsson
+		Description: Mannen som vaktar serverrummet. Han är helt tokig i SEMAT Alpha. Till frukost är hans favorit ägg med Semat Alpha kort, som en perfekt krydda.\n\nMed kernelkorten i hans hand är han en lycklig man som utstrålar enormt med livsglädje. 
+		Dialog: U will only pass if you have SEMAT Alpha cards man! 
+		Recieved item dialog: Nehämen sedär nu ska jag hem och äta ägg & SEMAT Alpha!
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: 
+
+	Item:
+	{
+		Name: Servernyckel
+		Description: Nyckeln till serverrummet.
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+	}
+
+	Exits:
+	{
+		N: 52
+		N key: 
+		S: 53
+		S key: Servernyckel
+		W: 0
+		W key: 
+		E: 41
+		E key: 
+	}
+
+}
+
+// Room 52
+Room:
+{
+	Name: Java Café 
+	Description: På grund av Java Cafés enorma priser så slipper Professorn alla utfattiga och odugliga studenter. Professorn har haft en hektiskt dag och vill ta en kaffé i lugn och ro. 
+
+	Merchant:
+	{
+		Name: Oduglig student
+		Description: En helt värdelös student som aldrig har haft ett rätt på någon tenta. 
+		Dialog: "Tjena Professorn! Jag har värdelösa betyg, går du in i ladok och ändrar mina betyg får du Professorn utan bisysslor av mig. Möt mig vid Skäggetorp Centrum när du är klar."\n\nProfessorn tänkte för sig själv. Till och med Mor Perberg spelade detta spel och det har gjort succé överallt. Helt slutsålt hos Lennart:s Möbler AB och spelet kommer vara fullbokad till 2028. Professorn gick självklart med på detta trots att det bröt mot Universitet policy, han var bara tvungen att faktiskt spela detta spel som fullständigt kört ut både DOTA och CS från marknaden.\n\n"Här får du mitt LIU-kort, som du använder för att ändra i LADOK.
+		Recieved item dialog: 
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: 
+
+	Item:
+	{
+		Name: LIU-kort
+		Description: Någon oduglig students kort. Väldigt slitet då de har varit med i många omtentor.
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+	}
+
+	Item:
+	{
+		Name: 
+		Description: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+
+	Exits:
+	{
+		N: 0
+		N key: 
+		S: 51
+		S key: 
+		W: 0
+		W key: 
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 53
+Room:
+{
+	Name: Serverhall
+	Description: Linköpings Universitets servrar. 
+
+	Merchant:
+	{
+		Name: Jonas 
+		Description: En mycket glad man som är vakt över serverhallen. 
+		Dialog: Tjena! Du måste ge mig kernalkort för att passera! 
+		Recieved item dialog: Tack och välkommen. 
+		Hair: 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: Kernalkort
+	}
+
+	Exits:
+	{
+		N: 53
+		N key: 
+		S: 54
+		S key: LIU-kort
+		W: 0
+		W key: 
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 54
+Room:
+{
+	Name: Ladok systemet
+	Description: Professorn ändrar den odugliga studentens betyg. Han har nu godkänt i samtliga kurser och får sin examen postad på fredag.
+
+	Exits:
+	{
+		N: 0
+		N key: 
+		S: 57
+		S key: 
+		W: 0
+		W key: 
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 55
+Room:
+{
+	Name: Skäggetorp Centrum
+	Description: Kundvagnar överallt och en ständigt lukt av fot. 
+
+	Person:
+	{
+		Name: Oduglig student
+		Description: En ung man med väldigt mycket pengar. Alltid klädd i armani kavajer.
+		Dialog: "TJena Professorn! Fixat mina betyg?"\nProfessorn nickar och berättar att han snart kommer att få sin examen. Professorn log och sa att denna odugliga student nu har examen i samtliga ingenjörsutbildningar hos Linköping Universitet. \n"Tack mannen! Här får du spelet!"
+		Recieved item dialog: Tack igen snubben!
+		Hair: ljushårig
+		Height: 0
+		Width: 0
+		Weight: 0
+		Wants: 
+
+	Item:
+	{
+		Name: Professorn utan bisysslor
+		Description: Världens bästa spel, alla kategorier. 
+		Height: 0
+		Width: 0
+		Weight: 0
+		Value: 0
+		Throwable: 0
+		Sellable: 0
+		Pickable: 0
+	}
+	}
+
+	Exits:
+	{
+		N: 0
+		N key: 
+		S: 57
+		S key: 
+		W: 0
+		W key: 
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 56
+Room:
+{
+	Name: Professorns datorrum
+	Description: Äntligen är Professorn hemma i sitt gamingrum. Äntligen har han tid att spela världens bästa spel genom alla tider, som har slagit försäljningsrekord i hela världen. 
+
+	Exits:
+	{
+		N: 58
+		N key: 
+		S: 0
+		S key: 
+		W: 0
+		W key: 
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 57
+Room:
+{
+	Name: Ut
+	Description: Det har varit väldigt tyst utanför professorns hus sedan han räddade Mor Perberg. De andra verkar ha flytt byn.
+
+	Exits:
+	{
+		N: 55
+		N key: 
+		S: 40
+		S key: Professorn utan bisysslor
+		W: 0
+		W key: 
+		E: 0
+		E key: 
+	}
+
+}
+
+// Room 58
+Room:
+{
+	Name: Spelet
+	Description: Grattis! Professorn har tack vare dig äntligen hittat en bisyssla han kan hålla på med under sin semester!\nDu vann!
+
+	Exits:
+	{
+		N: 1
+		N key: 
+		S: 0
 		S key: 
 		W: 0
 		W key: 

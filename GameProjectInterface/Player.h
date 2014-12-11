@@ -28,14 +28,15 @@ public:
     void print_specific_item(const int& index);
     void print_money();
     QString set_location(const QString& new_location, Game& G, Room& R);
+    //QString reset_location(){location_ =  1;}
     Item get_item_from_inventory(const int& index);
-    int get_money();
+    int get_money() {return money_;}
     QString look(QString &thing_to_look_at, Game &G);
     std::vector<Item> get_inventory() {return inventory_;}
 
 private:
     int money_{0};
-    int location_{11};
+    int location_{26};
     std::vector <Item> inventory_;
 
     QString decide_direction(QString&, Game& G);
@@ -46,6 +47,8 @@ private:
     QString combine_items(QString& first_item, QString& second_item);
     QString sale(QString& item_to_sell,QString& person_to_sell_to,Room& room);
     QString trade(QString& item_to_buy, QString& person_to_buy_from, Room& room);
+
+
 };
 
 

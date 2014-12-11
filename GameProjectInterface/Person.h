@@ -26,6 +26,7 @@ public:
 
     QString get_dialog(){return dialog_;}
     QString get_recieved_item_dialog(){return recieved_item_dialog_;}
+    QString get_hair() {return haircolour_;}
 
     void set_dialog(const QString& dialog){dialog_ = dialog;}
     void set_received_item_dialog(const QString& item_dialog){recieved_item_dialog_ = item_dialog;}

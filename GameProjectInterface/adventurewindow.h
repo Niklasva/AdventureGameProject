@@ -23,11 +23,12 @@ public:
 
     void set_game(const Game& G){ G_ = G;}
     void set_player(const Player& P){P_ = P;}
-
-
+    Player get_player(){return P_;}
+    Game   get_game(){return G_;}
 
     Player P_;
     Game G_;
+
 
 private slots:
 
@@ -39,4 +40,3 @@ private slots:
 };
 
 #endif // ADVENTUREWINDOW_H
-
