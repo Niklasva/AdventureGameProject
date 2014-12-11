@@ -381,12 +381,12 @@ Room:
 
 	Item:
 	{
-		Name: Diskret Matematik grundkurs
+		Name: Philosophiae Naturalis Principia Mathematica
 		Description: Denna läste professorn när han var 4 år gammal.
 		Height: 0
 		Width: 0
 		Weight: 0
-		Value: 0
+		Value: 1
 		Throwable: 0
 		Sellable: 0
 		Pickable: 0
@@ -394,7 +394,7 @@ Room:
 
 	Item:
 	{
-		Name: Diskret matematik för odugliga
+		Name: Principia Mathematica
 		Description: Den här boken brukar professorn rekommendera för sina studenter.
 		Height: 0
 		Width: 0
@@ -407,7 +407,7 @@ Room:
 
 	Item:
 	{
-		Name: Diskret matematik bibel
+		Name: Den Diskreta Bibeln
 		Description: En diskret matematik på 10 000 sidor, där allt beskrivs in i minsta detalj. Denna bok har professorn läst mer än vad han har borstat tänderna i sitt liv. 
 		Height: 0
 		Width: 0
@@ -434,7 +434,7 @@ Room:
 	Item:
 	{
 		Name: Dagens ungdom - En mattesaga
-		Description: Där beskriver författaren att dagens ungdomar är helt odugliga och skulle aldrig klara av att förstå diskret matematiks biblen. 
+		Description: En bok där författaren beskriver dagens ungdomar som helt odugliga och skulle aldrig klara av att förstå Den Diskreta Bibeln. 
 		Height: 0
 		Width: 0
 		Weight: 0
@@ -447,11 +447,11 @@ Room:
 	Item:
 	{
 		Name: Plötsligt händer det
-		Description: Det var ännu en mörk novemberdag den 27:e, då diskret matematik tentan gavs. Många studenter har hålt på med denna kursen i snart 15 årstid men aldrig klarat den. Men kille vid namn Jon Tenerholm lyckas få precis en 3:a på denna tentan. Professorn blir helt lyrisk när han väl träffar denna grabben då han är den första genomtiderna som har klarat tentan. Jon Tenerholm har tidigare vunnit nobelpriset och blev professor vid 19 års ålder. 
+		Description: Det var ännu en mörk novemberdag den 27:e, då diskret matematik tentan gavs. Många studenter har läst kursen i snart 15 årstid men aldrig klarat den. Men kille vid namn Jörgen lyckas få precis en 3:a på denna tentan. Professorn blir helt lyrisk när han väl träffar denna grabben då han är den första genomtiderna som har klarat tentan.Jörgen har tidigare vunnit nobelpriset och blev professor vid 19 års ålder. 
 		Height: 0
 		Width: 0
 		Weight: 0
-		Value: 0
+		Value: 1
 		Throwable: 0
 		Sellable: 0
 		Pickable: 0
@@ -686,7 +686,7 @@ Room:
 		Height: 0
 		Width: 0
 		Weight: 0
-		Value: 5
+		Value: 20
 		Throwable: 0
 		Sellable: 0
 		Pickable: 0
@@ -1321,7 +1321,7 @@ Room:
 	{
 		Name: Ambitiösa Ali
 		Description: En energisk försäljare klädd i en färgglad dress med en turban av finaste silke på huvudet. 
-		Dialog: Kom här, kom här! Här finns de finaste kryddorna och vackraste tygerna. Jag har vandrat genom öken och mången oas för att kunna ge er det jag erbjuder. Bra priser. Axel Axbar!
+		Dialog: Kom här, kom här! Här finns de finaste kryddorna och vackraste tygerna. Jag har vandrat genom öken och mången oas för att kunna ge er det jag erbjuder. Bra priser. Axel är störst!
 		Recieved item dialog: 
 		Hair: 
 		Height: 0
@@ -1419,7 +1419,7 @@ Room:
 	{
 		Name: Ettriga Eva
 		Description: Eva är gammal, men hon sjunger vackert. \n
-		Dialog: ♪♫♪ Axel är helig och bäst.  ♪♫
+		Dialog: ♪♫♪ Axel är helig och bäst.  lexa lexa lexa♪♫
 		Recieved item dialog: 
 		Hair: 
 		Height: 0
@@ -1595,7 +1595,7 @@ Room:
 	Person:
 	{
 		Name: Officer Korvsoldat
-		Description: Det är en hotdog med ett hett temperament. Liten men stark. Han har en stor officer-mössa på toppen.
+		Description: Det är en hotdog med ett hett temperament. Liten men stark. Han har en stor officer-mössa på toppen, tål inte ketchupflaskor.
 		Dialog: Jag och mina mannar är här för att förstöra Söderköping!
 		Recieved item dialog: Åhh inte ketchup, jag gillar bara senap! Vi ger upp!
 		Hair: 
@@ -1844,7 +1844,7 @@ Room:
 		Value: 0
 		Throwable: 0
 		Sellable: 0
-		Pickable: 0
+		Pickable: 1
 	}
 
 	Exits:
@@ -2029,7 +2029,7 @@ Room:
 	Item:
 	{
 		Name: Snus
-		Description: Otroligt gott och godluktande snus. Det är med en tår i ögat som Professorn säljer detta vackra snus. 
+		Description: Otroligt gott och sköndoftande snus. Det är med en tår i ögat som Professorn säljer detta vackra snus. 
 		Height: 0
 		Width: 0
 		Weight: 0
@@ -2234,7 +2234,7 @@ Room:
 Room:
 {
 	Name: Kinda kanal
-	Description: Mitt i kanalen kan du se en rysk ubåt. Som vanligt har det svenska försvaret inte upptäckt denna. Två vakter står runt ingången till ubåten och vinkar glatt.
+	Description: Mitt i kanalen kan du se en rysk ubåt. Som vanligt har det svenska försvaret inte upptäckt den, trotts att det är en ubåt av Antej-klassen.\n Två vakter står runt ingången till ubåten och vinkar glatt.
 
 	Person:
 	{
@@ -2278,7 +2278,7 @@ Room:
 	Item:
 	{
 		Name: En rysk ubåt
-		Description: En kärnvapen bestyckad ubåt och hur den kom hit vet ingen. Den skulle aldrig få plats i Kinda kanal (har den flugit dit?).
+		Description: En kärnvapenbestyckad ubåt och hur den kom hit vet ingen. Den skulle aldrig få plats i Kinda kanal (har den flugit dit?).
 		Height: 0
 		Width: 0
 		Weight: 0
@@ -2556,7 +2556,7 @@ Room:
 Room:
 {
 	Name: Java Café 
-	Description: På grund av Java Cafés enorma priser så slipper Professorn alla utfattiga och odugliga studenter. Professorn har haft en hektiskt dag och vill ta en kaffé i lugn och ro. 
+	Description: På grund av Java Cafés priser så slipper Professorn alla utfattiga och odugliga studenter. Professorn har haft en hektiskt dag och vill ta en kaffé i lugn och ro. 
 
 	Merchant:
 	{
