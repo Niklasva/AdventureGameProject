@@ -17,8 +17,6 @@ public:
     Player() = default;
     ~Player() = default;
 
-
-
     //Instansen skall skapas först
     //Sedan tilldelas spelaren sina föremål & pengar.
     void  put_inventory(const Item& item){inventory_.push_back(item);}
@@ -36,7 +34,7 @@ public:
 
 private:
     int money_{0};
-    int location_{26};
+    int location_{1};
     std::vector <Item> inventory_;
 
     QString decide_direction(QString&, Game& G);
