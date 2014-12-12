@@ -394,7 +394,7 @@ Room:
 
 	Item:
 	{
-		Name: Principia Mathematica
+		Name: Diskret matematik för odugliga
 		Description: Den här boken brukar professorn rekommendera för sina studenter.
 		Height: 0
 		Width: 0
@@ -2234,7 +2234,7 @@ Room:
 Room:
 {
 	Name: Kinda kanal
-	Description: Mitt i kanalen kan du se en rysk ubåt. Som vanligt har det svenska försvaret inte upptäckt den, trotts att det är en ubåt av Antej-klassen.\n Två vakter står runt ingången till ubåten och vinkar glatt.
+	Description: Mitt i kanalen kan du se en rysk ubåt. Som vanligt har det svenska försvaret inte upptäckt den, trots att det är en ubåt av Antej-klassen.\n Två vakter står runt ingången till ubåten och vinkar glatt.
 
 	Person:
 	{
@@ -2556,7 +2556,7 @@ Room:
 Room:
 {
 	Name: Java Café 
-	Description: På grund av Java Cafés priser så slipper Professorn alla utfattiga och odugliga studenter. Professorn har haft en hektiskt dag och vill ta en kaffé i lugn och ro. 
+	Description: På grund av Java Cafés enorma priser så slipper Professorn alla utfattiga och odugliga studenter. Professorn har haft en hektiskt dag och vill ta en kaffé i lugn och ro. 
 
 	Merchant:
 	{
