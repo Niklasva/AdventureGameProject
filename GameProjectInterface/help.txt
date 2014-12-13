@@ -1,0 +1,46 @@
+HJÄLPINSTRUKTIONER:
+
+Nedan följer en sammanfattning av möjliga kommandon för att interagera med spelvärlden.
+
+HJÄLP:
+
+Skall helt sonika skriva ut hela detta dokument, detta dokument skall följa med spelet och skrivas ut ut ifall spelaren begär det.
+
+TITTA:
+
+Titta funktionen, använd denna funktion för att skriva ut all info om precis allt i rummet.
+
+TITTA PÅ (OBJEKT) :
+
+Skriver ut deskriptionen för objektet.
+
+GÅ (RIKTNING):
+
+Flyttar din karaktär till rummet vars riktning du går mot.
+Du kan både använda rummets namn och vädersträck.
+
+
+GE (OBJEKT)  TILL (PERSON):
+
+Ger ett objekt som du har i din äventyrskorg till personen som finns i rummet.
+
+
+PRATA  MED  (PERSON):
+
+Starta dialog med person.
+
+
+HANDLA (OBJEKT) av  (HANDELSMAN)
+
+Startar en byteshandel med handelsman.
+
+SÄLJ (OBJEKT) till (HANDELSMAN)
+
+Säljer ett objekt för objektets värde till en handelsman.
+För att ta reda på huruvida personen ifråga är en handelsman, måste man först
+tala med personen.
+
+
+PLOCKA UPP (OBJEKT)
+
+Flyttar upptagbart objekt från rummet till din äventyrskorg.
