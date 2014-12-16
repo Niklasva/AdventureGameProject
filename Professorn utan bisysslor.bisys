@@ -1315,7 +1315,7 @@ Room:
 Room:
 {
 	Name: Söderköping
-	Description: Du vaknar upp på torget i metropolen Söderköping. Solen skiner och det är mycket varmt, och sanden viner runt husknutarna. På torget står försäljare vid sina stånd och ropar ut sina varor till de många människor som finns här. Du ser ite afficher här och var där bilder på korvar med kors över syns, mycket lustigt. På andra sidan torget finns ett hus och du känner att du måste gå dit.
+	Description: Du vaknar upp på torget i metropolen Söderköping. Solen skiner och det är mycket varmt, och sanden viner runt husknutarna. På torget står försäljare vid sina stånd och ropar ut sina varor till de många människor som finns här. Du ser lite afficher här och var där bilder på korvar med kors över syns, mycket lustigt. På andra sidan torget finns ett hus och du känner att du måste gå dit.
 
 	Merchant:
 	{
@@ -1464,7 +1464,7 @@ Room:
 	Person:
 	{
 		Name: Axel
-		Description: Han är upphängd på ett kors, död. En aura av ljus och kärlek infinner sig hos alla i salen tack vare hans närvaro.
+		Description: Död. En aura av ljus och kärlek infinner sig hos alla i salen tack vare hans närvaro.
 		Dialog: Vem är du om inte en av mina söner. Varför är du här om du inte är en av mina söner. Har någon av mina söner på den andra sidan kallat på dig? Ge mig kärlek och jag kommer välsigna dig.
 		Recieved item dialog: Du är min son. Lämna mig nu.
 		Hair: 
@@ -1490,7 +1490,7 @@ Room:
 	Person:
 	{
 		Name: Prästen Pål
-		Description: Han står nedanför korset och ser allmänt prästig ut. En lång, vit och vacker prästkappa klär hans kropp. 
+		Description: Han står nedanför altaret och ser allmänt prästig ut. En lång, vit och vacker prästkappa klär hans kropp. 
 		Dialog: Är du den nya killen? Åh va trevligt. Här får du.
 		Recieved item dialog: 
 		Hair: Grå
