@@ -276,8 +276,8 @@ Room:
 
 	Item:
 	{
-		Name: Diskret matematik bibel
-		Description: En diskret matematik på 10 000 sidor, där allt beskrivs in i minsta detalj. Denna bok har professorn läst mer än vad han har borstat tänderna i sitt liv. 
+		Name: Diskret matematik ett uppslagsverk
+		Description: Matematik på 10 000 sidor, där allt beskrivs in i minsta detalj. Denna bok har professorn läst mer än vad han har borstat tänderna. 
 		Height: 0
 		Width: 0
 		Weight: 0
@@ -303,7 +303,7 @@ Room:
 	Item:
 	{
 		Name: Dagens ungdom - En mattesaga
-		Description: Där beskriver författaren att dagens ungdomar är helt odugliga och skulle aldrig klara av att förstå diskret matematiks biblen. 
+		Description: Där beskriver författaren hur dagens ungdomar är helt odugliga och hur de aldrig skulle klara av att förstå uppslagsverket i diskret matematik. 
 		Height: 0
 		Width: 0
 		Weight: 0
@@ -316,7 +316,7 @@ Room:
 	Item:
 	{
 		Name: Plötsligt händer det
-		Description: Det var ännu en mörk novemberdag den 27:e, då diskret matematik tentan gavs. Många studenter har hållt på med denna kursen i snart 15 års tid men aldrig klarat den. Men en kille vid namn Åke Åkerman lyckas få precis en 3:a på denna tentan. Professorn blir helt lyrisk när han väl träffar denna grabben då han är den första genomtiderna som har klarat tentan. Åke Åkerman  har tidigare vunnit nobelpriset och blev professor vid 19 års ålder. 
+		Description: Det var ännu en mörk novemberdag den 27:e, då tentan gavs. Många studenter har sysselsatt med denna kurs i snart 15 års tid men aldrig klarat den. Men en kille vid namn Åke Åkerman lyckas få precis en 3:a just denna tenta. Professorn blir helt lyrisk när han väl träffar denna person, då han är den första genom tiderna som har klarat tentan. Åke Åkerman  har tidigare vunnit nobelpriset och blev professor vid 19 års ålder. 
 		Height: 0
 		Width: 0
 		Weight: 0
@@ -377,7 +377,7 @@ Room:
 Room:
 {
 	Name: Biblioteket
-	Description: Tio tusen böcker om diskret matematik, men inte en enda som berättar vad ordet semester betyder.
+	Description: Tio tusen böcker om diskret matematik och andra ämnen, men inte en enda bok som berättar vad ordet semester betyder.
 
 	Item:
 	{
@@ -768,7 +768,7 @@ Room:
 	Item:
 	{
 		Name: Gamle trofast
-		Description: En röd termos med vissa defekter.
+		Description: En röd termos med vissa defekter...
 		Height: 0
 		Width: 0
 		Weight: 0
