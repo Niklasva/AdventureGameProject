@@ -1,7 +1,7 @@
-Slutförtprojekt , TDDI02
+Slutförtprojekt ,TDDI02
 ======
-#Författare Simon Blommendahl; Niklas Vågstedt Oscar Axelsson John Tinnerholm
-#Koden ligger under LGPL
+#Författare Team eNickmaz
+
 
 
 
